@@ -14,7 +14,7 @@ public class MainFrame  {
     private static final JLabel introLabel = new JLabel();
     
     public static void main(String[] args) {
-        introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/FINAL.gif")));
+        introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 480, 640);
         introLabel.setVisible(true);
         try {
