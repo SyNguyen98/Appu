@@ -14,8 +14,8 @@ public class MainFrame  {
     private static final JLabel introLabel = new JLabel();
     
     public static void main(String[] args) {
-        introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
-        introLabel.setBounds(0, 0, 480, 640);
+        introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/FINAL.gif")));
+        introLabel.setBounds(-5, 0, 480, 640);
         introLabel.setVisible(true);
         try {
             frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.jpg")));
@@ -31,7 +31,7 @@ public class MainFrame  {
         Command.Performance.Do();
         
         try {
-            TimeUnit.SECONDS.sleep(8);
+            TimeUnit.SECONDS.sleep(4);
         } catch (InterruptedException ex) {}
         introLabel.setVisible(false);
     }
