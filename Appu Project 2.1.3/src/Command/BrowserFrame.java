@@ -9,12 +9,12 @@ import javafx.scene.web.WebView;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class WebFrame extends JFrame {
+public class BrowserFrame extends JFrame {
     private static JFXPanel javafxPanel;
     private static WebView webComponent;
     private static JPanel mainPanel;
     
-    public WebFrame(String Url) {
+    public BrowserFrame(String Url) {
         javafxPanel = new JFXPanel();
 
         mainPanel = new JPanel();
@@ -39,9 +39,5 @@ public class WebFrame extends JFrame {
                 javafxPanel.setScene(scene);
             }
         });
-    }
-    public static void main(String [] args){
-        JFrame mainFrame = new WebFrame("http://facebook.com/");
-        mainFrame.setVisible(true);
     }
 }
