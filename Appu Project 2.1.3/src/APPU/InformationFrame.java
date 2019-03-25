@@ -15,7 +15,7 @@ public class InformationFrame extends JFrame {
                    dev1Label, dev2Label, dev3Label,
                    name1Label, name2Label, name3Label;
 
-    private void IconLabel() {
+    private void setIconLabel() {
         try {
             iconLabel = CircleLabel.setImageLabel(iconLabel, TitlePanel.class.getResource("/Pictures/Appu.jpg"));
         } catch (IOException ex) {}
@@ -28,7 +28,7 @@ public class InformationFrame extends JFrame {
         this.add(versionLabel);
     }
     
-    private void DevLabel() {
+    private void setDevLabel() {
         try {
             dev1Label = CircleLabel.setImageLabel(dev1Label, TitlePanel.class.getResource("/Pictures/Nguyen.jpg"));
         } catch (IOException ex) {}
@@ -65,8 +65,8 @@ public class InformationFrame extends JFrame {
     }
 
     public InformationFrame() {
-        IconLabel();
-        DevLabel();
+        setIconLabel();
+        setDevLabel();
         add(new JLabel(new ImageIcon(InformationFrame.class.getResource("/Pictures/Info.jpg"))));
         setTitle("Info of Developers");
         setSize(300, 300);
