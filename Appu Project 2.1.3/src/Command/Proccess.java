@@ -13,7 +13,7 @@ public class Proccess {
     public static int height;
     private static final int maxChar = 20;
     
-    public static String MakeNewLine(String commandString) {
+    public static String makeNewLine(String commandString) {
         List<String> listStr = new ArrayList<>();  
         if(commandString.length() > maxChar) {
             int i, j = 0;
