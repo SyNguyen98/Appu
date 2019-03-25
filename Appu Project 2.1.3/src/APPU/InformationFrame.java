@@ -21,7 +21,7 @@ public class InformationFrame extends JFrame {
         } catch (IOException ex) {}
         iconLabel.setBounds(115, 10, 70, 70);
         this.add(iconLabel);
-        versionLabel = new JLabel("Version 2.1.2");
+        versionLabel = new JLabel("Version 2.1.3");
         versionLabel.setBounds(105, 65, 100, 40);
         versionLabel.setFont(new Font("Arial", 3, 14));
         versionLabel.setForeground(Color.WHITE);
