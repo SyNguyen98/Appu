@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TitlePanel extends JPanel {
-    private static JLabel imageLabel, nameLabel;
+    public static JLabel imageLabel, nameLabel;
     private static JButton infoButton;
     private static final JFrame infoFrame = new InformationFrame();
 
