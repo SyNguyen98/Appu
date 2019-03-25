@@ -33,7 +33,7 @@ public class TitlePanel extends JPanel {
             ex.getMessage();
         }
         g.drawImage(image, 0, 0, this);         
-    }                       //This too
+    }
     
     public TitlePanel() {
         setBounds(0, 0, 480, 60);
