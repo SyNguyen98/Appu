@@ -18,11 +18,11 @@ public class Performance {
         MainPanel.inputField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                MainPanel.Time();
-                MainPanel.Command();
-                MainPanel.Answer();
+                MainPanel.setTime();
+                MainPanel.setCommand();
+                MainPanel.setAnswer();
                 
-                String commandString = Proccess.MakeNewLine(MainPanel.inputField.getText());
+                String commandString = Proccess.makeNewLine(MainPanel.inputField.getText());
                 int width = Proccess.width; 
                 int height = Proccess.height;
                 
