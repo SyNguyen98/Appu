@@ -33,13 +33,13 @@ public class MainPanel extends JPanel {
         g.drawImage(image, 0, 0, this);         
     }
     
-    public static void Time() {
+    public static void setTime() {
         timeLabel = new JLabel(); 
         timeLabel.setForeground(Color.LIGHT_GRAY);
         timeLabel.setFont(new Font("Arial", 1, 12));
     }
     
-    public static void Command() {
+    public static void setCommand() {
         commandPanel = new RoundPanel();
         commandPanel.setLayout(new GroupLayout(commandPanel));
         commandPanel.setOpaque(false);
@@ -51,7 +51,7 @@ public class MainPanel extends JPanel {
         commandPanel.add(commandLabel);
     }
     
-    public static void Answer() {
+    public static void setAnswer() {
         try {
             iconLabel = CircleLabel.setImageLabel(iconLabel, MainPanel.class.getResource("/Pictures/Avatar.jpg"));
         } catch (IOException ex) {} 
@@ -67,7 +67,7 @@ public class MainPanel extends JPanel {
         answerPanel.add(answerLabel);
     }
     
-    public static void Scroll() {
+    public static void setScrollPane() {
         mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -96,7 +96,7 @@ public class MainPanel extends JPanel {
         inputField.setFont(new Font("Arial", 2, 16));
         add(inputField);
         
-        Scroll();
+        setScrollPane();
         
         add(scrollPane);
 
