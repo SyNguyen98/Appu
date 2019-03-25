@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class MainFrame  {
-    private static final JFrame frame = new JFrame("APPU");
+    public static final JFrame frame = new JFrame("APPU");
     private static final TitlePanel titlePanel = new TitlePanel();
     private static final MainPanel mainPanel = new MainPanel();
     private static final JLabel introLabel = new JLabel();
