@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
 public class ChangeAvatar {
@@ -26,6 +27,7 @@ public class ChangeAvatar {
         try {
                 img = ImageIO.read(new File(getImagePath()));
         } catch (IOException e) {}
-        Image dimg = img.getScaledInstance(TitlePanel.imageLabel.getWidth(), TitlePanel.imageLabel.getHeight(), Image.SCALE_SMOOTH);
+        Image avatarImage = img.getScaledInstance(TitlePanel.imageLabel.getWidth(), TitlePanel.imageLabel.getHeight(), Image.SCALE_SMOOTH);
+        TitlePanel.imageLabel.setIcon(new ImageIcon(avatarImage));
     }
 }
