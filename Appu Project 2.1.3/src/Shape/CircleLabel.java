@@ -23,8 +23,8 @@ public class CircleLabel {
         g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
     }   //Get on Internet. So don't ask
     
-    public static JLabel setImageLabel(JLabel imageLabel, URL url) throws IOException {
-        BufferedImage image = ImageIO.read(url);
+    public static ImageIcon setImageLabel(BufferedImage image) throws IOException {
+//        BufferedImage image = ImageIO.read(url);
         int diameter = Math.min(image.getWidth(), image.getHeight());
         BufferedImage mask = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);        
         Graphics2D g2d = mask.createGraphics();
@@ -40,7 +40,7 @@ public class CircleLabel {
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.DST_IN));
         g2d.drawImage(mask, 0, 0, null);
         g2d.dispose();
-        imageLabel = new JLabel(new ImageIcon(masked));
-        return imageLabel;
+        ImageIcon imageIcon = new ImageIcon(masked);
+        return imageIcon;
     }              //This too
 }
