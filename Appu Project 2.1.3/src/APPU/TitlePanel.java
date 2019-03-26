@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 public class TitlePanel extends JPanel {
     public static JLabel imageLabel, nameLabel;
-    private static JButton infoButton;
+    private static JButton infoButton, settingButton;
     private static final JFrame infoFrame = new InformationFrame();
 
     @Override
@@ -33,6 +33,41 @@ public class TitlePanel extends JPanel {
             ex.getMessage();
         }
         g.drawImage(image, 0, 0, this);         
+    }
+    
+    private void setInfoButton() {
+        infoButton = new CircleButton();
+        try {
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exclamation.jpg"));
+            infoButton.setIcon(new ImageIcon(image));
+        } catch (IOException ex) {}
+//        infoButton.setBackground(Color.BLUE);
+        infoButton.setBounds(430, 15, 30, 30);
+        infoButton.setToolTipText("Information of Developments");
+        add(infoButton);
+        infoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                infoFrame.setVisible(true);
+            }
+        });
+    }
+    
+    private void setSettingButton() {
+        settingButton = new CircleButton();
+        try {
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Gear.png"));
+            settingButton.setIcon(new ImageIcon(image));
+        } catch (IOException ex) {}
+        settingButton.setBounds(380, 15, 30, 30);
+        settingButton.setToolTipText("Information of Developments");
+        add(settingButton);
+        settingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                
+            }
+        });
     }
     
     public TitlePanel() {
@@ -52,22 +87,7 @@ public class TitlePanel extends JPanel {
         nameLabel.setForeground(Color.WHITE);
         add(nameLabel);
         
-        infoButton = new CircleButton();
-        try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exclamation.jpg"));
-            infoButton.setIcon(new ImageIcon(image));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        infoButton.setBackground(Color.BLUE);
-        infoButton.setBounds(430, 15, 30, 30);
-        infoButton.setToolTipText("Information of Developments");
-        add(infoButton);
-        infoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                infoFrame.setVisible(true);
-            }
-        });
+        setInfoButton();
+        setSettingButton();
     }
 }
