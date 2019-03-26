@@ -16,8 +16,9 @@ public class InformationFrame extends JFrame {
                    name1Label, name2Label, name3Label;
 
     private void setIconLabel() {
+        iconLabel = new JLabel();
         try {
-            iconLabel = CircleLabel.setImageLabel(iconLabel, TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            iconLabel.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"))));
         } catch (IOException ex) {}
         iconLabel.setBounds(115, 10, 70, 70);
         this.add(iconLabel);
@@ -29,8 +30,9 @@ public class InformationFrame extends JFrame {
     }
     
     private void setDevLabel() {
+        dev1Label = new JLabel();
         try {
-            dev1Label = CircleLabel.setImageLabel(dev1Label, TitlePanel.class.getResource("/Pictures/Nguyen.jpg"));
+            dev1Label.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Nguyen.jpg"))));
         } catch (IOException ex) {}
         dev1Label.setBounds(115, 130, 70, 70);
         this.add(dev1Label);
@@ -40,8 +42,9 @@ public class InformationFrame extends JFrame {
         name1Label.setForeground(Color.BLACK);
         this.add(name1Label);
 
+        dev2Label = new JLabel();
         try {
-            dev2Label = CircleLabel.setImageLabel(dev2Label, TitlePanel.class.getResource("/Pictures/Tung.jpg"));
+            dev2Label.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Tung.jpg"))));
         } catch (IOException ex) {}
         dev2Label.setBounds(10, 130, 70, 70);
         this.add(dev2Label);
@@ -51,8 +54,9 @@ public class InformationFrame extends JFrame {
         name2Label.setForeground(Color.BLACK);
         this.add(name2Label);
         
+        dev3Label = new JLabel();
         try {
-            dev3Label = CircleLabel.setImageLabel(dev3Label, TitlePanel.class.getResource("/Pictures/Dang.jpg"));
+            dev3Label.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Dang.jpg"))));
         } catch (IOException ex) {}
         dev3Label.setBounds(210, 130, 70, 70);
         this.add(dev3Label);
@@ -71,9 +75,9 @@ public class InformationFrame extends JFrame {
         setTitle("Info of Developers");
         setSize(300, 300);
         setResizable(false);
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
         try {
-            setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.jpg")));
+            setIconImage(ImageIO.read(InformationFrame.class.getResource("/Pictures/Icon.jpg")));
         } catch (IOException ex) {}
     }
 }
