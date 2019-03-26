@@ -26,17 +26,13 @@ public class MainFrame  {
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
         frame.add(introLabel);
-        Command.Performance.Do();
-        
+        frame.add(mainPanel);
+        frame.add(titlePanel);
+        Command.Performance.Do();       
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException ex) {}
         introLabel.setVisible(false);
-//        try {
-//            TimeUnit.SECONDS.sleep(4);
-//        } catch (InterruptedException ex) {}
-//        introLabel.setVisible(false);
-        frame.add(mainPanel);
-        frame.add(titlePanel);
+        
     }
 }
