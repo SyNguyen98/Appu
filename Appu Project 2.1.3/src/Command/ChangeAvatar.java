@@ -2,16 +2,29 @@ package Command;
 
 import APPU.MainFrame;
 import APPU.TitlePanel;
+import static APPU.TitlePanel.imageLabel;
+import Shape.CircleLabel;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
 public class ChangeAvatar {
     private static final JFileChooser chooser = new JFileChooser("iSekai");
+    
+    private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
+    } 
     
     private static String getImagePath() {
         int returnVal = chooser.showOpenDialog(MainFrame.frame);
@@ -27,7 +40,8 @@ public class ChangeAvatar {
         try {
                 img = ImageIO.read(new File(getImagePath()));
         } catch (IOException e) {}
-        Image avatarImage = img.getScaledInstance(TitlePanel.imageLabel.getWidth(), TitlePanel.imageLabel.getHeight(), Image.SCALE_SMOOTH);
-        TitlePanel.imageLabel.setIcon(new ImageIcon(avatarImage));
+        try {
+            imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 50, 50)));
+        } catch (Exception e) {}
     }
 }
