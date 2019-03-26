@@ -30,9 +30,7 @@ public class SettingFrame extends JFrame {
         changeNameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                JOptionPane optionPane = new JOptionPane();
-                optionPane.setVisible(true);
-//                TitlePanel.nameLabel.setText("Shiba Miyuki");
+                TitlePanel.nameLabel.setText(JOptionPane.showInputDialog(null));
             }
         });
     }
