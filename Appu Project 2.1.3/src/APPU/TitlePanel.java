@@ -22,6 +22,7 @@ public class TitlePanel extends JPanel {
     public static JLabel imageLabel, nameLabel;
     private static JButton infoButton, settingButton;
     private static final JFrame infoFrame = new InformationFrame();
+    private static final JFrame settingFrame = new SettingFrame();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -41,7 +42,6 @@ public class TitlePanel extends JPanel {
             Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exclamation.jpg"));
             infoButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
-//        infoButton.setBackground(Color.BLUE);
         infoButton.setBounds(430, 15, 30, 30);
         infoButton.setToolTipText("Information of Developments");
         add(infoButton);
@@ -60,12 +60,12 @@ public class TitlePanel extends JPanel {
             settingButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         settingButton.setBounds(380, 15, 30, 30);
-        settingButton.setToolTipText("Information of Developments");
+        settingButton.setToolTipText("Setting");
         add(settingButton);
         settingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
+                settingFrame.setVisible(true);
             }
         });
     }
@@ -73,11 +73,11 @@ public class TitlePanel extends JPanel {
     public TitlePanel() {
         setBounds(0, 0, 480, 60);
         setLayout(new GroupLayout(this));
+        imageLabel = new JLabel();
         try {
-            imageLabel = CircleLabel.setImageLabel(imageLabel, TitlePanel.class.getResource("/Pictures/Appu.jpg"));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            imageLabel.setIcon(CircleLabel.setImageLabel(image));
+        } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
         
