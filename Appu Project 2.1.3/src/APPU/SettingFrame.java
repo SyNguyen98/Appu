@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class SettingFrame extends JFrame {
     private static JButton changeAvaButton, changeNameButton;
@@ -21,17 +22,33 @@ public class SettingFrame extends JFrame {
             }
         });
     }
+    
+    private void setChangeNameButton() {
+        changeNameButton = new JButton("Change Name");
+        changeNameButton.setBounds(0, 70, 250, 60);
+        add(changeNameButton);
+        changeNameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane optionPane = new JOptionPane();
+                optionPane.setVisible(true);
+//                TitlePanel.nameLabel.setText("Shiba Miyuki");
+            }
+        });
+    }
 
     public SettingFrame() {      
         setTitle("Setting");
         setSize(250, 500);
         setResizable(false);
         setLocationRelativeTo(null);
+        setLayout(null);
         try {
             setIconImage(ImageIO.read(SettingFrame.class.getResource("/Pictures/Icon.jpg")));
         } catch (IOException ex) {}
     
         setChangeAvaButton();
+        setChangeNameButton();
     }
     
 }
