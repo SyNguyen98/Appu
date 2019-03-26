@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 public class MainFrame  {
-    public static final JFrame frame = new JFrame("APPU");
+    public static final JFrame frame = new JFrame("iSekai");
     private static final TitlePanel titlePanel = new TitlePanel();
     private static final MainPanel mainPanel = new MainPanel();
     private static final JLabel introLabel = new JLabel();
