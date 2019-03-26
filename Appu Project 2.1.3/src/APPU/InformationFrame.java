@@ -4,6 +4,7 @@ package APPU;
 import Shape.CircleLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -18,11 +19,12 @@ public class InformationFrame extends JFrame {
     private void setIconLabel() {
         iconLabel = new JLabel();
         try {
-            iconLabel.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"))));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            iconLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
-        iconLabel.setBounds(115, 10, 70, 70);
+        iconLabel.setBounds(125, 10, 70, 70);
         this.add(iconLabel);
-        versionLabel = new JLabel("Version 2.1.3");
+        versionLabel = new JLabel("Version 2.1.4");
         versionLabel.setBounds(105, 65, 100, 40);
         versionLabel.setFont(new Font("Arial", 3, 14));
         versionLabel.setForeground(Color.WHITE);
@@ -32,7 +34,8 @@ public class InformationFrame extends JFrame {
     private void setDevLabel() {
         dev1Label = new JLabel();
         try {
-            dev1Label.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Nguyen.jpg"))));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Nguyen.jpg"));
+            dev1Label.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         dev1Label.setBounds(115, 130, 70, 70);
         this.add(dev1Label);
@@ -44,7 +47,8 @@ public class InformationFrame extends JFrame {
 
         dev2Label = new JLabel();
         try {
-            dev2Label.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Tung.jpg"))));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Tung.jpg"));
+            dev2Label.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         dev2Label.setBounds(10, 130, 70, 70);
         this.add(dev2Label);
@@ -56,7 +60,8 @@ public class InformationFrame extends JFrame {
         
         dev3Label = new JLabel();
         try {
-            dev3Label.setIcon(CircleLabel.setImageLabel(ImageIO.read(TitlePanel.class.getResource("/Pictures/Dang.jpg"))));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            dev3Label.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         dev3Label.setBounds(210, 130, 70, 70);
         this.add(dev3Label);
