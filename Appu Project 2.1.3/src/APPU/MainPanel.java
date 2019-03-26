@@ -52,8 +52,10 @@ public class MainPanel extends JPanel {
     }
     
     public static void setAnswer() {
+        iconLabel = new JLabel();
         try {
-            iconLabel = CircleLabel.setImageLabel(iconLabel, MainPanel.class.getResource("/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.jpg"));
+            iconLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {} 
         answerPanel = new RoundPanel();
         answerPanel.setLayout(new GroupLayout(answerPanel));
