@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.UIManager;
 
 public class MainFrame  {
     public static final JFrame frame = new JFrame("APPU");
@@ -14,6 +15,10 @@ public class MainFrame  {
     private static final JLabel introLabel = new JLabel();
     
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch(Exception e) {}
+        
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 800, 640);
         introLabel.setVisible(true);
