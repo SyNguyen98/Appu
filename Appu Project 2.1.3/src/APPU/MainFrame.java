@@ -15,7 +15,7 @@ public class MainFrame  {
     
     public static void main(String[] args) {
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
-        introLabel.setBounds(-65, 0, 800, 640);
+        introLabel.setBounds(0, 0, 800, 640);
         introLabel.setVisible(true);
         try {
             frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.jpg")));
@@ -32,7 +32,7 @@ public class MainFrame  {
         titlePanel.setVisible(false);      
         Command.Performance.Do();       
         try {
-            TimeUnit.MILLISECONDS.sleep(2750);
+            TimeUnit.MILLISECONDS.sleep(3000);
         } catch (InterruptedException ex) {}
         introLabel.setVisible(false);
         mainPanel.setVisible(true);
