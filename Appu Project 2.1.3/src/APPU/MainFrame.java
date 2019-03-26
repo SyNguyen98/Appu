@@ -26,10 +26,10 @@ public class MainFrame  {
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
         frame.add(introLabel);
-        mainPanel.setVisible(false);
-        titlePanel.setVisible(false);
         frame.add(mainPanel);
         frame.add(titlePanel);
+        mainPanel.setVisible(false);
+        titlePanel.setVisible(false);      
         Command.Performance.Do();       
         try {
             TimeUnit.MILLISECONDS.sleep(2750);
