@@ -1,4 +1,4 @@
-package Command;
+package APPU;
 
 import java.awt.BorderLayout;
 import javafx.application.Platform;
