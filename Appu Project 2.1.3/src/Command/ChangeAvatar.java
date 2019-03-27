@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
+import org.json.simple.JSONObject;
 
 public class ChangeAvatar {
     private static final JFileChooser chooser = new JFileChooser("iSekai");
@@ -36,6 +37,11 @@ public class ChangeAvatar {
     }
     
     public static void setAvatar() {
+//        JSONObject jsonObject = null;
+//        try {
+//            jsonObject.put("Name", getImagePath().toString());
+//        } catch (Exception e) {
+//        }
         BufferedImage img = null;
         try {
                 img = ImageIO.read(new File(getImagePath()));
