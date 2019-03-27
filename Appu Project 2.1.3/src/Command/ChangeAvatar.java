@@ -10,11 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
-import org.json.simple.parser.JSONParser;
 
 public class ChangeAvatar {
     private static final JFileChooser chooser = new JFileChooser("iSekai");
-    private static final JSONParser parser = new JSONParser();
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -37,11 +35,6 @@ public class ChangeAvatar {
     }
     
     public static void setAvatar() {
-//        JSONObject jsonObject = null;
-//        try {
-//            jsonObject = (JSONObject) parser.parse(new FileReader("src/Database/AvaName.json"));
-//        } catch (Exception e) {
-//        }
         BufferedImage img = null;
         try {
                 img = ImageIO.read(new File(getImagePath()));
