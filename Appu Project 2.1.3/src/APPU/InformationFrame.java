@@ -22,7 +22,7 @@ public class InformationFrame extends JFrame {
             BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.png"));
             iconLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
-        iconLabel.setBounds(125, 10, 70, 70);
+        iconLabel.setBounds(125, 10, 60, 60);
         this.add(iconLabel);
         versionLabel = new JLabel("Version 2.1.4");
         versionLabel.setBounds(105, 65, 100, 40);
