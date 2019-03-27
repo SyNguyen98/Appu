@@ -30,17 +30,17 @@ public class MainFrame  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
-//        frame.add(introLabel);
+        frame.add(introLabel);
         frame.add(mainPanel);
         frame.add(titlePanel);
-//        mainPanel.setVisible(false);
-//        titlePanel.setVisible(false);            
-//        try {
-//            TimeUnit.MILLISECONDS.sleep(3000);
-//        } catch (InterruptedException ex) {}
-//        introLabel.setVisible(false);
-//        mainPanel.setVisible(true);
-//        titlePanel.setVisible(true);
+        mainPanel.setVisible(false);
+        titlePanel.setVisible(false);            
+        try {
+            TimeUnit.MILLISECONDS.sleep(3000);
+        } catch (InterruptedException ex) {}
+        introLabel.setVisible(false);
+        mainPanel.setVisible(true);
+        titlePanel.setVisible(true);
         
         Command.Performance.Do(); 
     }
