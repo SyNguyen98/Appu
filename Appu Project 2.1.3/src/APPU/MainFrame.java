@@ -23,7 +23,7 @@ public class MainFrame  {
         introLabel.setBounds(0, 0, 800, 640);
         introLabel.setVisible(true);
         try {
-            frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.jpg")));
+            frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
         frame.setSize(480, 640);
         frame.setResizable(false);
