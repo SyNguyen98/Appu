@@ -42,7 +42,7 @@ public class SettingFrame extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
         try {
-            setIconImage(ImageIO.read(SettingFrame.class.getResource("/Pictures/Icon.jpg")));
+            setIconImage(ImageIO.read(SettingFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
     
         setChangeAvaButton();
