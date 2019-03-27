@@ -75,13 +75,13 @@ public class TitlePanel extends JPanel {
         setLayout(new GroupLayout(this));
         imageLabel = new JLabel();
         try {
-            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.png"));
             imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
         
-        nameLabel = new JLabel("Appu - tan");
+        nameLabel = new JLabel("iSekai");
         nameLabel.setBounds(85, 6, 100, 50);
         nameLabel.setFont(new Font("Arial", 3, 16));
         nameLabel.setForeground(Color.WHITE);
