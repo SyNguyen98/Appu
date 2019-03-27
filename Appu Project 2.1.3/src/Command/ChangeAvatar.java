@@ -2,19 +2,21 @@ package Command;
 
 import APPU.MainFrame;
 import APPU.TitlePanel;
-import static APPU.TitlePanel.imageLabel;
 import Shape.CircleLabel;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class ChangeAvatar {
     private static final JFileChooser chooser = new JFileChooser("iSekai");
+    private static final JSONParser parser = new JSONParser();
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -37,17 +39,19 @@ public class ChangeAvatar {
     }
     
     public static void setAvatar() {
-//        JSONObject jsonObject = null;
-//        try {
-//            jsonObject.put("Name", getImagePath().toString());
-//        } catch (Exception e) {
-//        }
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = (JSONObject) parser.parse(new FileReader("src/Database/AvaName.json"));
+            jsonObject.remove("Avatar");
+            jsonObject.put("Avatar", getImagePath());
+        } catch (Exception e) {}
+        
         BufferedImage img = null;
         try {
                 img = ImageIO.read(new File(getImagePath()));
         } catch (IOException e) {}
         try {
-            imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 50, 50)));
+            TitlePanel.imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 50, 50)));
         } catch (Exception e) {}
     }
 }
