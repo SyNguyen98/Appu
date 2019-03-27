@@ -9,7 +9,12 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -17,12 +22,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class TitlePanel extends JPanel {
     public static JLabel imageLabel, nameLabel;
     private static JButton infoButton, settingButton;
     private static final JFrame infoFrame = new InformationFrame();
     private static final JFrame settingFrame = new SettingFrame();
+    private static final JSONParser parser = new JSONParser();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -71,17 +80,25 @@ public class TitlePanel extends JPanel {
     }
     
     public TitlePanel() {
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = (JSONObject) parser.parse(new FileReader("src/Database/AvaName.json"));
+        } catch (IOException | ParseException ex) {}
+        
         setBounds(0, 0, 480, 60);
         setLayout(new GroupLayout(this));
         imageLabel = new JLabel();
-        try {
-            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.png"));
+        try {            
+            String avatar = (String) jsonObject.get("Avatar");            
+            BufferedImage image = ImageIO.read(new File(avatar));
             imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
         
-        nameLabel = new JLabel("iSekai");
+        
+        String name = (String) jsonObject.get("Name");
+        nameLabel = new JLabel(name);
         nameLabel.setBounds(85, 6, 100, 50);
         nameLabel.setFont(new Font("Arial", 3, 16));
         nameLabel.setForeground(Color.WHITE);
