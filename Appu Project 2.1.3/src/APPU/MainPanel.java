@@ -76,7 +76,7 @@ public class MainPanel extends JPanel {
                 super.paintComponent(g);
                 BufferedImage image = null;
                 try {                
-                    image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Main2.jpg"));
+                    image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Main.jpg"));
                 } catch (IOException ex) {
                     ex.getMessage();
                 }
