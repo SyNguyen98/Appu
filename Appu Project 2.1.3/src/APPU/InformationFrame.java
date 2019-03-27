@@ -19,7 +19,7 @@ public class InformationFrame extends JFrame {
     private void setIconLabel() {
         iconLabel = new JLabel();
         try {
-            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.png"));
             iconLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         iconLabel.setBounds(125, 10, 70, 70);
@@ -60,7 +60,7 @@ public class InformationFrame extends JFrame {
         
         dev3Label = new JLabel();
         try {
-            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Appu.jpg"));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Dang.jpg"));
             dev3Label.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         dev3Label.setBounds(210, 130, 70, 70);
@@ -82,7 +82,7 @@ public class InformationFrame extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         try {
-            setIconImage(ImageIO.read(InformationFrame.class.getResource("/Pictures/Icon.jpg")));
+            setIconImage(ImageIO.read(InformationFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
     }
 }
