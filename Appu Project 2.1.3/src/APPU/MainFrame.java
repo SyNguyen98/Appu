@@ -1,8 +1,7 @@
 package APPU;
 
-import Sound.Theme;
+import Command.Performance;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -45,6 +44,6 @@ public class MainFrame  {
         mainPanel.setVisible(true);
         titlePanel.setVisible(true);
         
-        Command.Performance.Do(); 
+        Performance.Do(); 
     }
 }
