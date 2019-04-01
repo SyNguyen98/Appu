@@ -18,12 +18,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 
 public class TitlePanel extends JPanel {
     public static JLabel imageLabel, nameLabel;
     private static JButton infoButton, settingButton;
     private static final JFrame infoFrame = new InformationFrame();
-    private static final JFrame settingFrame = new SettingFrame();
+    private static final JPopupMenu settingMenu = new SettingMenu();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -66,7 +67,7 @@ public class TitlePanel extends JPanel {
         settingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                settingFrame.setVisible(true);
+                settingMenu.show(settingButton, -settingMenu.getWidth() + settingButton.getWidth(), settingButton.getHeight() + 5);
             }
         });
     }
