@@ -45,7 +45,7 @@ public class Performance {
                 if(MainPanel.inputField.getText().charAt(MainPanel.inputField.getText().length() - 1) == '=')
                     MainPanel.answerLabel.setText("= " + Calculator.doMath() + "   So easy ^^");
                 else
-                    MainPanel.answerLabel.setText("<html>Yes, Master  (○･∀･)b</html>");
+                    MainPanel.answerLabel.setText("<html>Yes, Master (○･∀･)b</html>");
                 if(Commands.online) 
                     Commands.accessInternet();
                 
