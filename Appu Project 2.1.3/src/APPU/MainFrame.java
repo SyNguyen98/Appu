@@ -1,7 +1,9 @@
 package APPU;
 
 import Command.Performance;
+import Sound.Theme;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -26,20 +28,20 @@ public class MainFrame  {
         try {
             frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
-//        Theme.play("src/Sound/Intro.wav");
+        Theme.play("src/Sound/Intro.wav");
         frame.setSize(480, 640);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
-//        frame.add(introLabel);
+        frame.add(introLabel);
         frame.add(mainPanel);
         frame.add(titlePanel);
-//        mainPanel.setVisible(false);
-//        titlePanel.setVisible(false);            
-//        try {
-//            TimeUnit.MILLISECONDS.sleep(3000);
-//        } catch (InterruptedException ex) {}
+        mainPanel.setVisible(false);
+        titlePanel.setVisible(false);            
+        try {
+            TimeUnit.MILLISECONDS.sleep(3000);
+        } catch (InterruptedException ex) {}
         introLabel.setVisible(false);
         mainPanel.setVisible(true);
         titlePanel.setVisible(true);
