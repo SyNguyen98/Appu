@@ -45,7 +45,7 @@ public class TitlePanel extends JPanel {
             infoButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         infoButton.setBounds(430, 15, 30, 30);
-        infoButton.setToolTipText("Information of Developments");
+        infoButton.setToolTipText("App's information");
         add(infoButton);
         infoButton.addActionListener(new ActionListener() {
             @Override
