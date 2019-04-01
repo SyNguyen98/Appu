@@ -19,7 +19,7 @@ public class InformationFrame extends JFrame {
     private void setIconLabel() {
         iconLabel = new JLabel();
         try {
-            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.png"));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.jpg"));
             iconLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         iconLabel.setBounds(125, 10, 60, 60);
