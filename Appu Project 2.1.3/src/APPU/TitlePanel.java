@@ -76,7 +76,7 @@ public class TitlePanel extends JPanel {
         setLayout(new GroupLayout(this));
         imageLabel = new JLabel();
         try {                      
-            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.png"));
+            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
