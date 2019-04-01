@@ -1,5 +1,6 @@
 package APPU;
 
+import Sound.Theme;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
@@ -25,6 +26,7 @@ public class MainFrame  {
         try {
             frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
+        Theme.play("src/Sound/Intro.wav");
         frame.setSize(480, 640);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
