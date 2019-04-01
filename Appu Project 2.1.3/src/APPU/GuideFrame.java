@@ -14,6 +14,5 @@ public class GuideFrame extends JFrame {
         try {
             setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
-        
     }
 }
