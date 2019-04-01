@@ -6,12 +6,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
     private static JMenuItem avatarItem, nameItem, helpItem;
+    private static final JFrame guideFrame = new GuideFrame();
     
     private static void changeAvatar() {
         avatarItem = new JMenuItem(" Change Avatar");
@@ -47,7 +49,7 @@ public class SettingMenu extends JPopupMenu {
         helpItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
+                guideFrame.setVisible(true);
             }
         });
     }
