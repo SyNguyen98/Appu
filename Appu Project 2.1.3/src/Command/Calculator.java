@@ -22,7 +22,7 @@ public class Calculator {
     private static String infix2Postfix(String infix) { 
 	String result = ""; 
 	Stack<Character> stack = new Stack<>(); 
-	
+        
 	for (int i = 0; i<infix.length(); ++i) { 
             char token = infix.charAt(i); 	
             if (Character.isLetterOrDigit(token)) 
@@ -34,12 +34,10 @@ public class Calculator {
                     if (token == ')') { 
                         while (!stack.isEmpty() && stack.peek() != '(') 
                             result += stack.pop(); 
-                        if (!stack.isEmpty() && stack.peek() != '(') 
-                            return "Invalid Expression";			 
-                        else
-                            stack.pop(); 
+                        stack.pop(); 
                     }
                     else { 
+                        result += " ";
                         while (!stack.isEmpty() && getPriority(token) <= getPriority(stack.peek())) 
                             result += stack.pop(); 
                         stack.push(token); 
@@ -77,8 +75,13 @@ public class Calculator {
 		}
 		stack.push(Float.toString(result));
             }
-            else
-                stack.push(String.valueOf(token)); 
+            if(Character.isDigit(token)) {
+                String str = "";
+		while (Character.isDigit(postfix.charAt(i)))
+                    str += postfix.charAt(i++);
+                stack.push(str);
+                i--;
+            }
         }
         return stack.peek();
     }
