@@ -104,6 +104,7 @@ public class MainPanel extends JPanel {
         keywords.add("map");
         keywords.add("anime");
         keywords.add("web");
+        keywords.add("open");
         
         Autocomplete autoComplete = new Autocomplete(inputField, keywords);
         
