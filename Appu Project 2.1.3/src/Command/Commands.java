@@ -21,6 +21,10 @@ public class Commands {
                         "#translate",
                         "#map",
                         "#jam",
+                        "#lol",
+                        "#lmss",
+                        "#anime",
+                        "#se",
                         "#web"};
         String name = "";
         int i;
@@ -39,6 +43,10 @@ public class Commands {
                         "https://translate.google.com/?hl=vi#view=home&op=translate&sl=en&tl=vi&text=" + name,
                         "https://www.google.com/maps/dir/" + name,
                         "https://www.google.com/maps/dir/" + name +"/data=!4m2!4m1!3e0!5m1!1e1/",
+                        "https://vn.op.gg/summoner/userName=" + name,
+                        "http://lmss.vn/vi/vn/summoner/" + name + "/profile",
+                        "https://anime47.com/tim-nang-cao/?keyword=" + name + "&nam=&season=&status=&sapxep=1",
+                        "https://hentaiz.net/?s=" + name,
                         "https://www." + name,
                         "https://www.google.com/search?q=" + command};
         String url = URL[i];
