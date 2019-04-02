@@ -16,7 +16,7 @@ public class Commands {
         command = command.replace(" ", "+");
         String[] key = {"#video",
                         "#picture",
-                        "#f",
+                        "#face",
                         "#song",
                         "#translate",
                         "#map",
