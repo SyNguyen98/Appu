@@ -49,21 +49,19 @@ public class Commands {
     
     public static void controlComputer() {
         String command = MainPanel.inputField.getText();
+        Runtime runtime = Runtime.getRuntime();
+        Process proc = null;
         if(command.contains("shut down")) {
-            Runtime runtime = Runtime.getRuntime();
             try {
-                Process proc = runtime.exec("shutdown -s -t 0");
-            } catch (IOException ex) {
-            }
+                proc = runtime.exec("shutdown -s -t 0");
+            } catch (IOException ex) {}
             System.exit(0);
             online = false;
         }
-        if(command.contains("go to sleep")) {
-            Runtime runtime = Runtime.getRuntime();
+        if(command.contains("go to sleep")) {            
             try {
-                Process proc = runtime.exec("Rundll32.exe powrprof.dll,SetSuspendState Sleep");
-            } catch (IOException ex) {
-            }
+                proc = runtime.exec("Rundll32.exe powrprof.dll,SetSuspendState Sleep");
+            } catch (IOException ex) {}
             System.exit(0);
             online = false;
         }
