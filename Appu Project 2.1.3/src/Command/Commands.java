@@ -21,6 +21,8 @@ public class Commands {
                         "#translate",
                         "#map",
                         "#jam",
+                        "#lol",
+                        "#lmss",
                         "#web"};
         String name = "";
         int i;
@@ -39,6 +41,8 @@ public class Commands {
                         "https://translate.google.com/?hl=vi#view=home&op=translate&sl=en&tl=vi&text=" + name,
                         "https://www.google.com/maps/dir/" + name,
                         "https://www.google.com/maps/dir/" + name +"/data=!4m2!4m1!3e0!5m1!1e1/",
+                        "https://vn.op.gg/summoner/userName=" + name,
+                        "http://lmss.vn/vi/vn/summoner/" + name + "/profile",
                         "https://www." + name,
                         "https://www.google.com/search?q=" + command};
         String url = URL[i];
