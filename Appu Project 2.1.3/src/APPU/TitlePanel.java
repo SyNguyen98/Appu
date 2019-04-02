@@ -25,6 +25,8 @@ public class TitlePanel extends JPanel {
     private static JButton infoButton, settingButton;
     private static final JFrame infoFrame = new InformationFrame();
     private static final JPopupMenu settingMenu = new SettingMenu();
+    public static String avatar = "src/Pictures/Avatar.jpg";
+    public static String name = "iSekai";
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -77,13 +79,13 @@ public class TitlePanel extends JPanel {
         setLayout(new GroupLayout(this));
         imageLabel = new JLabel();
         try {                      
-            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(new File(avatar));
             imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
         
-        nameLabel = new JLabel("iSekai");
+        nameLabel = new JLabel(name);
         nameLabel.setBounds(85, 6, 100, 50);
         nameLabel.setFont(new Font("Arial", 3, 16));
         nameLabel.setForeground(Color.WHITE);
