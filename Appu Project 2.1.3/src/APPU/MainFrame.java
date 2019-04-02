@@ -21,14 +21,14 @@ public class MainFrame  {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
-        
+        Theme.play("src/Sound/nokia.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 800, 640);
         introLabel.setVisible(true);
         try {
             frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
-        Theme.play("src/Sound/Intro.wav");
+        
         frame.setSize(480, 640);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
