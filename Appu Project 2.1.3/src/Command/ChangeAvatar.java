@@ -35,9 +35,10 @@ public class ChangeAvatar {
     }
     
     public static void setAvatar() {
+        TitlePanel.avatar = getImagePath();
         BufferedImage img = null;
         try {
-                img = ImageIO.read(new File(getImagePath()));
+                img = ImageIO.read(new File(TitlePanel.avatar));
         } catch (IOException e) {}
         try {
             TitlePanel.imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 50, 50)));
