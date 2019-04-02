@@ -17,7 +17,7 @@ public class Commands {
         String[] key = {"#video",
                         "#picture",
                         "#face",
-                        "#song",
+                        "#music",
                         "#translate",
                         "#map",
                         "#jam",
