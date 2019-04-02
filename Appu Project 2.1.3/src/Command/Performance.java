@@ -41,7 +41,7 @@ public class Performance {
                 MainPanel.mainPanel.revalidate();
                 
                 Commands.online = true;
-                Commands.controlComputer();
+                Commands.controlComputer();                
                 if(MainPanel.inputField.getText().charAt(MainPanel.inputField.getText().length() - 1) == '=')
                     MainPanel.answerLabel.setText("= " + Calculator.doMath() + "   So easy ^^");
                 else
