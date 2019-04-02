@@ -2,18 +2,21 @@ package APPU;
 
 import Shape.RoundPanel;
 import Shape.CircleLabel;
-import static APPU.MainPanel.commandPanel;
+import Command.Autocomplete;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 public class MainPanel extends JPanel {
     public static final JTextField inputField = new Shape.RoundTextField();
@@ -76,28 +79,48 @@ public class MainPanel extends JPanel {
                 super.paintComponent(g);
                 BufferedImage image = null;
                 try {                
-                    image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Main.jpg"));
+                    image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Main2.jpg"));
                 } catch (IOException ex) {}
                 g.drawImage(image, 0, 0, this);         
             }
         };
+        mainPanel.setBounds(0, 0, 480, 3000);
         mainPanel.setLayout(null);
         
         scrollPane.setSize(500, 480);
+        scrollPane.add(mainPanel);
         scrollPane.setViewportView(mainPanel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        
     }
     
-    public MainPanel() {
+    private static void setInputTextField() {
+        List<String> keywords = new ArrayList<>();
+        keywords.add("video");
+        keywords.add("picture");
+        keywords.add("facebook");
+        keywords.add("music");
+        keywords.add("translate");
+        keywords.add("map");
+        keywords.add("anime");
+        keywords.add("web");
+        
+        Autocomplete autoComplete = new Autocomplete(inputField, keywords);
+        
         inputField.setBounds(20, 490, 370, 50);
         inputField.setOpaque(false);
         inputField.setFont(new Font("Arial", 2, 16));
+        inputField.setFocusTraversalKeysEnabled(false);
+        inputField.getDocument().addDocumentListener(autoComplete);
+        inputField.getInputMap().put(KeyStroke.getKeyStroke("TAB"), "commit");
+        inputField.getActionMap().put("commit", autoComplete.new CommitAction());
+    }
+    
+    public MainPanel() {
+        setInputTextField();
         add(inputField);
         
         setScrollPane();
-        
         add(scrollPane);
 
         setLayout(new GroupLayout(this));
