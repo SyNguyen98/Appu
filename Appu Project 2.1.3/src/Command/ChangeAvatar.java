@@ -14,7 +14,7 @@ import javax.swing.JFileChooser;
 public class ChangeAvatar {
     private static final JFileChooser chooser = new JFileChooser("iSekai");
     
-    private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
+    public static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
@@ -35,13 +35,13 @@ public class ChangeAvatar {
     }
     
     public static void setAvatar() {
-        TitlePanel.avatar = getImagePath();
         BufferedImage img = null;
         try {
-                img = ImageIO.read(new File(TitlePanel.avatar));
+                img = ImageIO.read(new File(getImagePath()));
+                ImageIO.write(img, "jpg", new File("src/Pictures/Avatar.jpg"));
         } catch (IOException e) {}
         try {
             TitlePanel.imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 50, 50)));
-        } catch (Exception e) {}
+        } catch (IOException e) {}
     }
 }
