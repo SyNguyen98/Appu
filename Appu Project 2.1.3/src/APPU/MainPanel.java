@@ -3,6 +3,7 @@ package APPU;
 import Shape.RoundPanel;
 import Shape.CircleLabel;
 import Command.Autocomplete;
+import Command.ChangeAvatar;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -56,9 +57,10 @@ public class MainPanel extends JPanel {
     
     public static void setAnswer() {
         iconLabel = new JLabel();
+        BufferedImage image = null;
         try {
-            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Meido.jpg"));
-            iconLabel.setIcon(CircleLabel.setImageLabel(image));
+            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.jpg"));
+            iconLabel.setIcon(CircleLabel.setImageLabel(ChangeAvatar.resize(image, 35, 35)));
         } catch (IOException ex) {} 
         answerPanel = new RoundPanel();
         answerPanel.setLayout(new GroupLayout(answerPanel));
