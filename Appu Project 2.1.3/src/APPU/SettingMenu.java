@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
@@ -36,7 +41,11 @@ public class SettingMenu extends JPopupMenu {
         nameItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TitlePanel.nameLabel.setText(JOptionPane.showInputDialog(null));
+                String name = JOptionPane.showInputDialog(null);
+                TitlePanel.nameLabel.setText(name);
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Pictures/Name.txt"))) {
+                    bw.write(name);
+                } catch (IOException ex) {}
             }
         });
     }
