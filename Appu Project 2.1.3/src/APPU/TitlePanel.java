@@ -1,5 +1,6 @@
 package APPU;
 
+import Command.ChangeAvatar;
 import Shape.CircleButton;
 import Shape.CircleLabel;
 import java.awt.Color;
@@ -25,8 +26,6 @@ public class TitlePanel extends JPanel {
     private static JButton infoButton, settingButton;
     private static final JFrame infoFrame = new InformationFrame();
     private static final JPopupMenu settingMenu = new SettingMenu();
-    public static String avatar = "src/Pictures/Avatar.jpg";
-    public static String name = "iSekai";
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -74,23 +73,31 @@ public class TitlePanel extends JPanel {
         });
     }
     
-    public TitlePanel() {       
-        setBounds(0, 0, 480, 60);
-        setLayout(new GroupLayout(this));
+    private void setAvatarLabel() {
         imageLabel = new JLabel();
+        BufferedImage image = null;
         try {                      
-            BufferedImage image = ImageIO.read(new File(avatar));
-            imageLabel.setIcon(CircleLabel.setImageLabel(image));
+            image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            imageLabel.setIcon(CircleLabel.setImageLabel(ChangeAvatar.resize(image, 50, 50)));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
-        
-        nameLabel = new JLabel(name);
+    }
+    
+    private void setNameLabel() {
+        nameLabel = new JLabel("iSekai");
         nameLabel.setBounds(85, 6, 100, 50);
         nameLabel.setFont(new Font("Arial", 3, 16));
         nameLabel.setForeground(Color.WHITE);
         add(nameLabel);
+    }
+    
+    public TitlePanel() {       
+        setBounds(0, 0, 480, 60);
+        setLayout(new GroupLayout(this));
         
+        setAvatarLabel();
+        setNameLabel();
         setInfoButton();
         setSettingButton();
     }
