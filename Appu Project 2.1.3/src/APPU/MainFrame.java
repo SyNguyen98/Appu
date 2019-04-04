@@ -21,7 +21,11 @@ public class MainFrame  {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
+<<<<<<< HEAD
         Theme.play("src/Sound/EndGame.wav");
+=======
+        Theme.play("src/Sound/winxp.wav");
+>>>>>>> 8675a7cba1cbc66a32e7570134eacdc9f0d83da8
         
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 800, 640);
