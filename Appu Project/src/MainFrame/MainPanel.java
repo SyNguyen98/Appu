@@ -30,13 +30,13 @@ public class MainPanel extends JScrollPane {
         return dimg;
     } 
     
-    public static void setTime() {
+    public static void setTimeLabel() {
         timeLabel = new JLabel(); 
         timeLabel.setForeground(Color.LIGHT_GRAY);
         timeLabel.setFont(new Font("Arial", 1, 12));
     }
     
-    public static void setCommand() {
+    public static void setCommandPanel() {
         commandPanel = new RoundPanel();
         commandPanel.setLayout(new GroupLayout(commandPanel));
         commandPanel.setOpaque(false);
@@ -48,7 +48,7 @@ public class MainPanel extends JScrollPane {
         commandPanel.add(commandLabel);
     }
     
-    public static void setAnswer() {
+    public static void setAnswerPanel() {
         iconLabel = new JLabel();
         BufferedImage image = null;
         try {
