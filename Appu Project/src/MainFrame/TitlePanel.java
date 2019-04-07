@@ -102,7 +102,7 @@ public class TitlePanel extends JPanel {
     
     private void setNameLabel() {
         nameLabel = new JLabel();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Pictures/Name.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Name.txt"))) {
             String name = br.readLine();
             nameLabel.setText(name);
         } catch (IOException ex) {}
