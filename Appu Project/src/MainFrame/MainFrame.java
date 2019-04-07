@@ -21,8 +21,7 @@ public class MainFrame  {
         Theme.play("src/Sound/Intro.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 800, 640);
-        frame.add(introLabel); 
-        
+        frame.add(introLabel);        
     }
     
     public static void main(String[] args) {  
