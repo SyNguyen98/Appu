@@ -1,10 +1,9 @@
 package Command;
 
-import MainFrame.MainPanel;
+import MainFrame.InputPanel;
 import java.util.Stack;
 
-public class Calculator {
-    
+public class Calculator {   
     private static int getPriority(char ch) { 
 	switch (ch) { 
             case '+': 
@@ -88,7 +87,7 @@ public class Calculator {
     
     public static String doMath() {
         Commands.online = false;
-        String commandString = MainPanel.inputField.getText();
+        String commandString = InputPanel.inputField.getText();
         String postfix = infix2Postfix(commandString.substring(0, commandString.length() - 1));
         return calculator(postfix);
     }
