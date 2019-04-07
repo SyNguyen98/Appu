@@ -7,6 +7,8 @@ import Command.ChangeAvatar;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +39,17 @@ public class MainPanel extends JPanel {
         g.drawImage(image, 0, 0, this);         
     }
     
+    private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
+    } 
+    
     public static void setTime() {
         timeLabel = new JLabel(); 
         timeLabel.setForeground(Color.LIGHT_GRAY);
@@ -60,7 +73,7 @@ public class MainPanel extends JPanel {
         BufferedImage image = null;
         try {
             image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.jpg"));
-            iconLabel.setIcon(CircleLabel.setImageLabel(ChangeAvatar.resize(image, 35, 35)));
+            iconLabel.setIcon(CircleLabel.setImageLabel(resize(image, 35, 35)));
         } catch (IOException ex) {} 
         answerPanel = new RoundPanel();
         answerPanel.setLayout(new GroupLayout(answerPanel));
