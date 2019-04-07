@@ -1,5 +1,6 @@
 package Command;
 
+import MainFrame.InputPanel;
 import MainFrame.MainPanel;
 import static MainFrame.MainPanel.answerPanel;
 import static MainFrame.MainPanel.commandPanel;
@@ -15,14 +16,14 @@ public class Performance {
     private static int length = 0;
     
     public static void Do() {
-        MainPanel.inputField.addActionListener(new ActionListener() {
+        InputPanel.inputField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 MainPanel.setTime();
                 MainPanel.setCommand();
                 MainPanel.setAnswer();
                 
-                String commandString = Proccess.makeNewLine(MainPanel.inputField.getText());
+                String commandString = Proccess.makeNewLine(InputPanel.inputField.getText());
                 int width = Proccess.width; 
                 int height = Proccess.height;
                 
@@ -42,14 +43,14 @@ public class Performance {
                 
                 Commands.online = true;
                 Commands.controlComputer();                
-                if(MainPanel.inputField.getText().charAt(MainPanel.inputField.getText().length() - 1) == '=')
+                if(InputPanel.inputField.getText().charAt(InputPanel.inputField.getText().length() - 1) == '=')
                     MainPanel.answerLabel.setText("= " + Calculator.doMath() + "   So easy ^^");
                 else
                     MainPanel.answerLabel.setText("<html>Yes, Master (○･∀･)b</html>");
                 if(Commands.online) 
                     Commands.accessInternet();
                 
-                MainPanel.inputField.setText("");
+                InputPanel.inputField.setText("");
                 MainPanel.iconLabel.setVisible(true);
                 MainPanel.answerPanel.setBounds(55, commandPanel.getHeight() + length + 35, 160, 40);
                 MainPanel.answerPanel.setVisible(true);
