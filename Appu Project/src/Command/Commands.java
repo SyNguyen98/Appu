@@ -1,6 +1,6 @@
 package Command;
 
-import MainFrame.MainPanel;
+import MainFrame.InputPanel;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class Commands {
     public static boolean online;
     
     public static void accessInternet() {   
-        String command = MainPanel.inputField.getText();
+        String command = InputPanel.inputField.getText();
         command = command.replace(" ", "+");
         String[] key = {"#video",
                         "#picture",
@@ -20,7 +20,6 @@ public class Commands {
                         "#music",
                         "#translate",
                         "#map",
-                        "#jam",
                         "#lol",
                         "#lmss",
                         "#anime",
@@ -42,7 +41,6 @@ public class Commands {
                         "https://zingmp3.vn/tim-kiem/bai-hat.html?q=" + name,
                         "https://translate.google.com/?hl=vi#view=home&op=translate&sl=en&tl=vi&text=" + name,
                         "https://www.google.com/maps/dir/" + name,
-                        "https://www.google.com/maps/dir/" + name +"/data=!4m2!4m1!3e0!5m1!1e1/",
                         "https://vn.op.gg/summoner/userName=" + name,
                         "http://lmss.vn/vi/vn/summoner/" + name + "/profile",
                         "https://anime47.com/tim-nang-cao/?keyword=" + name + "&nam=&season=&status=&sapxep=1",
@@ -56,7 +54,7 @@ public class Commands {
     }
     
     public static void controlComputer() {
-        String command = MainPanel.inputField.getText();
+        String command = InputPanel.inputField.getText();
         Runtime runtime = Runtime.getRuntime();
         Process proc = null;
         if(command.contains("shut down")) {
