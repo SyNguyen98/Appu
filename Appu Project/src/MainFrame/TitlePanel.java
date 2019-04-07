@@ -7,6 +7,7 @@ import Shape.CircleLabel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +16,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -43,6 +42,17 @@ public class TitlePanel extends JPanel {
         }
         g.drawImage(image, 0, 0, this);         
     }
+    
+    private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
+    } 
     
     private void setInfoButton() {
         infoButton = new CircleButton();
@@ -83,7 +93,8 @@ public class TitlePanel extends JPanel {
         BufferedImage image = null;
         try {                      
             image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
-            imageLabel.setIcon(CircleLabel.setImageLabel(ChangeAvatar.resize(image, 50, 50)));
+            imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
+//            imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
