@@ -14,7 +14,7 @@ import javax.swing.JFileChooser;
 public class ChangeAvatar {
     private static final JFileChooser chooser = new JFileChooser("iSekai");
     
-    public static BufferedImage resize(BufferedImage img, int newW, int newH) { 
+    private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
