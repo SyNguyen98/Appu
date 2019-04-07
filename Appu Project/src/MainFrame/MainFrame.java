@@ -17,35 +17,34 @@ public class MainFrame  {
     private static final MainPanel mainPanel = new MainPanel();
     private static final JLabel introLabel = new JLabel();
     
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
-//        Theme.play("src/Sound/Intro.wav");
-        
+    private static void setIntro() {
+        Theme.play("src/Sound/Intro.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 800, 640);
-        introLabel.setVisible(true);
+        frame.add(introLabel); 
+        
+    }
+    
+    public static void main(String[] args) {  
+        setIntro();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}     
+       
         try {
             frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
-        } catch (IOException ex) {}
-        
+        } catch (IOException ex) {}   
         frame.setSize(480, 640);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(frame);
-        frame.setVisible(true);
-        frame.add(introLabel);
-        frame.add(mainPanel);
-        frame.add(titlePanel);
-        mainPanel.setVisible(false);
-        titlePanel.setVisible(false);            
+        frame.setVisible(true);       
         try {
             TimeUnit.MILLISECONDS.sleep(3000);
         } catch (InterruptedException ex) {}
         introLabel.setVisible(false);
-        mainPanel.setVisible(true);
-        titlePanel.setVisible(true);
+        frame.add(mainPanel);
+        frame.add(titlePanel);
         
         Performance.Do(); 
     }
