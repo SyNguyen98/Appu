@@ -2,7 +2,7 @@ package MainFrame;
 
 import Command.Performance;
 import Setting.FrameDrag;
-import Sound.Theme;
+import Sound.Sound;
 import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -16,14 +16,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class MainFrame {
 
     public static final JFrame frame = new JFrame();
-    public static final FrameDrag frameDrag = new FrameDrag(frame);
+    private static final FrameDrag frameDrag = new FrameDrag(frame);
     private static final TitlePanel titlePanel = new TitlePanel();
     private static final MainPanel mainPanel = new MainPanel();
     private static final InputPanel inputPanel = new InputPanel();
     private static final JLabel introLabel = new JLabel();
 
     private static void setIntro() {
-//        Theme.play("src/Sound/winxp.wav");
+        Sound.play("src/Sound/Endgame.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 800, 640);
         frame.add(introLabel);
@@ -36,7 +36,7 @@ public class MainFrame {
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
 
         try {
-            frame.setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
+            frame.setIconImage(ImageIO.read(MainFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
         frame.setSize(480, 640);
         frame.setUndecorated(true);
