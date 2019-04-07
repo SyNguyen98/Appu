@@ -2,7 +2,7 @@ package MainFrame;
 
 import Shape.RoundPanel;
 import Shape.CircleLabel;
-import Command.Autocomplete;
+import Setting.Autocomplete;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
