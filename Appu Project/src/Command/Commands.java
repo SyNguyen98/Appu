@@ -1,56 +1,58 @@
 package Command;
 
+import OtherFrame.BrowserFrame;
 import MainFrame.InputPanel;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class Commands {
     private static final Desktop desktop = Desktop.getDesktop();
+    private static final JSONParser parser = new JSONParser();
     public static boolean online;
+    
+    private static String readDatabase(String command) { 
+        String name = "";
+        try {
+            JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Website.json"));
+            for (Object obj : jsonArray) {                 
+                JSONObject jsonObject = (JSONObject) obj;               
+                String key = (String) jsonObject.get("Key");
+                int KeyIndex = command.indexOf(key);
+                if(KeyIndex != -1) {
+                    KeyIndex += key.length();
+                    name = command.substring(++KeyIndex);
+                    String link = (String) jsonObject.get("WebHead") + name + (String) jsonObject.get("WebTail");
+                    return link;
+                }
+            }
+        } catch (FileNotFoundException e) {
+        } catch (IOException | ParseException e) {}
+        return null;
+    }
     
     public static void accessInternet() {   
         String command = InputPanel.inputField.getText();
         command = command.replace(" ", "+");
-        String[] key = {"#video",
-                        "#picture",
-                        "#face",
-                        "#music",
-                        "#translate",
-                        "#map",
-                        "#lol",
-                        "#lmss",
-                        "#anime",
-                        "#se",
-                        "#web"};
-        String name = "";
-        int i;
-        for (i = 0; i < key.length; i++ ) {
-            int KeyIndex = command.indexOf(key[i]);
-            if(KeyIndex != -1) {
-                KeyIndex += key[i].length();
-                name = command.substring(++KeyIndex, command.length());
-                break;
-            }
-        }
-        String[] URL = {"https://www.youtube.com/results?search_query=" + name,
-                        "https://www.google.com/search?q=" + name + "&source=lnms&tbm=isch&sa=X&ved=0ahUKEwje8pbnxvvgAhVaUN4KHfIUBtAQ_AUIDigB&biw=1366&bih=695",
-                        "https://www.facebook.com/",
-                        "https://zingmp3.vn/tim-kiem/bai-hat.html?q=" + name,
-                        "https://translate.google.com/?hl=vi#view=home&op=translate&sl=en&tl=vi&text=" + name,
-                        "https://www.google.com/maps/dir/" + name,
-                        "https://vn.op.gg/summoner/userName=" + name,
-                        "http://lmss.vn/vi/vn/summoner/" + name + "/profile",
-                        "https://anime47.com/tim-nang-cao/?keyword=" + name + "&nam=&season=&status=&sapxep=1",
-                        "https://hentaiz.net/?s=" + name,
-                        "https://www." + name,
-                        "https://www.google.com/search?q=" + command};
-        String url = URL[i];
-        try {
-            desktop.browse(new URI(url));
-        } catch (IOException | URISyntaxException e) {}
+
+        String url = readDatabase(command);
+        if (url != null)
+            try {
+                desktop.browse(new URI(url));
+            } catch (URISyntaxException | IOException e) {}
+        else {
+            BrowserFrame browser = new BrowserFrame("https://www.google.com/search?q=" + command);
+            browser.setVisible(true);
+            browser.setTitle("Google");
+        }         
     }
     
     public static void controlComputer() {
