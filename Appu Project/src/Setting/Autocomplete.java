@@ -3,7 +3,6 @@ package Setting;
 import java.awt.event.ActionEvent;
 import java.util.Collections;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -56,7 +55,7 @@ public class Autocomplete implements DocumentListener {
         // Too few chars
         if (pos - w < 2)
             return;
-
+        
         String prefix = content.substring(w + 1).toLowerCase();
         int n = Collections.binarySearch(keywords, prefix);
         if (n < 0 && -n <= keywords.size()) {
