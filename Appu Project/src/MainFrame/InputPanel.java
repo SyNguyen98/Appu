@@ -40,6 +40,7 @@ public class InputPanel extends JPanel {
         keywords.add("anime");
         keywords.add("web");
         keywords.add("open");
+        keywords.add("data structure");
         
         Autocomplete autoComplete = new Autocomplete(inputField, keywords);
         
