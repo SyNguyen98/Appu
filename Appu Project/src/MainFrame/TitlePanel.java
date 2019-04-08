@@ -102,7 +102,7 @@ public class TitlePanel extends JPanel {
             nameLabel.setText(name);
         } catch (IOException ex) {}
         
-        nameLabel.setBounds(85, 6, 100, 50);
+        nameLabel.setBounds(85, 6, 150, 50);
         nameLabel.setFont(new Font("Arial", 3, 18));
         nameLabel.setForeground(Color.WHITE);
         add(nameLabel);
