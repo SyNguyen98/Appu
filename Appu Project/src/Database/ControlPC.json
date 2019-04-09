@@ -1,18 +1,22 @@
 [
     {
-        "Key" : "Nguyen",
-        "Answer" : "He is the best who was my creator"
+        "Key" : "shut down",
+        "Command" : "shutdown -s -t 0"
     }
     {
-        "Key" : "Tung",
-        "Answer" : "He is one of my creator"
+        "Key" : "go to sleep",
+        "Command" : "Rundll32.exe powrprof.dll,SetSuspendState Sleep"
     }
     {
-        "Key" : "Dang",
-        "Answer" : "He is one of my creator"
+        "Key" : "open word",
+        "Command" : ""
     }
     {
-        "Key" : "Math",
-        "Answer" : "So easy ^^"
+        "Key" : "open excel",
+        "Command" : ""
+    }
+    {
+        "Key" : "open powerpoint",
+        "Command" : ""
     }
 ]
