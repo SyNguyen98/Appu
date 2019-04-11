@@ -82,14 +82,14 @@ public class Performance {
                 setAnswer();
                 setMainPanel();
                 
-                Commands.online = true;
-                Commands.controlComputer();                
+                Internet.online = true;
+                Computer.controlComputer();                
                 if(Calculator.findKey(InputPanel.inputField.getText()))
                     MainPanel.answerLabel.setText(Calculator.getResult() + "  " + readDatabase("Math"));
                 else
                     MainPanel.answerLabel.setText("<html>Yes, Master (○･∀･)b</html>");
-                if(Commands.online) 
-                    Commands.accessInternet();
+                if(Internet.online) 
+                    Internet.accessInternet();
                 
                 InputPanel.inputField.setText("");
                 length += timeLabel.getHeight() + commandPanel.getHeight() + answerPanel.getHeight() + 10;
