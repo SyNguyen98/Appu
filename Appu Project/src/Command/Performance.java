@@ -22,6 +22,7 @@ import org.json.simple.parser.ParseException;
 public class Performance {
     private static int length = 0;
     private static final JSONParser parser = new JSONParser();
+    public static boolean online = true;
     
     private static String readDatabase(String keyString) {
         try {
@@ -82,13 +83,14 @@ public class Performance {
                 setAnswer();
                 setMainPanel();
                 
-                Internet.online = true;
-                Computer.controlComputer();                
+                Computer.controlComputer();  
+                
                 if(Calculator.findKey(InputPanel.inputField.getText()))
                     MainPanel.answerLabel.setText(Calculator.getResult() + "  " + readDatabase("Math"));
                 else
                     MainPanel.answerLabel.setText("<html>Yes, Master (○･∀･)b</html>");
-                if(Internet.online) 
+                
+                if(online) 
                     Internet.accessInternet();
                 
                 InputPanel.inputField.setText("");
