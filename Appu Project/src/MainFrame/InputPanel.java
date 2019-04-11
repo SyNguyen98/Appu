@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class InputPanel extends JPanel {
-    public static final RoundTextField inputField = new RoundTextField("Say something");
+    public static final RoundTextField inputField = new RoundTextField("Say something...");
     
     @Override
     protected void paintComponent(Graphics g) {
