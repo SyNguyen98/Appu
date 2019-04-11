@@ -1,4 +1,4 @@
-package Command;
+package Setting;
 
 import MainFrame.MainFrame;
 import MainFrame.TitlePanel;

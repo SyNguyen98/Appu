@@ -1,7 +1,6 @@
 package MainFrame;
 
-import OtherFrame.InformationFrame;
-import Command.ChangeAvatar;
+import Setting.SettingMenu;
 import Shape.CircleButton;
 import Shape.CircleLabel;
 import java.awt.Color;
@@ -20,16 +19,13 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 
 public class TitlePanel extends JPanel {
     public static JLabel imageLabel, nameLabel;
-    private static JButton infoButton, settingButton;
-    private static final JFrame infoFrame = new InformationFrame();
-    private static final JPopupMenu settingMenu = new SettingMenu();
+    private static JButton exitButton, settingButton;
+    private static final SettingMenu settingMenu = new SettingMenu();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -54,19 +50,19 @@ public class TitlePanel extends JPanel {
         return dimg;
     } 
     
-    private void setInfoButton() {
-        infoButton = new CircleButton();
+    private void setExitButton() {
+        exitButton = new CircleButton();
         try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exclamation.jpg"));
-            infoButton.setIcon(new ImageIcon(image));
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exit.png"));
+            exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
-        infoButton.setBounds(430, 15, 30, 30);
-        infoButton.setToolTipText("App's information");
-        add(infoButton);
-        infoButton.addActionListener(new ActionListener() {
+        exitButton.setBounds(430, 15, 30, 30);
+        exitButton.setToolTipText("Exit");
+        add(exitButton);
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                infoFrame.setVisible(true);
+                System.exit(0);
             }
         });
     }
@@ -94,7 +90,6 @@ public class TitlePanel extends JPanel {
         try {                      
             image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
-//            imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
         add(imageLabel);
@@ -107,8 +102,8 @@ public class TitlePanel extends JPanel {
             nameLabel.setText(name);
         } catch (IOException ex) {}
         
-        nameLabel.setBounds(85, 6, 100, 50);
-        nameLabel.setFont(new Font("Arial", 3, 16));
+        nameLabel.setBounds(85, 6, 150, 50);
+        nameLabel.setFont(new Font("Arial", 3, 18));
         nameLabel.setForeground(Color.WHITE);
         add(nameLabel);
     }
@@ -119,7 +114,7 @@ public class TitlePanel extends JPanel {
         
         setAvatarLabel();
         setNameLabel();
-        setInfoButton();
+        setExitButton();
         setSettingButton();
     }
 }

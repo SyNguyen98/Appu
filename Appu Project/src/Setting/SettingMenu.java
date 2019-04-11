@@ -1,25 +1,27 @@
-package MainFrame;
+package Setting;
 
+import MainFrame.TitlePanel;
 import OtherFrame.GuideFrame;
-import Command.ChangeAvatar;
+import OtherFrame.InformationFrame;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
-    private static JMenuItem avatarItem, nameItem, helpItem;
-    private static final JFrame guideFrame = new GuideFrame();
+    private static JMenuItem avatarItem, nameItem, helpItem, infoItem, driveItem;
+    private static final GuideFrame guideFrame = new GuideFrame();
+    private static final InformationFrame infoFrame = new InformationFrame();
     
     private static void changeAvatar() {
         avatarItem = new JMenuItem(" Change Avatar");
@@ -64,6 +66,35 @@ public class SettingMenu extends JPopupMenu {
         });
     }
     
+    private static void setInformation() {
+        infoItem = new JMenuItem(" Information");
+        infoItem.setFont(new Font("Arial", 1, 15));
+        infoItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/i-icon.png")));
+        infoItem.setBackground(Color.WHITE);
+        infoItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                infoFrame.setVisible(true);
+            }
+        });
+    }
+    
+    private static void setDrive() {
+        driveItem = new JMenuItem(" Drive");
+        driveItem.setFont(new Font("Arial", 1, 15));
+        driveItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/drive-icon.png")));
+        driveItem.setBackground(Color.GREEN);
+        driveItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Desktop desktop = Desktop.getDesktop();
+                try {
+                    desktop.browse(new URI("http://bit.ly/drivelop16vlth"));
+                } catch (IOException | URISyntaxException ex) {}
+            }
+        });
+    }
+    
     public SettingMenu() {
         changeAvatar();
         add(avatarItem);
@@ -71,5 +102,9 @@ public class SettingMenu extends JPopupMenu {
         add(nameItem);
         help();
         add(helpItem);
+        setInformation();
+        add(infoItem);
+        setDrive();
+        add(driveItem);
     }
 }
