@@ -1,22 +1,14 @@
 [
     {
         "Key" : "shut down",
-        "Command" : "shutdown -s -t 0"
+        "Command" : "shutdown -s -t 15"
     }
     {
         "Key" : "go to sleep",
         "Command" : "Rundll32.exe powrprof.dll,SetSuspendState Sleep"
     }
     {
-        "Key" : "open word",
-        "Command" : ""
-    }
-    {
-        "Key" : "open excel",
-        "Command" : ""
-    }
-    {
-        "Key" : "open powerpoint",
-        "Command" : ""
+        "Key" : "restart",
+        "Command" : "shutdown -r -t 15"
     }
 ]
