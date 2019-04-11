@@ -29,6 +29,8 @@ public class InputPanel extends JPanel {
         g.drawImage(image, 0, 0, this);         
     }
     
+    
+    
     private static void setInputTextField() {
         List<String> keywords = new ArrayList<>();
         keywords.add("video");
@@ -37,7 +39,7 @@ public class InputPanel extends JPanel {
         keywords.add("music");
         keywords.add("translate");
         keywords.add("map");
-        keywords.add("anime");
+        keywords.add("mail");
         keywords.add("web");
         keywords.add("open");
         keywords.add("data structure");
