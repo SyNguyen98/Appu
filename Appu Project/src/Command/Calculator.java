@@ -93,7 +93,7 @@ public class Calculator {
     }
     
     public static String getResult() {
-        Internet.online = false;
+        Performance.online = false;
         String commandString = InputPanel.inputField.getText();
         String postfix = infix2Postfix(commandString);
         return calculator(postfix);
