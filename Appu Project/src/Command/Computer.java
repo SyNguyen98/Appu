@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 public class Computer {
     private static final Desktop desktop = Desktop.getDesktop();
     private static final JSONParser parser = new JSONParser();
-    public static boolean online;
+    
     
     private static String readDatabase(String command) { 
         try {
@@ -42,7 +42,7 @@ public class Computer {
                 proc = runtime.exec(control);
             } catch (IOException ex) {}
             System.exit(0);
-            online = false;
+            Performance.online = false;
         }
         if(command.contains("open word")) {
             try {
@@ -50,7 +50,7 @@ public class Computer {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            online = false;
+            Performance.online = false;
         }
         if(command.contains("open powerpoint")) {
             try {
@@ -58,7 +58,7 @@ public class Computer {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            online = false;
+            Performance.online = false;
         }
         if(command.contains("open excel")) {
             try {
@@ -66,7 +66,7 @@ public class Computer {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            online = false;
+            Performance.online = false;
         }
         if(command.contains("data structure")) {
             try {
@@ -74,7 +74,7 @@ public class Computer {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            online = false;
+            Performance.online = false;
         }
     }
 }
