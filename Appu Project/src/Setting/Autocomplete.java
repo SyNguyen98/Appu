@@ -10,7 +10,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 
-public class Autocomplete implements DocumentListener {
+public class AutoComplete implements DocumentListener {
 
     private static enum Mode {
         INSERT,
@@ -21,7 +21,7 @@ public class Autocomplete implements DocumentListener {
     private final List<String> keywords;
     private Mode mode = Mode.INSERT;
 
-    public Autocomplete(JTextField textField, List<String> keywords) {
+    public AutoComplete(JTextField textField, List<String> keywords) {
         this.textField = textField;
         this.keywords = keywords;
         Collections.sort(keywords);
