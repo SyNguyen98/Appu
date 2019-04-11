@@ -35,8 +35,8 @@
         "WebTail" : ""
     }
     {
-        "Key" : "#anime",
-        "WebHead" : "",
-        "WebTail" : ""
+        "Key" : "#web",
+        "WebHead" : "https://www.",
+        "WebTail" : ".com/"
     }
 ]
