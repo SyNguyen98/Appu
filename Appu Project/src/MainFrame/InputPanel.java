@@ -1,6 +1,6 @@
 package MainFrame;
 
-import Setting.Autocomplete;
+import Setting.AutoComplete;
 import Shape.RoundTextField;
 import java.awt.Color;
 import java.awt.Font;
@@ -44,7 +44,7 @@ public class InputPanel extends JPanel {
         keywords.add("open");
         keywords.add("data structure");
         
-        Autocomplete autoComplete = new Autocomplete(inputField, keywords);
+        AutoComplete autoComplete = new AutoComplete(inputField, keywords);
         
         inputField.setBounds(30, 15, 350, 50);
         inputField.setOpaque(false);       
