@@ -10,7 +10,7 @@
         "WebTail" : "&source=lnms&tbm=isch&sa=X&ved=0ahUKEwje8pbnxvvgAhVaUN4KHfIUBtAQ_AUIDigB&biw=1366&bih=695"
     }
     {
-        "Key" : "#face",
+        "Key" : "#facebook",
         "WebHead" : "https://www.facebook.com/",
         "WebTail" : ""
     }
@@ -27,6 +27,16 @@
     {
         "Key" : "#map",
         "WebHead" : "https://www.google.com/maps/dir/",
+        "WebTail" : ""
+    }
+    {
+        "Key" : "#mail",
+        "WebHead" : "https://mail.google.com/",
+        "WebTail" : ""
+    }
+    {
+        "Key" : "#anime",
+        "WebHead" : "",
         "WebTail" : ""
     }
 ]
