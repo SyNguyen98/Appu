@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class InputPanel extends JPanel {
-    public static final RoundTextField inputField = new RoundTextField();
+    public static final RoundTextField inputField = new RoundTextField("Say something");
     
     @Override
     protected void paintComponent(Graphics g) {
@@ -49,6 +49,7 @@ public class InputPanel extends JPanel {
         inputField.setBackground(new Color(0,0,51));
         inputField.setForeground(Color.WHITE);
         inputField.setFont(new Font("Arial", 2, 14));
+        inputField.setHorizontalAlignment(inputField.CENTER);
         inputField.setFocusTraversalKeysEnabled(false);
         inputField.getDocument().addDocumentListener(autoComplete);
         inputField.getInputMap().put(KeyStroke.getKeyStroke("TAB"), "commit");
