@@ -17,17 +17,16 @@ public class Internet {
     private static final Desktop desktop = Desktop.getDesktop();
     private static final JSONParser parser = new JSONParser();
     
-    private static String readDatabase(String command) { 
-        String name = "";
+    private static String getLink(String command) { 
         try {
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Website.json"));
             for (Object obj : jsonArray) {                 
                 JSONObject jsonObject = (JSONObject) obj;               
                 String key = (String) jsonObject.get("Key");
-                int KeyIndex = command.indexOf(key);
-                if(KeyIndex != -1) {
-                    KeyIndex += key.length();
-                    name = command.substring(++KeyIndex);
+                if (command.contains(key)) {
+                    String name = command.replace(key + " ", "");
+                    if (name.length() > 0)
+                        name = name.replace(" ", "+");
                     String link = (String) jsonObject.get("WebHead") + name + (String) jsonObject.get("WebTail");
                     return link;
                 }
@@ -39,9 +38,8 @@ public class Internet {
     
     public static void accessInternet() {   
         String command = InputPanel.inputField.getText();
-        command = command.replace(" ", "+");
 
-        String url = readDatabase(command);
+        String url = getLink(command);
         if (url != null)
             try {
                 desktop.browse(new URI(url));
