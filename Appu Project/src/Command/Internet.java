@@ -16,7 +16,6 @@ import org.json.simple.parser.ParseException;
 public class Internet {
     private static final Desktop desktop = Desktop.getDesktop();
     private static final JSONParser parser = new JSONParser();
-    public static boolean online;
     
     private static String readDatabase(String command) { 
         String name = "";
