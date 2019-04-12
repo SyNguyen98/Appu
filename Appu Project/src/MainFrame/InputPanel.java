@@ -29,8 +29,6 @@ public class InputPanel extends JPanel {
         g.drawImage(image, 0, 0, this);         
     }
     
-    
-    
     private static void setInputTextField() {
         List<String> keywords = new ArrayList<>();
         keywords.add("video");
