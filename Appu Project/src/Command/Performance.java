@@ -22,7 +22,7 @@ import org.json.simple.parser.ParseException;
 public class Performance {
     private static int length = 0;
     private static final JSONParser parser = new JSONParser();
-    public static boolean online = true;
+    public static boolean online;
     
     private static String readDatabase(String keyString) {
         try {
@@ -83,6 +83,7 @@ public class Performance {
                 setAnswer();
                 setMainPanel();
                 
+                online = true;
                 Computer.controlComputer();  
                 
                 if(Calculator.findKey(InputPanel.inputField.getText()))
