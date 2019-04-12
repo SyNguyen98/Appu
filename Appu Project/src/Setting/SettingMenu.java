@@ -3,35 +3,36 @@ package Setting;
 import MainFrame.TitlePanel;
 import OtherFrame.GuideFrame;
 import OtherFrame.InformationFrame;
+import OtherFrame.MiniFrame;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
     private static JMenuItem avatarItem, nameItem, helpItem, infoItem, driveItem;
     private static final GuideFrame guideFrame = new GuideFrame();
-    private static final InformationFrame infoFrame = new InformationFrame();
+    private static final JFrame infoFrame = new InformationFrame();
+    private static final FrameDrag infoFrameDrag = new FrameDrag(infoFrame);
     
     private static void changeAvatar() {
         avatarItem = new JMenuItem(" Change Avatar");
         avatarItem.setFont(new Font("Arial", 1, 15));
         avatarItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/avatar-icon.png")));
-        avatarItem.setBackground(Color.CYAN);
+        avatarItem.setBackground(new Color(0, 0, 51));
+        avatarItem.setForeground(Color.WHITE);
         avatarItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ChangeAvatar.setAvatar();
+                ChangeInfo.setAvatar();
             }
         });
     }
@@ -40,15 +41,12 @@ public class SettingMenu extends JPopupMenu {
         nameItem = new JMenuItem(" Change Name");
         nameItem.setFont(new Font("Arial", 1, 15));
         nameItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/name-icon.png")));
-        nameItem.setBackground(Color.ORANGE);
+        nameItem.setBackground(new Color(0, 0, 102));
+        nameItem.setForeground(Color.WHITE);
         nameItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String name = JOptionPane.showInputDialog(null);
-                TitlePanel.nameLabel.setText(name);
-                try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Pictures/Name.txt"))) {
-                    bw.write(name);
-                } catch (IOException ex) {}
+                ChangeInfo.setName();
             }
         });
     }
@@ -57,7 +55,8 @@ public class SettingMenu extends JPopupMenu {
         helpItem = new JMenuItem(" Help");
         helpItem.setFont(new Font("Arial", 1, 15));
         helpItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/help-icon.png")));
-        helpItem.setBackground(Color.YELLOW);
+        helpItem.setBackground(new Color(0, 0, 153));
+        helpItem.setForeground(Color.WHITE);
         helpItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -66,24 +65,28 @@ public class SettingMenu extends JPopupMenu {
         });
     }
     
-    private static void setInformation() {
+    private static void information() {
         infoItem = new JMenuItem(" Information");
         infoItem.setFont(new Font("Arial", 1, 15));
         infoItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/i-icon.png")));
-        infoItem.setBackground(Color.WHITE);
+        infoItem.setBackground(new Color(0, 0, 204));
+        infoItem.setForeground(Color.WHITE);
         infoItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 infoFrame.setVisible(true);
+                infoFrame.addMouseListener(infoFrameDrag);
+                infoFrame.addMouseMotionListener(infoFrameDrag);
             }
         });
     }
     
-    private static void setDrive() {
+    private static void drive() {
         driveItem = new JMenuItem(" Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
         driveItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/drive-icon.png")));
-        driveItem.setBackground(Color.GREEN);
+        driveItem.setBackground(new Color(0, 0, 255));
+        driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -94,7 +97,7 @@ public class SettingMenu extends JPopupMenu {
             }
         });
     }
-    
+
     public SettingMenu() {
         changeAvatar();
         add(avatarItem);
@@ -102,9 +105,9 @@ public class SettingMenu extends JPopupMenu {
         add(nameItem);
         help();
         add(helpItem);
-        setInformation();
+        information();
         add(infoItem);
-        setDrive();
+        drive();
         add(driveItem);
     }
 }
