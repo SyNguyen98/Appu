@@ -1,5 +1,6 @@
 package MainFrame;
 
+import OtherFrame.MiniFrame;
 import Setting.SettingMenu;
 import Shape.CircleButton;
 import Shape.CircleLabel;
@@ -10,6 +11,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,6 +29,7 @@ public class TitlePanel extends JPanel {
     public static JLabel imageLabel, nameLabel;
     private static JButton exitButton, settingButton;
     private static final SettingMenu settingMenu = new SettingMenu();
+    private static final MiniFrame miniFrame = new MiniFrame();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -92,6 +96,13 @@ public class TitlePanel extends JPanel {
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
+        imageLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                MainFrame.frame.setVisible(false);
+                miniFrame.setVisible(true);
+            } 
+        });
         add(imageLabel);
     }
     
