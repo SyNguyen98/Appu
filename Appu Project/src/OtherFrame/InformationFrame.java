@@ -2,12 +2,10 @@
 package OtherFrame;
 
 import MainFrame.TitlePanel;
-import Setting.FrameDrag;
 import Shape.CircleButton;
 import Shape.CircleLabel;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,9 +20,7 @@ import javax.swing.JLabel;
 
 public class InformationFrame extends JFrame {
     private static JButton exitButton;   
-    private JLabel iconLabel, versionLabel, infoLabel,
-                   dev1Label, dev2Label, dev3Label,
-                   name1Label, name2Label, name3Label;
+    private JLabel iconLabel, versionLabel, infoLabel;
     
     private void setExitButton() {
         exitButton = new CircleButton();
@@ -59,44 +55,6 @@ public class InformationFrame extends JFrame {
     }
     
     private void setInfo() {
-//        dev1Label = new JLabel();
-//        try {
-//            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Nguyen.jpg"));
-//            dev1Label.setIcon(CircleLabel.setImageLabel(image));
-//        } catch (IOException ex) {}
-//        dev1Label.setBounds(115, 130, 70, 70);
-//        this.add(dev1Label);
-//        name1Label = new JLabel("Sỹ Nguyên");
-//        name1Label.setBounds(115, 188, 100, 40);
-//        name1Label.setFont(new Font("Arial", 3, 14));
-//        name1Label.setForeground(Color.BLACK);
-//        this.add(name1Label);
-//
-//        dev2Label = new JLabel();
-//        try {
-//            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Tung.jpg"));
-//            dev2Label.setIcon(CircleLabel.setImageLabel(image));
-//        } catch (IOException ex) {}
-//        dev2Label.setBounds(10, 130, 70, 70);
-//        this.add(dev2Label);
-//        name2Label = new JLabel("Thanh Tùng");
-//        name2Label.setBounds(3, 188, 100, 40);
-//        name2Label.setFont(new Font("Arial", 3, 14));
-//        name2Label.setForeground(Color.BLACK);
-//        this.add(name2Label);
-//        
-//        dev3Label = new JLabel();
-//        try {
-//            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Dang.jpg"));
-//            dev3Label.setIcon(CircleLabel.setImageLabel(image));
-//        } catch (IOException ex) {}
-//        dev3Label.setBounds(210, 130, 70, 70);
-//        this.add(dev3Label);
-//        name3Label = new JLabel("Hải Đăng");
-//        name3Label.setBounds(212, 188, 100, 40);
-//        name3Label.setFont(new Font("Arial", 3, 14));
-//        name3Label.setForeground(Color.BLACK);
-//        this.add(name3Label);
         infoLabel = new JLabel();
         infoLabel.setBounds(10, 65, 280, 170);
         infoLabel.setForeground(Color.WHITE);
