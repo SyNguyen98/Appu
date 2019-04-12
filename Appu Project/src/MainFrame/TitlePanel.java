@@ -37,9 +37,7 @@ public class TitlePanel extends JPanel {
         BufferedImage image = null;
         try {                
             image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Title.jpg"));
-        } catch (IOException ex) {
-            ex.getMessage();
-        }
+        } catch (IOException ex) {}
         g.drawImage(image, 0, 0, this);         
     }
     
