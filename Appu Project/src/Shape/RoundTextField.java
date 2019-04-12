@@ -35,9 +35,8 @@ public class RoundTextField extends JTextField implements FocusListener {
 
     @Override
     public boolean contains(int x, int y) {
-        if (shape == null || !shape.getBounds().equals(getBounds())) {
+        if (shape == null || !shape.getBounds().equals(getBounds()))
             shape = new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, 40, 40);
-        }
         return shape.contains(x, y);
     }
 
