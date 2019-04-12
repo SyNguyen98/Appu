@@ -16,7 +16,7 @@ public class Computer {
     private static final JSONParser parser = new JSONParser();
     
     
-    private static String readDatabase(String command) { 
+    private static String getCommand(String command) { 
         try {
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/ControlPC.json"));
             for (Object obj : jsonArray) {                 
@@ -36,7 +36,7 @@ public class Computer {
         Runtime runtime = Runtime.getRuntime();
         Process proc = null;
         
-        String control = readDatabase(command);
+        String control = getCommand(command);
         if (control != null) {
             try {
                 proc = runtime.exec(control);
