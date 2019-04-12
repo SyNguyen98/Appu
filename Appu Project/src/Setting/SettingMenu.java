@@ -3,7 +3,6 @@ package Setting;
 import MainFrame.TitlePanel;
 import OtherFrame.GuideFrame;
 import OtherFrame.InformationFrame;
-import OtherFrame.MiniFrame;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
