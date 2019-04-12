@@ -2,20 +2,46 @@
 package OtherFrame;
 
 import MainFrame.TitlePanel;
+import Setting.FrameDrag;
+import Shape.CircleButton;
 import Shape.CircleLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class InformationFrame extends JFrame {
+    private static JButton exitButton;   
     private JLabel iconLabel, versionLabel, infoLabel,
                    dev1Label, dev2Label, dev3Label,
                    name1Label, name2Label, name3Label;
+    
+    private void setExitButton() {
+        exitButton = new CircleButton();
+        try {
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exit.png"));
+            exitButton.setIcon(new ImageIcon(image));
+        } catch (IOException ex) {}
+        exitButton.setBounds(265, 5, 30, 30);
+        exitButton.setToolTipText("Exit");
+        add(exitButton);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                setVisible(false);
+            }
+        });
+    }
 
     private void setIcon() {
         iconLabel = new JLabel();
@@ -83,15 +109,18 @@ public class InformationFrame extends JFrame {
     }
 
     public InformationFrame() {
-        setIcon();
-        setInfo();
-        add(new JLabel(new ImageIcon(InformationFrame.class.getResource("/Pictures/Info.jpg"))));
-        setTitle("App's Information");
-        setSize(300, 300);
-        setResizable(false);
-        setLocationRelativeTo(null);
         try {
             setIconImage(ImageIO.read(InformationFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
+        setSize(300, 300);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setLayout(null);
+        setUndecorated(true);
+        setShape(new RoundRectangle2D.Double(0, 0, 300, 300, 50, 50));
+        
+        setExitButton();
+        setIcon();
+        setInfo();
     }
 }
