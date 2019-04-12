@@ -2,10 +2,6 @@ package Command;
 
 import MainFrame.InputPanel;
 import MainFrame.MainPanel;
-import static MainFrame.MainPanel.answerPanel;
-import static MainFrame.MainPanel.commandPanel;
-import static MainFrame.MainPanel.iconLabel;
-import static MainFrame.MainPanel.timeLabel;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,18 +51,18 @@ public class Performance {
     
     private static void setAnswer() {
         MainPanel.setAnswerPanel();
-        MainPanel.iconLabel.setBounds(10, commandPanel.getHeight() + 37 + length, 35, 35);
+        MainPanel.iconLabel.setBounds(10, MainPanel.commandPanel.getHeight() + 37 + length, 35, 35);
         MainPanel.iconLabel.setVisible(true);
-        MainPanel.answerPanel.setBounds(55, commandPanel.getHeight() + length + 35, 160, 40);
+        MainPanel.answerPanel.setBounds(55, MainPanel.commandPanel.getHeight() + length + 35, 160, 40);
         MainPanel.answerPanel.setVisible(true);
     }
     
     static void setMainPanel() {
-        MainPanel.mainPanel.setPreferredSize(new Dimension(MainPanel.mainPanel.getWidth(), MainPanel.mainPanel.getHeight() + commandPanel.getHeight()));
-        MainPanel.mainPanel.add(timeLabel);
-        MainPanel.mainPanel.add(commandPanel);
-        MainPanel.mainPanel.add(answerPanel);
-        MainPanel.mainPanel.add(iconLabel);
+        MainPanel.mainPanel.setPreferredSize(new Dimension(MainPanel.mainPanel.getWidth(), MainPanel.mainPanel.getHeight() + MainPanel.commandPanel.getHeight()));
+        MainPanel.mainPanel.add(MainPanel.timeLabel);
+        MainPanel.mainPanel.add(MainPanel.commandPanel);
+        MainPanel.mainPanel.add(MainPanel.answerPanel);
+        MainPanel.mainPanel.add(MainPanel.iconLabel);
         MainPanel.mainPanel.revalidate();
     }
     
@@ -95,7 +91,7 @@ public class Performance {
                     Internet.accessInternet();
                 
                 InputPanel.inputField.setText("");
-                length += timeLabel.getHeight() + commandPanel.getHeight() + answerPanel.getHeight() + 10;
+                length += MainPanel.timeLabel.getHeight() + MainPanel.commandPanel.getHeight() + MainPanel.answerPanel.getHeight() + 10;
             }
         });
 
