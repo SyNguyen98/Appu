@@ -88,9 +88,8 @@ public class TitlePanel extends JPanel {
     
     private void setAvatarLabel() {
         imageLabel = new JLabel();
-        BufferedImage image = null;
         try {                      
-            image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
