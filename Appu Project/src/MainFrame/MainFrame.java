@@ -23,7 +23,7 @@ public class MainFrame {
     private static final JLabel introLabel = new JLabel();
 
     private static void setIntro() {
-//        Sound.play("src/Sound/Endgame.wav");
+        Sound.play("src/Sound/Endgame.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(0, 0, 480, 640);
         frame.add(introLabel);
