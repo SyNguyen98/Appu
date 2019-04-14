@@ -21,7 +21,7 @@ public class SettingMenu extends JPopupMenu {
     private static final GuideFrame guideFrame = new GuideFrame();
     private static final JFrame infoFrame = new InformationFrame();
     private static final FrameDrag infoFrameDrag = new FrameDrag(infoFrame);
-    
+
     private static void changeAvatar() {
         avatarItem = new JMenuItem(" Change Avatar");
         avatarItem.setFont(new Font("Arial", 1, 15));
