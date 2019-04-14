@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 
 public class InformationFrame extends JFrame {
     private static JButton exitButton;   
-    private JLabel iconLabel, versionLabel, infoLabel;
+    private JLabel iconLabel, versionLabel, infoLabel, infoLabel1;
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -87,14 +87,21 @@ public class InformationFrame extends JFrame {
     
     private void setInfo() {
         infoLabel = new JLabel();
-        infoLabel.setBounds(10, 65, 280, 170);
-        infoLabel.setForeground(Color.WHITE);
-        infoLabel.setFont(new Font("Arial", 3, 14));
-        infoLabel.setText("<html>xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx "
-                            + "xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx "
-                            + "xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx "
-                            + "xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx</html>");
+        infoLabel.setBounds(10, 80, 280, 170);
+        infoLabel.setForeground(Color.BLACK);
+        infoLabel.setFont(new Font("Arial", 3, 11));
+        infoLabel.setText("<html>   i.Sekai is a multimedia virtual assistant developed by a mystery anomyous team, written in Java programming."
+                            + " The name of software has inspiration from the meaning 'The World' in Japanese, compline with 'i' to create"
+                            + " a new convinient and modern world for almost users on Windows OS. It can make not only an impression in the way using computer"
+                            + " but also change the experience when you surfing internet. Let's try it once, you will lust to use it again!"
+                            + "</html>");
+        infoLabel1 = new JLabel();
+        infoLabel1.setBounds(118, 145, 200, 200);
+        infoLabel1.setForeground(Color.ORANGE);
+        infoLabel1.setFont(new Font("Arial", 3, 10));
+        infoLabel1.setText("<html> Lastest updated on 14th April 2019. </html>");
         add(infoLabel);
+        add(infoLabel1);
     }
 
     public InformationFrame() {
