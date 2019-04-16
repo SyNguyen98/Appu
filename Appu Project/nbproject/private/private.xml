@@ -12,10 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/MainFrame.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Setting/SettingMenu.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/OtherFrame/BrowserFrame.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/TitlePanel.java</file>
+=======
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/MainFrame.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/InputPanel.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/MainPanel.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Setting/SettingMenu.java</file>
+>>>>>>> 6be933cbb0c2b559e9f09708cc88ed0c3ae529d8
         </group>
     </open-files>
 </project-private>
