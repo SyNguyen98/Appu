@@ -1,11 +1,14 @@
 package MainFrame;
 
 import Setting.AutoComplete;
+import Setting.MentionMenu;
 import Shape.CircleButton;
 import Shape.RoundTextField;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,11 +21,13 @@ import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.KeyStroke;
 
 public class InputPanel extends JPanel {
     public static final RoundTextField inputField = new RoundTextField("Say something...");
-    private static JButton mensionButton;
+    private static JButton mentionButton;
+    private static JPopupMenu mentionMenu = new MentionMenu();
     
     @Override
     protected void paintComponent(Graphics g) {
@@ -61,17 +66,23 @@ public class InputPanel extends JPanel {
         add(inputField);
     }
 
-    private void setMensionButton() {
-        mensionButton = new CircleButton();
-        mensionButton.setIcon(new ImageIcon("src/Pictures/Exit.png"));
-        mensionButton.setBounds(410, 20, 40, 40);
-        add(mensionButton);
+    private void setMentionButton() {
+        mentionButton = new CircleButton();
+        mentionButton.setIcon(new ImageIcon("src/Pictures/Exit.png"));
+        mentionButton.setBounds(410, 20, 40, 40);
+        mentionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                mentionMenu.show(mentionButton, 0, -mentionButton.getHeight());
+            }
+        });
+        add(mentionButton);
     }
         
     public InputPanel() {
         setBounds(0, 560, 480, 80);
         setLayout(new GroupLayout(this));       
         setInputTextField();
-        setMensionButton();
+        setMentionButton();
     }
 }
