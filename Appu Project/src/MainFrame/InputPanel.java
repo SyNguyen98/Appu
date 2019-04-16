@@ -37,7 +37,7 @@ public class InputPanel extends JPanel {
     
     private void setMensionButton() {
         mensionButton = new CircleButton();
-        mensionButton.setIcon(new ImageIcon("src/Pictures/Mension.jpg"));
+        mensionButton.setIcon(new ImageIcon("src/Pictures/Exit.png"));
         mensionButton.setBounds(410, 20, 40, 40);
         add(mensionButton);
     }
