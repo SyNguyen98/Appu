@@ -1,6 +1,7 @@
 package MainFrame;
 
 import Setting.AutoComplete;
+import Shape.CircleButton;
 import Shape.RoundTextField;
 import java.awt.Color;
 import java.awt.Font;
@@ -14,11 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class InputPanel extends JPanel {
     public static final RoundTextField inputField = new RoundTextField("Say something...");
+    private static JButton mensionButton;
     
     @Override
     protected void paintComponent(Graphics g) {
@@ -31,8 +35,8 @@ public class InputPanel extends JPanel {
         }
         g.drawImage(image, 0, 0, this);         
     }
-    
-    private static void setInputTextField() {
+
+    private void setInputTextField() {
          List<String> keywords = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/Database/KeyAutoComplete.txt"))) {
             String line = br.readLine(); 
@@ -42,7 +46,6 @@ public class InputPanel extends JPanel {
             }
         } catch (FileNotFoundException ex) {
         } catch (IOException ex) {}
-        
         AutoComplete autoComplete = new AutoComplete(inputField, keywords);
         
         inputField.setBounds(30, 15, 350, 50);
@@ -55,12 +58,20 @@ public class InputPanel extends JPanel {
         inputField.getDocument().addDocumentListener(autoComplete);
         inputField.getInputMap().put(KeyStroke.getKeyStroke("TAB"), "commit");
         inputField.getActionMap().put("commit", autoComplete.new CommitAction());
+        add(inputField);
+    }
+
+    private void setMensionButton() {
+        mensionButton = new CircleButton();
+        mensionButton.setIcon(new ImageIcon("src/Pictures/Exit.png"));
+        mensionButton.setBounds(410, 20, 40, 40);
+        add(mensionButton);
     }
         
     public InputPanel() {
         setBounds(0, 560, 480, 80);
         setLayout(new GroupLayout(this));       
         setInputTextField();
-        add(inputField);
+        setMensionButton();
     }
 }
