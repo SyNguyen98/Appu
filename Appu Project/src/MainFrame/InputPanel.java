@@ -6,6 +6,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,17 +33,15 @@ public class InputPanel extends JPanel {
     }
     
     private static void setInputTextField() {
-        List<String> keywords = new ArrayList<>();
-        keywords.add("video");
-        keywords.add("picture");
-        keywords.add("facebook");
-        keywords.add("music");
-        keywords.add("translate");
-        keywords.add("map");
-        keywords.add("mail");
-        keywords.add("web");
-        keywords.add("open");
-        keywords.add("data structure");
+         List<String> keywords = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/KeyAutoComplete.txt"))) {
+            String line = br.readLine(); 
+            while (line != null) {
+                keywords.add(line);
+                line = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {}
         
         AutoComplete autoComplete = new AutoComplete(inputField, keywords);
         
@@ -49,7 +50,7 @@ public class InputPanel extends JPanel {
         inputField.setBackground(new Color(0,0,51));
         inputField.setForeground(Color.WHITE);
         inputField.setFont(new Font("Arial", 2, 14));
-        inputField.setHorizontalAlignment(inputField.CENTER);
+        inputField.setHorizontalAlignment(RoundTextField.CENTER);
         inputField.setFocusTraversalKeysEnabled(false);
         inputField.getDocument().addDocumentListener(autoComplete);
         inputField.getInputMap().put(KeyStroke.getKeyStroke("TAB"), "commit");
