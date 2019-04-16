@@ -1,8 +1,11 @@
 package MainFrame;
 
 import Setting.AutoComplete;
+import Shape.CircleButton;
 import Shape.RoundTextField;
+import java.awt.AWTEventMulticaster;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -11,11 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class InputPanel extends JPanel {
     public static final RoundTextField inputField = new RoundTextField("Say something...");
+    private static JButton mensionButton;
     
     @Override
     protected void paintComponent(Graphics g) {
@@ -29,7 +35,14 @@ public class InputPanel extends JPanel {
         g.drawImage(image, 0, 0, this);         
     }
     
-    private static void setInputTextField() {
+    private void setMensionButton() {
+        mensionButton = new CircleButton();
+        mensionButton.setIcon(new ImageIcon("src/Pictures/Mension.jpg"));
+        mensionButton.setBounds(410, 20, 40, 40);
+        add(mensionButton);
+    }
+    
+    private void setInputTextField() {
         List<String> keywords = new ArrayList<>();
         keywords.add("video");
         keywords.add("picture");
@@ -54,12 +67,13 @@ public class InputPanel extends JPanel {
         inputField.getDocument().addDocumentListener(autoComplete);
         inputField.getInputMap().put(KeyStroke.getKeyStroke("TAB"), "commit");
         inputField.getActionMap().put("commit", autoComplete.new CommitAction());
+        add(inputField);
     }
         
     public InputPanel() {
         setBounds(0, 560, 480, 80);
         setLayout(new GroupLayout(this));       
         setInputTextField();
-        add(inputField);
+        setMensionButton();
     }
 }
