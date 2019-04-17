@@ -88,7 +88,7 @@ public class InformationFrame extends JFrame {
     private void setInfo() {
         infoLabel = new JLabel();
         infoLabel.setBounds(10, 80, 280, 170);
-        infoLabel.setForeground(Color.ORANGE);
+        infoLabel.setForeground(Color.BLACK);
         infoLabel.setFont(new Font("Arial", 3, 11));
         infoLabel.setText("<html>   i.Sekai is a multimedia virtual assistant developed by  a  mystery  anomyous  team,  written  in  Java."
                             + " Software's name has inspiration from the meaning 'The World' in Japanese, compline with 'i' to create"
