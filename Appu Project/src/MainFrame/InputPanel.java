@@ -17,12 +17,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.KeyStroke;
+import javax.swing.UIManager;
 
 public class InputPanel extends JPanel {
     public static final RoundTextField inputField = new RoundTextField("Say something...");
@@ -42,7 +44,7 @@ public class InputPanel extends JPanel {
     }
 
     private void setInputTextField() {
-         List<String> keywords = new ArrayList<>();
+        List<String> keywords = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/Database/KeyAutoComplete.txt"))) {
             String line = br.readLine(); 
             while (line != null) {
@@ -73,7 +75,9 @@ public class InputPanel extends JPanel {
         mentionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                mentionMenu.show(mentionButton, 0, -mentionButton.getHeight());
+                UIManager.put("PopupMenu.background", new Color(0, 0, 51));
+                UIManager.put("PopupMenu.border", BorderFactory.createEmptyBorder());
+                mentionMenu.show(mentionButton, 0, -mentionMenu.getHeight());
             }
         });
         add(mentionButton);
