@@ -5,25 +5,27 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class GuideFrame extends JFrame {
+<<<<<<< HEAD
     private JLabel GUIDE = new JLabel();
     private JLabel StartTurial = new JLabel();
     private JLabel StartImg = new JLabel();
  //   private static final JButton StarTurial = new JButton();
+=======
+>>>>>>> d743ceeaef39a635ba55946d575c96c2423bee63
 
     public GuideFrame() {  
         setResizable(false);
         setTitle("Guide");
-        setSize(540, 550);
+        setSize(500, 500);
         setLocationRelativeTo(null);
         setLayout(null);
         try {
             setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
+<<<<<<< HEAD
         StartTurial.setIcon(new ImageIcon("src/Pictures/1.png"));
         StartTurial.setBounds(10, 10, 300, 80);
         add(StartTurial);
@@ -44,5 +46,7 @@ public class GuideFrame extends JFrame {
         
         
   //      GUIDE.setVisible(false);
+=======
+>>>>>>> d743ceeaef39a635ba55946d575c96c2423bee63
     }
 }
