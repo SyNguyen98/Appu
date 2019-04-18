@@ -2,12 +2,11 @@ package MainFrame;
 
 import Command.Performance;
 import Setting.FrameDrag;
-import java.awt.Color;
+import Sound.Sound;
 import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,7 +23,7 @@ public class MainFrame {
     private static final JLabel introLabel = new JLabel();
 
     private static void setIntro() {
-//        Sound.play("src/Sound/Endgame.wav");
+        Sound.play("src/Sound/Endgame.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
