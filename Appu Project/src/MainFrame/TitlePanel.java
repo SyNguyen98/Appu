@@ -5,10 +5,12 @@ import Setting.SettingMenu;
 import Shape.CircleButton;
 import Shape.CircleLabel;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -26,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TitlePanel extends JPanel {
+    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static JLabel imageLabel, nameLabel;
     private static JButton exitButton, settingButton;
     private static final SettingMenu settingMenu = new SettingMenu();
@@ -98,6 +101,7 @@ public class TitlePanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 MainFrame.frame.setVisible(false);
                 miniFrame.setVisible(true);
+                miniFrame.setLocation((int) screenSize.getWidth() - miniFrame.getWidth(), 25);
             } 
         });
         add(imageLabel);
