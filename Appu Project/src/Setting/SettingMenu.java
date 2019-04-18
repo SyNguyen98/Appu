@@ -19,7 +19,7 @@ public class SettingMenu extends JPopupMenu {
     private static JMenuItem avatarItem, nameItem, helpItem, infoItem, driveItem;
     private static final GuideFrame guideFrame = new GuideFrame();
     private static final JFrame infoFrame = new InformationFrame();
-    private static final FrameDrag infoFrameDrag = new FrameDrag(infoFrame);
+    private static FrameDrag frameDrag;
 
     private void changeAvatar() {
         avatarItem = new JMenuItem(" Change Avatar");
@@ -61,6 +61,9 @@ public class SettingMenu extends JPopupMenu {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 guideFrame.setVisible(true);
+                frameDrag = new FrameDrag(guideFrame);
+                guideFrame.addMouseListener(frameDrag);
+                guideFrame.addMouseMotionListener(frameDrag);
             }
         });
         add(helpItem);
@@ -76,8 +79,9 @@ public class SettingMenu extends JPopupMenu {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 infoFrame.setVisible(true);
-                infoFrame.addMouseListener(infoFrameDrag);
-                infoFrame.addMouseMotionListener(infoFrameDrag);
+                frameDrag = new FrameDrag(infoFrame);
+                infoFrame.addMouseListener(frameDrag);
+                infoFrame.addMouseMotionListener(frameDrag);
             }
         });
         add(infoItem);
