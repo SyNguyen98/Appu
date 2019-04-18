@@ -1,6 +1,5 @@
 package Setting;
 
-import MainFrame.TitlePanel;
 import OtherFrame.GuideFrame;
 import OtherFrame.InformationFrame;
 import java.awt.Color;
@@ -22,10 +21,10 @@ public class SettingMenu extends JPopupMenu {
     private static final JFrame infoFrame = new InformationFrame();
     private static final FrameDrag infoFrameDrag = new FrameDrag(infoFrame);
 
-    private static void changeAvatar() {
+    private void changeAvatar() {
         avatarItem = new JMenuItem(" Change Avatar");
         avatarItem.setFont(new Font("Arial", 1, 15));
-        avatarItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/avatar-icon.png")));
+        avatarItem.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
         avatarItem.setBackground(new Color(0, 0, 51));
         avatarItem.setForeground(Color.WHITE);
         avatarItem.addActionListener(new ActionListener() {
@@ -34,12 +33,13 @@ public class SettingMenu extends JPopupMenu {
                 ChangeInfo.setAvatar();
             }
         });
+        add(avatarItem);
     }
     
-    private static void changeName() {
+    private void changeName() {
         nameItem = new JMenuItem(" Change Name");
         nameItem.setFont(new Font("Arial", 1, 15));
-        nameItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/name-icon.png")));
+        nameItem.setIcon(new ImageIcon("src/Pictures/name-icon.png"));
         nameItem.setBackground(new Color(0, 0, 102));
         nameItem.setForeground(Color.WHITE);
         nameItem.addActionListener(new ActionListener() {
@@ -48,12 +48,13 @@ public class SettingMenu extends JPopupMenu {
                 ChangeInfo.setName();
             }
         });
+        add(nameItem);
     }
     
-    private static void help() {
+    private void help() {
         helpItem = new JMenuItem(" Help");
         helpItem.setFont(new Font("Arial", 1, 15));
-        helpItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/help-icon.png")));
+        helpItem.setIcon(new ImageIcon("src/Pictures/help-icon.png"));
         helpItem.setBackground(new Color(0, 0, 153));
         helpItem.setForeground(Color.WHITE);
         helpItem.addActionListener(new ActionListener() {
@@ -62,12 +63,13 @@ public class SettingMenu extends JPopupMenu {
                 guideFrame.setVisible(true);
             }
         });
+        add(helpItem);
     }
     
-    private static void information() {
+    private void information() {
         infoItem = new JMenuItem(" Information");
         infoItem.setFont(new Font("Arial", 1, 15));
-        infoItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/i-icon.png")));
+        infoItem.setIcon(new ImageIcon("src/Pictures/i-icon.png"));
         infoItem.setBackground(new Color(0, 0, 204));
         infoItem.setForeground(Color.WHITE);
         infoItem.addActionListener(new ActionListener() {
@@ -78,12 +80,13 @@ public class SettingMenu extends JPopupMenu {
                 infoFrame.addMouseMotionListener(infoFrameDrag);
             }
         });
+        add(infoItem);
     }
     
-    private static void drive() {
+    private void drive() {
         driveItem = new JMenuItem(" Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
-        driveItem.setIcon(new ImageIcon(TitlePanel.class.getResource("/Pictures/drive-icon.png")));
+        driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
         driveItem.setBackground(new Color(0, 0, 255));
         driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
@@ -95,18 +98,14 @@ public class SettingMenu extends JPopupMenu {
                 } catch (IOException | URISyntaxException ex) {}
             }
         });
+        add(driveItem);
     }
 
     public SettingMenu() {
         changeAvatar();
-        add(avatarItem);
         changeName();
-        add(nameItem);
         help();
-        add(helpItem);
         information();
-        add(infoItem);
-        drive();
-        add(driveItem);
+        drive();  
     }
 }
