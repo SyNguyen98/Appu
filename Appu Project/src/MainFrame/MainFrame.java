@@ -23,7 +23,7 @@ public class MainFrame {
     private static final JLabel introLabel = new JLabel();
 
     private static void setIntro() {
-        Sound.play("src/Sound/Endgame.wav");
+//        Sound.play("src/Sound/Endgame.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
@@ -44,7 +44,7 @@ public class MainFrame {
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
- //       frame.setAlwaysOnTop(true);
+        frame.setAlwaysOnTop(true);
         frame.addMouseListener(frameDrag);
         frame.addMouseMotionListener(frameDrag);
         try {

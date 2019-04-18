@@ -1,52 +1,91 @@
 package OtherFrame;
 
 import MainFrame.TitlePanel;
+import Shape.CircleButton;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Shape;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class GuideFrame extends JFrame {
-<<<<<<< HEAD
-    private JLabel GUIDE = new JLabel();
-    private JLabel StartTurial = new JLabel();
-    private JLabel StartImg = new JLabel();
- //   private static final JButton StarTurial = new JButton();
-=======
->>>>>>> d743ceeaef39a635ba55946d575c96c2423bee63
 
-    public GuideFrame() {  
-        setResizable(false);
-        setTitle("Guide");
-        setSize(500, 500);
-        setLocationRelativeTo(null);
-        setLayout(null);
+    private JLabel guide;
+    private JLabel startTutorial, startImage;
+    private JButton exitButton;
+    
+    private void setExitButton() {
+        exitButton = new CircleButton();
         try {
-            setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exit.png"));
+            exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
-<<<<<<< HEAD
-        StartTurial.setIcon(new ImageIcon("src/Pictures/1.png"));
-        StartTurial.setBounds(10, 10, 300, 80);
-        add(StartTurial);
-        StartImg.setIcon(new ImageIcon("src/Pictures/2.png"));
-        StartImg.setBounds(100, 80, 340, 340);
-        add(StartImg);
-        StartTurial.addMouseListener(new MouseAdapter() {
+        exitButton.setBounds(450, 15, 30, 30);
+        exitButton.setToolTipText("Exit");
+        add(exitButton);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                setVisible(false);
+            }
+        });
+    }
+
+    private void setStartTutorial() {
+        startTutorial = new JLabel();
+        startTutorial.setIcon(new ImageIcon("src/Pictures/1.png"));
+        startTutorial.setBounds(10, 10, 300, 80);
+        add(startTutorial);
+
+        startImage = new JLabel();
+        startImage.setIcon(new ImageIcon("src/Pictures/2.png"));
+        startImage.setBounds(100, 80, 340, 340);
+        add(startImage);
+
+        startTutorial.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                StartTurial.setVisible(false);
-                StartImg.setVisible(false);
-                GUIDE.setIcon(new ImageIcon("src/Pictures/1.gif"));
-                GUIDE.setBounds(10, 30, 500, 400);
-                add(GUIDE);
-                GUIDE.setVisible(true);
-            } 
+                startTutorial.setVisible(false);
+                startImage.setVisible(false);
+                setGuide();
+                guide.setVisible(true);
+            }
         });
+    }
+    
+    private void setGuide() {
+        guide = new JLabel();
+        guide.setIcon(new ImageIcon("src/Pictures/Dang.jpg"));
+        guide.setBounds(10, 30, 500, 400);
+        add(guide);
+    }
+
+    public GuideFrame() {
+        try {
+            setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
+        } catch (IOException ex) {}
+        try {
+            setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Pictures/Main.jpg")))));
+        } catch (IOException ex) {}
+        setSize(500, 500);
+        setLocationRelativeTo(null);
+        setAlwaysOnTop(true);
+        setLayout(null);
+        setUndecorated(true);
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         
-        
-  //      GUIDE.setVisible(false);
-=======
->>>>>>> d743ceeaef39a635ba55946d575c96c2423bee63
+        setExitButton();
+        setStartTutorial();
     }
 }
