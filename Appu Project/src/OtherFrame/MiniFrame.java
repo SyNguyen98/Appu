@@ -3,10 +3,8 @@ package OtherFrame;
 import MainFrame.MainFrame;
 import Setting.FrameDrag;
 import Shape.CircleLabel;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
@@ -17,7 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class MiniFrame extends JFrame{
-    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private final FrameDrag frameDrag = new FrameDrag(this) {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -58,7 +55,6 @@ public class MiniFrame extends JFrame{
         setAlwaysOnTop(true);
         setUndecorated(true);
         setShape(new Ellipse2D.Double(0, 0, getWidth(), getHeight()));
-        setLocation((int) screenSize.getWidth() - getWidth(), 25);
         addMouseListener(frameDrag);
         addMouseMotionListener(frameDrag);
     }
