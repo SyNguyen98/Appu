@@ -2,12 +2,10 @@ package MainFrame;
 
 import Command.Performance;
 import Setting.FrameDrag;
-import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -45,7 +43,7 @@ public class MainFrame {
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
- //       frame.setAlwaysOnTop(true);
+        frame.setAlwaysOnTop(true);
         frame.addMouseListener(frameDrag);
         frame.addMouseMotionListener(frameDrag);
         try {
