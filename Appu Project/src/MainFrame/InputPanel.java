@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class InputPanel extends JPanel {
         super.paintComponent(g);
         BufferedImage image = null;
         try {                
-            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Input.jpg"));
+            image = ImageIO.read(new File("src/Pictures/Input.jpg"));
         } catch (IOException ex) {
             ex.getMessage();
         }
