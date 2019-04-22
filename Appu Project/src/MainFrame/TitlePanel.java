@@ -39,7 +39,7 @@ public class TitlePanel extends JPanel {
         super.paintComponent(g);
         BufferedImage image = null;
         try {                
-            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Title.jpg"));
+            image = ImageIO.read(new File("src/Pictures/Title.jpg"));
         } catch (IOException ex) {}
         g.drawImage(image, 0, 0, this);         
     }
@@ -58,7 +58,7 @@ public class TitlePanel extends JPanel {
     private void setExitButton() {
         exitButton = new CircleButton();
         try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exit.png"));
+            Image image = ImageIO.read(new File("src/Pictures/Exit.png"));
             exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         exitButton.setBounds(430, 15, 30, 30);
@@ -75,7 +75,7 @@ public class TitlePanel extends JPanel {
     private void setSettingButton() {
         settingButton = new CircleButton();
         try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Gear.png"));
+            Image image = ImageIO.read(new File("src/Pictures/Gear.png"));
             settingButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         settingButton.setBounds(380, 15, 30, 30);
