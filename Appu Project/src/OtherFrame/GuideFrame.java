@@ -1,6 +1,5 @@
 package OtherFrame;
 
-import MainFrame.TitlePanel;
 import Shape.CircleButton;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -8,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -24,7 +24,7 @@ public class GuideFrame extends JFrame {
     private void setExitButton() {
         exitButton = new CircleButton();
         try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exit.png"));
+            Image image = ImageIO.read(new File("src/Pictures/Exit.png"));
             exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         exitButton.setBounds(450, 15, 30, 30);
@@ -75,7 +75,7 @@ public class GuideFrame extends JFrame {
         setUndecorated(true);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         try {
-            setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
+            setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
         } catch (IOException ex) {}
         
         setExitButton();
