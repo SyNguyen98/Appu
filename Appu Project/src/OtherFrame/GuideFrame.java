@@ -68,7 +68,6 @@ public class GuideFrame extends JFrame {
     }
 
     public GuideFrame() {
-        setTitle("Guide");
         setSize(500, 500);
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
