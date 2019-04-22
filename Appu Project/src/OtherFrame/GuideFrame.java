@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -70,8 +71,14 @@ public class GuideFrame extends JFrame {
         setTitle("Guide");
         setSize(500, 500);
         setLocationRelativeTo(null);
+        setAlwaysOnTop(true);
+        setUndecorated(true);
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         try {
             setIconImage(ImageIO.read(TitlePanel.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
+        
+        setExitButton();
+        setStartTutorial();
     }
 }
