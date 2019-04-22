@@ -47,7 +47,7 @@ public class MiniFrame extends JFrame{
 
     public MiniFrame() {
         try {
-            setIconImage(ImageIO.read(MainFrame.class.getResource("/Pictures/Icon.png")));
+            setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
         } catch (IOException ex) {}
         setAvatarLabel();
         setSize(70, 70);
