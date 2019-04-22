@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
@@ -52,7 +53,7 @@ public class MainPanel extends JScrollPane {
         iconLabel = new JLabel();
         BufferedImage image = null;
         try {
-            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.jpg"));
+            image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
             iconLabel.setIcon(CircleLabel.setImageLabel(resize(image, 35, 35)));
         } catch (IOException ex) {} 
         answerPanel = new RoundPanel();
@@ -74,7 +75,7 @@ public class MainPanel extends JScrollPane {
                 super.paintComponent(g);
                 BufferedImage image = null;
                 try {                
-                    image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Main.jpg"));
+                    image = ImageIO.read(new File("src/Pictures/Main.jpg"));
                 } catch (IOException ex) {}
                 g.drawImage(image, 0, 0, this);         
             }
