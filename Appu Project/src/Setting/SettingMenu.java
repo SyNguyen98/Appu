@@ -72,7 +72,7 @@ public class SettingMenu extends JPopupMenu {
     private void information() {
         infoItem = new JMenuItem(" Information");
         infoItem.setFont(new Font("Arial", 1, 15));
-        infoItem.setIcon(new ImageIcon("src/Pictures/i-icon.png"));
+        infoItem.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
         infoItem.setBackground(new Color(0, 0, 204));
         infoItem.setForeground(Color.WHITE);
         infoItem.addActionListener(new ActionListener() {
