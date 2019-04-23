@@ -30,7 +30,7 @@ import javax.swing.UIManager;
 public class InputPanel extends JPanel {
     public static final RoundTextField inputField = new RoundTextField("Say something...");
     private static JButton mentionButton;
-    private static JPopupMenu mentionMenu = new MentionMenu();
+    private static final JPopupMenu mentionMenu = new MentionMenu();
     
     @Override
     protected void paintComponent(Graphics g) {
