@@ -2,7 +2,9 @@ package MainFrame;
 
 import Command.Performance;
 import Setting.FrameDrag;
+import Sound.Sound;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
@@ -22,8 +24,8 @@ public class MainFrame {
     private static final JLabel introLabel = new JLabel();
 
     private static void setIntro() {
-//        Sound.play("src/Sound/Endgame.wav");
-        introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
+        Sound.play("src/Sound/Endgame.wav");
+        introLabel.setIcon(new ImageIcon("src/Pictures/Intro.gif"));
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
     }
@@ -35,7 +37,7 @@ public class MainFrame {
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
 
         try {
-            frame.setIconImage(ImageIO.read(MainFrame.class.getResource("/Pictures/Icon.png")));
+            frame.setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
         } catch (IOException ex) {}
         frame.setSize(480, 640);
         frame.setUndecorated(true);
