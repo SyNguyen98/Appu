@@ -35,13 +35,10 @@ public class InputPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        BufferedImage image = null;
         try {                
-            image = ImageIO.read(new File("src/Pictures/Input.jpg"));
-        } catch (IOException ex) {
-            ex.getMessage();
-        }
-        g.drawImage(image, 0, 0, this);         
+            BufferedImage image = ImageIO.read(new File("src/Pictures/Input.jpg"));
+            g.drawImage(image, 0, 0, this);    
+        } catch (IOException ex) {}     
     }
 
     private void setInputTextField() {
@@ -71,7 +68,7 @@ public class InputPanel extends JPanel {
 
     private void setMentionButton() {
         mentionButton = new CircleButton();
-        mentionButton.setIcon(new ImageIcon("src/Pictures/Exit.png"));
+        mentionButton.setIcon(new ImageIcon("src/Pictures/Mention.png"));
         mentionButton.setBounds(410, 20, 40, 40);
         mentionButton.addActionListener(new ActionListener() {
             @Override
