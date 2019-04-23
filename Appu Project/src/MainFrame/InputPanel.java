@@ -1,6 +1,6 @@
 package MainFrame;
 
-import Setting.AutoComplete;
+import Setting.AutoSuggestor;
 import Setting.MentionMenu;
 import Shape.CircleButton;
 import Shape.RoundTextField;
@@ -24,11 +24,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.KeyStroke;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class InputPanel extends JPanel {
-    public static final RoundTextField inputField = new RoundTextField("Say something...");
+    public static final JTextField inputField = new RoundTextField("Say something...");
     private static JButton mentionButton;
     private static final JPopupMenu mentionMenu = new MentionMenu();
     
@@ -43,7 +43,7 @@ public class InputPanel extends JPanel {
 
     private void setInputTextField() {
         List<String> keywords = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/KeyAutoComplete.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Suggestion.txt"))) {
             String line = br.readLine(); 
             while (line != null) {
                 keywords.add(line);
@@ -51,7 +51,14 @@ public class InputPanel extends JPanel {
             }
         } catch (FileNotFoundException ex) {
         } catch (IOException ex) {}
-        AutoComplete autoComplete = new AutoComplete(inputField, keywords);
+        
+        AutoSuggestor autoSuggestor = new AutoSuggestor(inputField, MainFrame.frame, null, new Color(0, 0, 102), Color.WHITE, Color.WHITE, 0.75f) {
+            @Override
+            public boolean wordTyped(String typedWord) {
+                setDictionary(keywords);
+                return super.wordTyped(typedWord);
+            }
+        };
         
         inputField.setBounds(30, 15, 350, 50);
         inputField.setOpaque(false);       
@@ -60,9 +67,6 @@ public class InputPanel extends JPanel {
         inputField.setFont(new Font("Arial", 2, 14));
         inputField.setHorizontalAlignment(RoundTextField.CENTER);
         inputField.setFocusTraversalKeysEnabled(false);
-        inputField.getDocument().addDocumentListener(autoComplete);
-        inputField.getInputMap().put(KeyStroke.getKeyStroke("TAB"), "commit");
-        inputField.getActionMap().put("commit", autoComplete.new CommitAction());
         add(inputField);
     }
 
