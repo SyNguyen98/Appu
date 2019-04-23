@@ -106,7 +106,7 @@ public class InformationFrame extends JFrame {
 
     public InformationFrame() {
         try {
-            setIconImage(ImageIO.read(InformationFrame.class.getResource("/Pictures/Icon.png")));
+            setIconImage(ImageIO.read(new File("/Pictures/Icon.png")));
         } catch (IOException ex) {}
         setSize(300, 300);
         try {
