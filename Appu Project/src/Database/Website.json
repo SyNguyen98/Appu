@@ -1,41 +1,41 @@
 [
     {
-        "Key" : "#video",
+        "Key" : "video",
         "WebHead" : "https://www.youtube.com/results?search_query=",
         "WebTail" : ""
     }
     {
-        "Key" : "#picture",
+        "Key" : "picture",
         "WebHead" : "https://www.google.com/search?q=",
         "WebTail" : "&source=lnms&tbm=isch&sa=X&ved=0ahUKEwje8pbnxvvgAhVaUN4KHfIUBtAQ_AUIDigB&biw=1366&bih=695"
     }
     {
-        "Key" : "#facebook",
+        "Key" : "facebook",
         "WebHead" : "https://www.facebook.com/",
         "WebTail" : ""
     }
     {
-        "Key" : "#music",
+        "Key" : "music",
         "WebHead" : "https://zingmp3.vn/tim-kiem/bai-hat.html?q=",
         "WebTail" : ""
     }
     {
-        "Key" : "#translate",
+        "Key" : "translate",
         "WebHead" : "https://translate.google.com/?hl=vi#view=home&op=translate&sl=en&tl=vi&text=",
         "WebTail" : ""
     }
     {
-        "Key" : "#map",
+        "Key" : "map",
         "WebHead" : "https://www.google.com/maps/dir/",
         "WebTail" : ""
     }
     {
-        "Key" : "#mail",
+        "Key" : "mail",
         "WebHead" : "https://mail.google.com/",
         "WebTail" : ""
     }
     {
-        "Key" : "#web",
+        "Key" : "web",
         "WebHead" : "https://www.",
         "WebTail" : ".com/"
     }
