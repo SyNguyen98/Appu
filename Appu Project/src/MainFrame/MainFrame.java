@@ -45,7 +45,7 @@ public class MainFrame {
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setAlwaysOnTop(true);
+    //    frame.setAlwaysOnTop(true);
         frame.addMouseListener(frameDrag);
         frame.addMouseMotionListener(frameDrag);
         try {
