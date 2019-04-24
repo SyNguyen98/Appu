@@ -12,7 +12,7 @@ import javax.swing.JPopupMenu;
 
 public class MentionMenu extends JPopupMenu {  
     public MentionMenu() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/KeyAutoComplete.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Suggestion.txt"))) {
             String line = br.readLine(); 
             while (line != null) {
                 JMenuItem item = new JMenuItem();     
