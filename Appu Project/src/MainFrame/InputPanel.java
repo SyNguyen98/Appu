@@ -1,7 +1,7 @@
 package MainFrame;
 
 import Setting.AutoSuggestor;
-import Setting.MentionMenu;
+import Setting.SuggestiveMenu;
 import Shape.CircleButton;
 import Shape.RoundTextField;
 import java.awt.Color;
@@ -30,7 +30,7 @@ import javax.swing.UIManager;
 public class InputPanel extends JPanel {
     public static final JTextField inputField = new RoundTextField("Say something...");
     private static JButton mentionButton;
-    private static final JPopupMenu mentionMenu = new MentionMenu();
+    private static final JPopupMenu mentionMenu = new SuggestiveMenu();
     
     @Override
     protected void paintComponent(Graphics g) {
