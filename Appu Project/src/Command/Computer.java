@@ -27,7 +27,7 @@ public class Computer {
                 }
             }
         } catch (FileNotFoundException e) {
-        } catch (IOException | ParseException ex) {}
+        } catch (IOException | ParseException e) {}
         return null;
     }
     
@@ -47,25 +47,65 @@ public class Computer {
         if(command.contains("open word")) {
             try {
                 desktop.open(new File("C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\WINWORD.exe"));
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            Performance.online = false;
+        }
+        if(command.contains("open pc info")) {
+            try {
+                desktop.open(new File("C:\\Windows\\System32\\dxdiag.exe"));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             Performance.online = false;
         }
         if(command.contains("open powerpoint")) {
             try {
                 desktop.open(new File("C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\POWERPNT.exe"));
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             Performance.online = false;
         }
         if(command.contains("open excel")) {
             try {
                 desktop.open(new File("C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\EXCEL.exe"));
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            Performance.online = false;
+        }
+        if(command.contains("open draw")) {
+            try {
+                desktop.open(new File("C:\\Windows\\System32\\mspaint.exe"));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            Performance.online = false;
+        }
+        if(command.contains("open control")) {
+            try {
+                desktop.open(new File("C:\\Windows\\System32\\control.exe"));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            Performance.online = false;
+        }
+        if(command.contains("open calculator")) {
+            try {
+                desktop.open(new File("C:\\Windows\\System32\\calc.exe"));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             Performance.online = false;
         }
         if(command.contains("data structure")) {
             try {
                 desktop.open(new File("src/Database/visualization.jar"));
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             Performance.online = false;
         }
     }
