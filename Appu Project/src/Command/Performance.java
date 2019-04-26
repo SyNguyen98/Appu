@@ -3,7 +3,6 @@ package Command;
 import MainFrame.InputPanel;
 import MainFrame.MainPanel;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -34,7 +33,7 @@ public class Performance {
             }
         } catch (FileNotFoundException e) {
         } catch (IOException | ParseException e) {}
-        return null;
+        return "Error 404!!!";
     }
     
     private static void setTime() {
