@@ -39,7 +39,7 @@ public class SettingMenu extends JPopupMenu {
         avatarItem = new JMenuItem("Change Avatar");
         avatarItem.setFont(new Font("Arial", 1, 15));
         avatarItem.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
-        avatarItem.setBackground(new Color(0, 0, 51));
+        avatarItem.setBackground(new Color(102,0,102));
         avatarItem.setForeground(Color.WHITE);
         avatarItem.addActionListener(new ActionListener() {
             @Override
@@ -54,7 +54,7 @@ public class SettingMenu extends JPopupMenu {
         nameItem = new JMenuItem("Change Name");
         nameItem.setFont(new Font("Arial", 1, 15));
         nameItem.setIcon(new ImageIcon("src/Pictures/name-icon.png"));
-        nameItem.setBackground(new Color(0, 0, 102));
+        nameItem.setBackground(new Color(102,0,153));
         nameItem.setForeground(Color.WHITE);
         nameItem.addActionListener(new ActionListener() {
             @Override
@@ -106,7 +106,7 @@ public class SettingMenu extends JPopupMenu {
         changLanguage.setFont(new Font("Arial", 1, 15));
         changLanguage.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
         changLanguage.setOpaque(true);
-        changLanguage.setBackground(new Color(0, 0, 204));
+        changLanguage.setBackground(new Color(0, 0, 255));
         changLanguage.setForeground(Color.WHITE);
         setEnglish();
         setVietnamese();
@@ -143,7 +143,7 @@ public class SettingMenu extends JPopupMenu {
         driveItem = new JMenuItem("Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
         driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
-        driveItem.setBackground(new Color(0, 0, 255));
+        driveItem.setBackground(new Color(51,51,255));
         driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
             @Override
