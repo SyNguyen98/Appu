@@ -12,17 +12,31 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
-    private static JMenuItem avatarItem, nameItem, helpItem, infoItem, driveItem;
+    private static JMenuItem avatarItem, nameItem, guideItem, infoItem, englishItem, vietnameseItem, driveItem;
     private static final GuideFrame guideFrame = new GuideFrame();
     private static final JFrame infoFrame = new InformationFrame();
     private static FrameDrag frameDrag;
+    private static JMenu changeInfo, changLanguage;
+    
+    private void changeInfo() {
+        changeInfo = new JMenu("Change Info");
+        changeInfo.setFont(new Font("Arial", 1, 15));
+        changeInfo.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
+        changeInfo.setOpaque(true);
+        changeInfo.setBackground(new Color(0, 0, 51));
+        changeInfo.setForeground(Color.WHITE);
+        changeAvatar();
+        changeName();
+        add(changeInfo);
+    }
 
     private void changeAvatar() {
-        avatarItem = new JMenuItem(" Change Avatar");
+        avatarItem = new JMenuItem("Change Avatar");
         avatarItem.setFont(new Font("Arial", 1, 15));
         avatarItem.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
         avatarItem.setBackground(new Color(0, 0, 51));
@@ -33,11 +47,11 @@ public class SettingMenu extends JPopupMenu {
                 ChangeInfo.setAvatar();
             }
         });
-        add(avatarItem);
+        changeInfo.add(avatarItem);
     }
     
     private void changeName() {
-        nameItem = new JMenuItem(" Change Name");
+        nameItem = new JMenuItem("Change Name");
         nameItem.setFont(new Font("Arial", 1, 15));
         nameItem.setIcon(new ImageIcon("src/Pictures/name-icon.png"));
         nameItem.setBackground(new Color(0, 0, 102));
@@ -48,16 +62,16 @@ public class SettingMenu extends JPopupMenu {
                 ChangeInfo.setName();
             }
         });
-        add(nameItem);
+        changeInfo.add(nameItem);
     }
     
-    private void help() {
-        helpItem = new JMenuItem(" Help");
-        helpItem.setFont(new Font("Arial", 1, 15));
-        helpItem.setIcon(new ImageIcon("src/Pictures/help-icon.png"));
-        helpItem.setBackground(new Color(0, 0, 153));
-        helpItem.setForeground(Color.WHITE);
-        helpItem.addActionListener(new ActionListener() {
+    private void setGuide() {
+        guideItem = new JMenuItem(" Help");
+        guideItem.setFont(new Font("Arial", 1, 15));
+        guideItem.setIcon(new ImageIcon("src/Pictures/help-icon.png"));
+        guideItem.setBackground(new Color(0, 0, 153));
+        guideItem.setForeground(Color.WHITE);
+        guideItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 guideFrame.setVisible(true);
@@ -66,11 +80,11 @@ public class SettingMenu extends JPopupMenu {
                 guideFrame.addMouseMotionListener(frameDrag);
             }
         });
-        add(helpItem);
+        add(guideItem);
     }
     
-    private void information() {
-        infoItem = new JMenuItem(" Information");
+    private void getInformation() {
+        infoItem = new JMenuItem("Information");
         infoItem.setFont(new Font("Arial", 1, 15));
         infoItem.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
         infoItem.setBackground(new Color(0, 0, 204));
@@ -87,8 +101,46 @@ public class SettingMenu extends JPopupMenu {
         add(infoItem);
     }
     
-    private void drive() {
-        driveItem = new JMenuItem(" Drive");
+    private void changLanguage() {
+        changLanguage = new JMenu("Language");
+        changLanguage.setFont(new Font("Arial", 1, 15));
+        changLanguage.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
+        changLanguage.setOpaque(true);
+        changLanguage.setBackground(new Color(0, 0, 204));
+        changLanguage.setForeground(Color.WHITE);
+        setEnglish();
+        setVietnamese();
+        add(changLanguage);
+    }
+    
+    private void setEnglish() {
+        englishItem = new JMenuItem("English");
+        englishItem.setFont(new Font("Arial", 1, 15));
+        englishItem.setBackground(new Color(0, 0, 51));
+        englishItem.setForeground(Color.WHITE);
+        englishItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+            }
+        });
+        changLanguage.add(englishItem);
+    }
+    
+    private void setVietnamese() {
+        vietnameseItem = new JMenuItem("Tiếng Việt");
+        vietnameseItem.setFont(new Font("Arial", 1, 15));
+        vietnameseItem.setBackground(new Color(0, 0, 102));
+        vietnameseItem.setForeground(Color.WHITE);
+        vietnameseItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+            }
+        });
+        changLanguage.add(vietnameseItem);
+    }
+    
+    private void accessDrive() {
+        driveItem = new JMenuItem("Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
         driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
         driveItem.setBackground(new Color(0, 0, 255));
@@ -104,12 +156,12 @@ public class SettingMenu extends JPopupMenu {
         });
         add(driveItem);
     }
-
+    
     public SettingMenu() {
-        changeAvatar();
-        changeName();
-        help();
-        information();
-        drive();  
+        changeInfo();
+        setGuide();
+        getInformation();
+        changLanguage();
+        accessDrive();
     }
 }
