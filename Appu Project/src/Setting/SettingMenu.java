@@ -17,22 +17,22 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
-    private static JMenuItem avatarItem, nameItem, guideItem, infoItem, englishItem, vietnameseItem, driveItem;
+    public static JMenu infoMenu, languageMenu;
+    public static JMenuItem avatarItem, nameItem, guideItem, infoItem, englishItem, vietnameseItem, driveItem;
     private static final GuideFrame guideFrame = new GuideFrame();
     private static final JFrame infoFrame = new InformationFrame();
     private static FrameDrag frameDrag;
-    private static JMenu changeInfo, changLanguage;
     
     private void changeInfo() {
-        changeInfo = new JMenu("Change Info");
-        changeInfo.setFont(new Font("Arial", 1, 15));
-        changeInfo.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
-        changeInfo.setOpaque(true);
-        changeInfo.setBackground(new Color(0, 0, 51));
-        changeInfo.setForeground(Color.WHITE);
+        infoMenu = new JMenu("Change Info");
+        infoMenu.setFont(new Font("Arial", 1, 15));
+        infoMenu.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
+        infoMenu.setOpaque(true);
+        infoMenu.setBackground(new Color(0, 0, 51));
+        infoMenu.setForeground(Color.WHITE);
         changeAvatar();
         changeName();
-        add(changeInfo);
+        add(infoMenu);
     }
 
     private void changeAvatar() {
@@ -47,7 +47,7 @@ public class SettingMenu extends JPopupMenu {
                 ChangeInfo.setAvatar();
             }
         });
-        changeInfo.add(avatarItem);
+        infoMenu.add(avatarItem);
     }
     
     private void changeName() {
@@ -62,7 +62,7 @@ public class SettingMenu extends JPopupMenu {
                 ChangeInfo.setName();
             }
         });
-        changeInfo.add(nameItem);
+        infoMenu.add(nameItem);
     }
     
     private void setGuide() {
@@ -102,15 +102,15 @@ public class SettingMenu extends JPopupMenu {
     }
     
     private void changLanguage() {
-        changLanguage = new JMenu("Language");
-        changLanguage.setFont(new Font("Arial", 1, 15));
-        changLanguage.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
-        changLanguage.setOpaque(true);
-        changLanguage.setBackground(new Color(0, 0, 255));
-        changLanguage.setForeground(Color.WHITE);
+        languageMenu = new JMenu("Language");
+        languageMenu.setFont(new Font("Arial", 1, 15));
+        languageMenu.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
+        languageMenu.setOpaque(true);
+        languageMenu.setBackground(new Color(0, 0, 255));
+        languageMenu.setForeground(Color.WHITE);
         setEnglish();
         setVietnamese();
-        add(changLanguage);
+        add(languageMenu);
     }
     
     private void setEnglish() {
@@ -121,9 +121,10 @@ public class SettingMenu extends JPopupMenu {
         englishItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                Language.setEnglish();
             }
         });
-        changLanguage.add(englishItem);
+        languageMenu.add(englishItem);
     }
     
     private void setVietnamese() {
@@ -134,9 +135,10 @@ public class SettingMenu extends JPopupMenu {
         vietnameseItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                Language.setVietnamese();
             }
         });
-        changLanguage.add(vietnameseItem);
+        languageMenu.add(vietnameseItem);
     }
     
     private void accessDrive() {
