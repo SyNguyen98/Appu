@@ -102,9 +102,9 @@ public class SettingMenu extends JPopupMenu {
     }
     
     private void changLanguage() {
-        languageMenu = new JMenu("Language");
+        languageMenu = new JMenu("Change Language");
         languageMenu.setFont(new Font("Arial", 1, 15));
-        languageMenu.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
+        languageMenu.setIcon(new ImageIcon("src/Pictures/language-icon.png"));
         languageMenu.setOpaque(true);
         languageMenu.setBackground(new Color(0, 0, 255));
         languageMenu.setForeground(Color.WHITE);
