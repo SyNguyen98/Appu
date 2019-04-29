@@ -22,7 +22,9 @@ import javax.swing.JLabel;
 
 public class InformationFrame extends JFrame {
     private static JButton exitButton;   
-    private JLabel iconLabel, versionLabel, infoLabel, infoLabel1;
+    public static JLabel iconLabel;
+    public static JLabel versionLabel;
+    public static JLabel infoLabel, infoLabel1;
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -79,13 +81,13 @@ public class InformationFrame extends JFrame {
         iconLabel.setBounds(125, 10, 60, 60);
         add(iconLabel);
         versionLabel = new JLabel("Version 2.1.7");
-        versionLabel.setBounds(105, iconLabel.getHeight() + 5, 100, 30);
+        versionLabel.setBounds(105, iconLabel.getHeight() + 5, 130, 30);
         versionLabel.setFont(new Font("Arial", 3, 14));
         versionLabel.setForeground(Color.WHITE);
         add(versionLabel);
     }
     
-    private void setInfo() {
+    public void setInfo() {
         infoLabel = new JLabel();
         infoLabel.setBounds(10, 80, 280, 170);
         infoLabel.setForeground(Color.WHITE);
