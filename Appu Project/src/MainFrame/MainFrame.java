@@ -6,6 +6,7 @@ import Setting.Language;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -31,6 +32,14 @@ public class MainFrame {
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
     }
+    
+    public static String getLanguage() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Language.txt"))) {
+            String language = br.readLine();
+            return language;
+        } catch (IOException ex) {}
+        return null;
+    }
 
     public static void main(String[] args) {
         setIntro();
@@ -49,7 +58,7 @@ public class MainFrame {
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
-//        frame.setAlwaysOnTop(true);
+        frame.setAlwaysOnTop(true);
         frame.addMouseListener(frameDrag);
         frame.addMouseMotionListener(frameDrag);
         try {
@@ -60,17 +69,7 @@ public class MainFrame {
         frame.add(inputPanel);
         frame.add(titlePanel);
         frame.add(mainPanel);
-
-//        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Language.txt"))) {
-//            String language = br.readLine();
-//            if (language.equals("english")) {
-//                Language.setEnglish();
-//            } else {
-//                Language.setVietnamese();
-//            }
-//        } catch (IOException ex) {
-//        }
-
+            
         Performance.Do();
     }
 }
