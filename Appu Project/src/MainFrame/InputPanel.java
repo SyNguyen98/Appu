@@ -28,30 +28,32 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class InputPanel extends JPanel {
+
     public static final JTextField inputField = new RoundTextField("Say something...");
-    private static JButton mentionButton;
-    private static final JPopupMenu mentionMenu = new SuggestiveMenu();
-    
+    private static JButton suggestiveButton;
+    private static final JPopupMenu suggestiveMenu = new SuggestiveMenu();
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        try {                
+        try {
             BufferedImage image = ImageIO.read(new File("src/Pictures/Input.jpg"));
-            g.drawImage(image, 0, 0, this);    
-        } catch (IOException ex) {}     
+            g.drawImage(image, 0, 0, this);
+        } catch (IOException ex) {
+        }
     }
 
     private void setInputTextField() {
         List<String> keywords = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Suggestion.txt"))) {
-            String line = br.readLine(); 
+            String line = br.readLine();
             while (line != null) {
                 keywords.add(line);
                 line = br.readLine();
             }
         } catch (FileNotFoundException ex) {
         } catch (IOException ex) {}
-        
+
         AutoSuggestor autoSuggestor = new AutoSuggestor(inputField, MainFrame.frame, null, new Color(0, 0, 102), Color.WHITE, Color.WHITE, 0.75f) {
             @Override
             public boolean wordTyped(String typedWord) {
@@ -59,10 +61,10 @@ public class InputPanel extends JPanel {
                 return super.wordTyped(typedWord);
             }
         };
-        
+
         inputField.setBounds(30, 15, 350, 50);
-        inputField.setOpaque(false);       
-        inputField.setBackground(new Color(0,0,51));
+        inputField.setOpaque(false);
+        inputField.setBackground(new Color(0, 0, 51));
         inputField.setForeground(Color.WHITE);
         inputField.setFont(new Font("Arial", 2, 14));
         inputField.setHorizontalAlignment(RoundTextField.CENTER);
@@ -70,25 +72,25 @@ public class InputPanel extends JPanel {
         add(inputField);
     }
 
-    private void setMentionButton() {
-        mentionButton = new CircleButton();
-        mentionButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
-        mentionButton.setBounds(410, 20, 40, 40);
-        mentionButton.addActionListener(new ActionListener() {
+    private void setSuggestiveButton() {
+        suggestiveButton = new CircleButton();
+        suggestiveButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
+        suggestiveButton.setBounds(410, 20, 40, 40);
+        suggestiveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 UIManager.put("PopupMenu.background", new Color(0, 0, 51));
                 UIManager.put("PopupMenu.border", BorderFactory.createEmptyBorder());
-                mentionMenu.show(mentionButton, 0, -mentionMenu.getHeight());
+                suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
             }
         });
-        add(mentionButton);
+        add(suggestiveButton);
     }
-        
+
     public InputPanel() {
         setBounds(0, 560, 480, 80);
-        setLayout(new GroupLayout(this));       
+        setLayout(new GroupLayout(this));
         setInputTextField();
-        setMentionButton();
+        setSuggestiveButton();
     }
 }
