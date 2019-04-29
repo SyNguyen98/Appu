@@ -26,7 +26,7 @@ public class SettingMenu extends JPopupMenu {
     private void changeInfo() {
         infoMenu = new JMenu("Change Info");
         infoMenu.setFont(new Font("Arial", 1, 15));
-        infoMenu.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
+        infoMenu.setIcon(new ImageIcon("src/Pictures/settings-icon.png"));
         infoMenu.setOpaque(true);
         infoMenu.setBackground(new Color(0, 0, 51));
         infoMenu.setForeground(Color.WHITE);
