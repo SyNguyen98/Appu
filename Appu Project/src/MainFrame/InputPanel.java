@@ -18,20 +18,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 
 public class InputPanel extends JPanel {
 
     public static final JTextField inputField = new RoundTextField("");
     private static JButton suggestiveButton;
-    private static final JPopupMenu suggestiveMenu = new SuggestiveMenu();
+    private JPopupMenu suggestiveMenu;
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -45,7 +43,7 @@ public class InputPanel extends JPanel {
 
     private void setInputTextField() {
         List<String> keywords = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Suggestion.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/SuggestionEnglish.txt"))) {
             String line = br.readLine();
             while (line != null) {
                 keywords.add(line);
@@ -78,9 +76,11 @@ public class InputPanel extends JPanel {
         suggestiveButton.setBounds(410, 20, 40, 40);
         suggestiveButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                UIManager.put("PopupMenu.background", new Color(0, 0, 51));
-                UIManager.put("PopupMenu.border", BorderFactory.createEmptyBorder());
+            public void actionPerformed(ActionEvent ae) {   
+                if ("english".equals(MainFrame.getLanguage()))
+                    suggestiveMenu = new SuggestiveMenu("English");
+                else
+                    suggestiveMenu = new SuggestiveMenu("VietNam");
                 suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
             }
         });
