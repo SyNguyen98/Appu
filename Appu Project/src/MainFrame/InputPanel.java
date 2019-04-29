@@ -29,7 +29,7 @@ import javax.swing.UIManager;
 
 public class InputPanel extends JPanel {
 
-    public static final JTextField inputField = new RoundTextField("Say something...");
+    public static final JTextField inputField = new RoundTextField("");
     private static JButton suggestiveButton;
     private static final JPopupMenu suggestiveMenu = new SuggestiveMenu();
 
@@ -92,5 +92,11 @@ public class InputPanel extends JPanel {
         setLayout(new GroupLayout(this));
         setInputTextField();
         setSuggestiveButton();
+        
+        if ("english".equals(MainFrame.getLanguage())) {
+            inputField.setText("Say something ...");
+        } else {
+            inputField.setText("Hãy nói gì đi ...");
+        }
     }
 }
