@@ -72,7 +72,7 @@ public class InputPanel extends JPanel {
 
     private void setMentionButton() {
         mentionButton = new CircleButton();
-        mentionButton.setIcon(new ImageIcon("src/Pictures/Mention.png"));
+        mentionButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
         mentionButton.setBounds(410, 20, 40, 40);
         mentionButton.addActionListener(new ActionListener() {
             @Override
