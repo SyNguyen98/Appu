@@ -1,5 +1,6 @@
 package Setting;
 
+import MainFrame.MainFrame;
 import OtherFrame.GuideFrame;
 import OtherFrame.InformationFrame;
 import java.awt.Color;
@@ -7,6 +8,8 @@ import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,14 +20,15 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
+
     public static JMenu infoMenu, languageMenu;
     public static JMenuItem avatarItem, nameItem, guideItem, infoItem, englishItem, vietnameseItem, driveItem;
     private static final GuideFrame guideFrame = new GuideFrame();
     private static final JFrame infoFrame = new InformationFrame();
     private static FrameDrag frameDrag;
-    
+
     private void changeInfo() {
-        infoMenu = new JMenu("Change Info");
+        infoMenu = new JMenu();
         infoMenu.setFont(new Font("Arial", 1, 15));
         infoMenu.setIcon(new ImageIcon("src/Pictures/settings-icon.png"));
         infoMenu.setOpaque(true);
@@ -36,10 +40,10 @@ public class SettingMenu extends JPopupMenu {
     }
 
     private void changeAvatar() {
-        avatarItem = new JMenuItem("Change Avatar");
+        avatarItem = new JMenuItem();
         avatarItem.setFont(new Font("Arial", 1, 15));
         avatarItem.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
-        avatarItem.setBackground(new Color(102,0,102));
+        avatarItem.setBackground(new Color(102, 0, 102));
         avatarItem.setForeground(Color.WHITE);
         avatarItem.addActionListener(new ActionListener() {
             @Override
@@ -49,12 +53,12 @@ public class SettingMenu extends JPopupMenu {
         });
         infoMenu.add(avatarItem);
     }
-    
+
     private void changeName() {
-        nameItem = new JMenuItem("Change Name");
+        nameItem = new JMenuItem();
         nameItem.setFont(new Font("Arial", 1, 15));
         nameItem.setIcon(new ImageIcon("src/Pictures/name-icon.png"));
-        nameItem.setBackground(new Color(102,0,153));
+        nameItem.setBackground(new Color(102, 0, 153));
         nameItem.setForeground(Color.WHITE);
         nameItem.addActionListener(new ActionListener() {
             @Override
@@ -64,9 +68,9 @@ public class SettingMenu extends JPopupMenu {
         });
         infoMenu.add(nameItem);
     }
-    
+
     private void setGuide() {
-        guideItem = new JMenuItem(" Help");
+        guideItem = new JMenuItem();
         guideItem.setFont(new Font("Arial", 1, 15));
         guideItem.setIcon(new ImageIcon("src/Pictures/help-icon.png"));
         guideItem.setBackground(new Color(0, 0, 153));
@@ -82,9 +86,9 @@ public class SettingMenu extends JPopupMenu {
         });
         add(guideItem);
     }
-    
+
     private void getInformation() {
-        infoItem = new JMenuItem("Information");
+        infoItem = new JMenuItem();
         infoItem.setFont(new Font("Arial", 1, 15));
         infoItem.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
         infoItem.setBackground(new Color(0, 0, 204));
@@ -100,9 +104,9 @@ public class SettingMenu extends JPopupMenu {
         });
         add(infoItem);
     }
-    
-    private void changLanguage() {
-        languageMenu = new JMenu("Change Language");
+
+    private void changeLanguage() {
+        languageMenu = new JMenu();
         languageMenu.setFont(new Font("Arial", 1, 15));
         languageMenu.setIcon(new ImageIcon("src/Pictures/language-icon.png"));
         languageMenu.setOpaque(true);
@@ -112,7 +116,7 @@ public class SettingMenu extends JPopupMenu {
         setVietnamese();
         add(languageMenu);
     }
-    
+
     private void setEnglish() {
         englishItem = new JMenuItem("English");
         englishItem.setFont(new Font("Arial", 1, 15));
@@ -122,11 +126,15 @@ public class SettingMenu extends JPopupMenu {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 Language.setEnglish();
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Database/Language.txt"))) {
+                    bw.write("english");
+                } catch (IOException ex) {
+                }
             }
         });
         languageMenu.add(englishItem);
     }
-    
+
     private void setVietnamese() {
         vietnameseItem = new JMenuItem("Tiếng Việt");
         vietnameseItem.setFont(new Font("Arial", 1, 15));
@@ -136,16 +144,20 @@ public class SettingMenu extends JPopupMenu {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 Language.setVietnamese();
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Database/Language.txt"))) {
+                    bw.write("vietnamese");
+                } catch (IOException ex) {
+                }
             }
         });
         languageMenu.add(vietnameseItem);
     }
-    
+
     private void accessDrive() {
         driveItem = new JMenuItem("Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
         driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
-        driveItem.setBackground(new Color(51,51,255));
+        driveItem.setBackground(new Color(51, 51, 255));
         driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
             @Override
@@ -153,17 +165,34 @@ public class SettingMenu extends JPopupMenu {
                 Desktop desktop = Desktop.getDesktop();
                 try {
                     desktop.browse(new URI("http://bit.ly/drivelop16vlth"));
-                } catch (IOException | URISyntaxException ex) {}
+                } catch (IOException | URISyntaxException ex) {
+                }
             }
         });
         add(driveItem);
     }
-    
+
     public SettingMenu() {
         changeInfo();
         setGuide();
         getInformation();
-        changLanguage();
+        changeLanguage();
         accessDrive();
+
+        if ("english".equals(MainFrame.getLanguage())) {
+            infoMenu.setText("Change Info");
+            avatarItem.setText("Change Avatar");
+            nameItem.setText("Change Name");
+            guideItem.setText("Guide");
+            infoItem.setText("App's Information");
+            languageMenu.setText("Language");
+        } else {
+            infoMenu.setText("Thay đổi thông tin");
+            avatarItem.setText("Thay ảnh đại diện");
+            nameItem.setText("Thay đổi tên");
+            guideItem.setText("Hướng dẫn");
+            infoItem.setText("Thông tin ứng dụng");
+            languageMenu.setText("Ngôn ngữ");
+        }
     }
 }
