@@ -19,8 +19,10 @@ import javax.swing.Timer;
 public class GuideFrame extends JFrame {
 
     private JLabel title_g1, title_g2, title_g3, guide_1, guide_2, guide_3;
-    private JLabel step1_1, step1_2, step1_3, endGuide_1, endGuide_2, endGuide_3;
-    private JLabel startTutorial, Instruction_logo, Round_Frame, nextGuide;
+    private JLabel step1_1, step1_2, step1_3, endGuide_1, nextGuide;
+    private JLabel step2_1, step2_2, step2_3, nextGuide2;
+    private JLabel step3_1, step3_2, nextGuide3;
+    private JLabel startTutorial, Instruction_logo, Round_Frame;
     private JButton exitButton;
 
     private void setExitButton() {
@@ -64,6 +66,18 @@ public class GuideFrame extends JFrame {
         add(title_g1);
         title_g1.setVisible(false);
         
+        title_g2 = new JLabel();
+        title_g2.setIcon(new ImageIcon("src/Pictures/Title_guide2.png"));
+        title_g2.setBounds(7, 5, 271, 30);
+        add(title_g2);
+        title_g2.setVisible(false);
+        
+        title_g3 = new JLabel();
+        title_g3.setIcon(new ImageIcon("src/Pictures/Title_guide3.png"));
+        title_g3.setBounds(7, 5, 271, 30);
+        add(title_g3);
+        title_g3.setVisible(false);
+        
         endGuide_1 = new JLabel();
         endGuide_1.setIcon(new ImageIcon("src/Pictures/ending_guide1.png"));
         endGuide_1.setBounds(75, 20, 500, 378);
@@ -81,12 +95,26 @@ public class GuideFrame extends JFrame {
         nextGuide.setBounds(580, 480, 55, 55);
         add(nextGuide);
         nextGuide.setVisible(false);
-
+        
+        nextGuide2 = new JLabel();
+        nextGuide2.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextGuide2.setBounds(580, 480, 55, 55);
+        add(nextGuide2);
+        nextGuide2.setVisible(false);
+        
+        nextGuide3 = new JLabel();
+        nextGuide3.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextGuide3.setBounds(580, 480, 55, 55);
+        add(nextGuide3);
+        nextGuide3.setVisible(false);
+        
+        //Start Guide 1:
         startTutorial.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 startTutorial.setVisible(false);
                 Instruction_logo.setVisible(false);
+                
                 Round_Frame.setVisible(true);
                 title_g1.setVisible(true);
 
@@ -110,6 +138,82 @@ public class GuideFrame extends JFrame {
                 timer1.start();
             }
         });
+        
+        //Start guide 2:
+        nextGuide.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+//                startTutorial.setVisible(false);
+//                Instruction_logo.setVisible(false);
+                
+                nextGuide.setVisible(false);
+                title_g1.setVisible(false);
+                endGuide_1.setVisible(false);
+                step1_1.setVisible(false);
+                step1_2.setVisible(false);
+                step1_3.setVisible(false);
+                
+                Round_Frame.setVisible(true);
+                title_g2.setVisible(true);
+                
+                setGuide_2();                
+                Timer timer6 = new Timer(6000, ae -> {
+                    guide_2.setVisible(false);
+                    Round_Frame.setVisible(false);
+                    endGuide_1.setVisible(true);
+                    nextGuide2.setVisible(true);
+                });
+               
+                Timer timer5 = new Timer(10000, ae -> {
+                    step2_1.setVisible(false);
+                    step2_2.setVisible(false);
+                    step2_3.setVisible(true);
+                    timer6.start();
+                });
+                
+                Timer timer4 = new Timer(6000, ae -> {
+                    step2_2.setVisible(true);
+                    timer5.start();
+                });
+                timer4.start();
+                //
+            }
+        });
+        
+        //Start guide 3:
+        nextGuide2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+//                startTutorial.setVisible(false);
+//                Instruction_logo.setVisible(false);
+                
+                nextGuide2.setVisible(false);
+                title_g2.setVisible(false);
+                endGuide_1.setVisible(false);
+                step2_1.setVisible(false);
+                step2_2.setVisible(false);
+                step2_3.setVisible(false);
+                
+                Round_Frame.setVisible(true);
+                title_g3.setVisible(true);
+                
+                setGuide_3();                
+                Timer timer8 = new Timer(14000, ae -> {
+                    guide_3.setVisible(false);
+                    Round_Frame.setVisible(false);
+                    endGuide_1.setVisible(true);
+                    nextGuide3.setVisible(true);
+                });
+                
+                Timer timer7 = new Timer(3000, ae -> {
+                    step2_2.setVisible(true);
+                    timer8.start();
+                });
+                timer7.start();
+                //
+            }
+        });
+        
         
   /*      endGuide_1.addMouseListener(new MouseAdapter() {
             @Override
@@ -186,21 +290,21 @@ public class GuideFrame extends JFrame {
 
     private void setGuide_2() {
         guide_2 = new JLabel();
-        guide_2.setIcon(new ImageIcon("src/Pictures/Guide 1. Normal Using.gif"));
+        guide_2.setIcon(new ImageIcon("src/Pictures/Guide 2. Using with keywords.gif"));
         guide_2.setBounds(75, 20, 500, 378);
 
         step2_1 = new JLabel();
-        step2_1.setIcon(new ImageIcon("src/Pictures/Step 1.1.png"));
-        step2_1.setBounds(110, 390, 400, 38);
+        step2_1.setIcon(new ImageIcon("src/Pictures/Step 2.1.png"));
+        step2_1.setBounds(110, 390, 430, 67);
 
         step2_2 = new JLabel();
-        step2_2.setIcon(new ImageIcon("src/Pictures/Step 1.2.png"));
-        step2_2.setBounds(108, 420, 450, 74);
+        step2_2.setIcon(new ImageIcon("src/Pictures/Step 2.2.png"));
+        step2_2.setBounds(110, 450, 430, 103);
         step2_2.setVisible(false);
 
         step2_3 = new JLabel();
         step2_3.setIcon(new ImageIcon("src/Pictures/Step 1.3.png"));
-        step2_3.setBounds(140, 490, 363, 40);
+        step2_3.setBounds(140, 450, 363, 40);
         step2_3.setVisible(false);
 
         add(guide_2);
@@ -209,7 +313,24 @@ public class GuideFrame extends JFrame {
         add(step2_3);
     }
     
-    
+    private void setGuide_3() {
+        guide_3 = new JLabel();
+        guide_3.setIcon(new ImageIcon("src/Pictures/Guide 3. Open PC app.gif"));
+        guide_3.setBounds(75, 20, 500, 378);
+
+        step3_1 = new JLabel();
+        step3_1.setIcon(new ImageIcon("src/Pictures/Step 3.1.png"));
+        step3_1.setBounds(110, 390, 450, 121);
+
+        step3_2 = new JLabel();
+        step3_2.setIcon(new ImageIcon("src/Pictures/Step 3.2.png"));
+        step3_2.setBounds(110, 460, 365, 40);
+        step3_2.setVisible(false);
+
+        add(guide_3);
+        add(step3_1);
+        add(step3_2);
+    }
     
     public GuideFrame() {
         setLayout(null);
