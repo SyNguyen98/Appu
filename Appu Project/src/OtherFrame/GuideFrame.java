@@ -17,8 +17,8 @@ import javax.swing.JLabel;
 
 public class GuideFrame extends JFrame {
 
-    private JLabel guide;
-    private JLabel startTutorial, startImage;
+    private JLabel guide_1, guide_2, guide_3;
+    private JLabel startTutorial, Instruction_logo;
     private JButton exitButton;
     
     private void setExitButton() {
@@ -27,7 +27,8 @@ public class GuideFrame extends JFrame {
             Image image = ImageIO.read(new File("src/Pictures/Exit.png"));
             exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
-        exitButton.setBounds(450, 15, 30, 30);
+        
+        exitButton.setBounds(600, 15, 30, 30);
         exitButton.setToolTipText("Exit");
         add(exitButton);
         exitButton.addActionListener(new ActionListener() {
@@ -40,35 +41,39 @@ public class GuideFrame extends JFrame {
 
     private void setStartTutorial() {
         startTutorial = new JLabel();
-        startTutorial.setIcon(new ImageIcon("src/Pictures/1.png"));
-        startTutorial.setBounds(10, 10, 300, 80);
+        startTutorial.setIcon(new ImageIcon("src/Pictures/Start_tutorial.png"));
+        startTutorial.setBounds(20, 20, 250, 70);
         add(startTutorial);
 
-        startImage = new JLabel();
-        startImage.setIcon(new ImageIcon("src/Pictures/2.png"));
-        startImage.setBounds(100, 80, 340, 340);
-        add(startImage);
+        Instruction_logo = new JLabel();
+        Instruction_logo.setIcon(new ImageIcon("src/Pictures/Instruction_logo.png"));
+        Instruction_logo.setBounds(100, 50, 450, 450);
+        add(Instruction_logo);
 
         startTutorial.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 startTutorial.setVisible(false);
-                startImage.setVisible(false);
+                Instruction_logo.setVisible(false);
                 setGuide();
-                guide.setVisible(true);
+                guide_1.setVisible(true);
             }
         });
     }
     
     private void setGuide() {
-        guide = new JLabel();
-        guide.setIcon(new ImageIcon("src/Pictures/1.gif"));
-        guide.setBounds(-5, 50, 500, 400);
-        add(guide);
+        guide_1 = new JLabel();
+        guide_1.setIcon(new ImageIcon("src/Pictures/Guide 1. Normal Using.gif"));
+        guide_1.setBounds(75, 30, 500, 378);
+        add(guide_1);
     }
 
     public GuideFrame() {
-        setSize(500, 500);
+        setLayout(null);
+        setSize(650, 550);
+        try {
+            setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Pictures/Guide_ground.jpg")))));
+        } catch (IOException ex) {}
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setUndecorated(true);
