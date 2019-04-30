@@ -47,6 +47,7 @@ public class Internet {
         else {
             BrowserFrame browser = new BrowserFrame("https://www.google.com/search?q=" + command);
             browser.setVisible(true);
+            browser.setBounds(190,90,1030,600);
             browser.setTitle("Google");
         }         
     }

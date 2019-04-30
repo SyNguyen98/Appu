@@ -120,8 +120,7 @@ public class InformationFrame extends JFrame {
         setSize(300, 300);
         try {
             setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Pictures/Info.jpg")))));
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setLayout(null);
