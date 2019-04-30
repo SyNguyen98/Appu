@@ -8,3 +8,10 @@ mail
 web
 open
 data structure
+shut down
+go to sleep
+word
+powerpoint
+excel
+calculator
+pc info
