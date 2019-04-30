@@ -2,9 +2,12 @@ package MainFrame;
 
 import Command.Performance;
 import Setting.FrameDrag;
-import Sound.Sound;
+import Setting.Language;
 import java.awt.geom.RoundRectangle2D;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
@@ -29,16 +32,26 @@ public class MainFrame {
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
     }
+    
+    public static String getLanguage() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Language.txt"))) {
+            String language = br.readLine();
+            return language;
+        } catch (IOException ex) {}
+        return null;
+    }
 
     public static void main(String[] args) {
         setIntro();
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+        }
 
         try {
             frame.setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
-        } catch (IOException ex) {}
+        } catch (IOException ex) {
+        }
         frame.setSize(480, 640);
         frame.setUndecorated(true);
         frame.setShape(new RoundRectangle2D.Double(0, 0, frame.getWidth(), frame.getHeight(), 50, 50));
@@ -50,12 +63,13 @@ public class MainFrame {
         frame.addMouseMotionListener(frameDrag);
         try {
             TimeUnit.MILLISECONDS.sleep(3000);
-        } catch (InterruptedException ex) {}
+        } catch (InterruptedException ex) {
+        }
         introLabel.setVisible(false);
         frame.add(inputPanel);
         frame.add(titlePanel);
         frame.add(mainPanel);
-        
+            
         Performance.Do();
     }
 }
