@@ -2,11 +2,10 @@ package MainFrame;
 
 import Command.Performance;
 import Setting.FrameDrag;
-import Setting.Language;
+import Sound.Sound;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -58,7 +57,7 @@ public class MainFrame {
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setAlwaysOnTop(true);
+ //       frame.setAlwaysOnTop(true);
         frame.addMouseListener(frameDrag);
         frame.addMouseMotionListener(frameDrag);
         try {
