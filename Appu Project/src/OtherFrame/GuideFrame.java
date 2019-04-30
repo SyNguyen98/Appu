@@ -20,9 +20,9 @@ import javax.swing.JLabel;
 
 public class GuideFrame extends JFrame {
 
-    private JLabel guide_1, guide_2, guide_3;
+    private JLabel title_g1, title_g2, title_g3, guide_1, guide_2, guide_3;
     private JLabel step1_1, step1_2, step1_3;
-    private JLabel startTutorial, Instruction_logo, Round_Frame;
+    private JLabel startTutorial, Instruction_logo, Round_Frame, nextGuide;
     private JButton exitButton;
     
     private void setExitButton() {
@@ -43,13 +43,7 @@ public class GuideFrame extends JFrame {
         });
     }
 
-    private void setStartTutorial() {
-        Round_Frame = new JLabel();
-        Round_Frame.setIcon(new ImageIcon("src/Pictures/Test_round_frame.png"));
-        Round_Frame.setBounds(75, 20, 500, 378);
-        add(Round_Frame);
-        Round_Frame.setVisible(false);
-        
+    private void setStartTutorial() {      
         startTutorial = new JLabel();
         startTutorial.setIcon(new ImageIcon("src/Pictures/Start_tutorial.png"));
         startTutorial.setBounds(20, 20, 250, 70);
@@ -60,16 +54,34 @@ public class GuideFrame extends JFrame {
         Instruction_logo.setBounds(100, 50, 450, 450);
         add(Instruction_logo);
         
+        title_g1 = new JLabel();
+        title_g1.setIcon(new ImageIcon("src/Pictures/Title_guide1.png"));
+        title_g1.setBounds(7, 5, 177, 30);
+        add(title_g1);
+        title_g1.setVisible(false);
+        
+        Round_Frame = new JLabel();
+        Round_Frame.setIcon(new ImageIcon("src/Pictures/Test_round_frame.png"));
+        Round_Frame.setBounds(75, 20, 500, 378);
+        add(Round_Frame);
+        Round_Frame.setVisible(false);
+        
+        nextGuide = new JLabel();
+        nextGuide.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextGuide.setBounds(580, 480, 55, 55);
+        add(nextGuide);
+        nextGuide.setVisible(false);
+        
         startTutorial.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 startTutorial.setVisible(false);
                 Instruction_logo.setVisible(false);
                 Round_Frame.setVisible(true);
+                title_g1.setVisible(true);
+                nextGuide.setVisible(true);
+                
                 setGuide_1();
-                try {
-                    TimeUnit.MILLISECONDS.sleep(2500);
-                    } catch (InterruptedException ex) {}
                 // delay 2500 miliseconds.
                 step1_2.setVisible(true);
                 // delay 5000 miliseconds.
