@@ -21,15 +21,21 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class InputPanel extends JPanel {
 
     public static final JTextField inputField = new RoundTextField("");
     private static JButton suggestiveButton;
     private JPopupMenu suggestiveMenu;
+    private static final JSONParser parser = new JSONParser();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -77,11 +83,21 @@ public class InputPanel extends JPanel {
         suggestiveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {   
-                if ("english".equals(MainFrame.getLanguage()))
-                    suggestiveMenu = new SuggestiveMenu("English");
-                else
-                    suggestiveMenu = new SuggestiveMenu("VietNam");
-                suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
+                try {
+                    JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Keyword.json"));
+                    for (Object obj : jsonArray) {
+                        JSONObject jsonObject = (JSONObject) obj;
+                        String eng = (String) jsonObject.get("English");
+                        System.out.println(eng);
+                    }
+                } catch (FileNotFoundException e) {
+                } catch (IOException | ParseException e) {}
+                System.exit(0);
+//                if ("english".equals(MainFrame.getLanguage()))
+//                    suggestiveMenu = new SuggestiveMenu("english");
+//                else
+//                    suggestiveMenu = new SuggestiveMenu("vietNam");
+//                suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
             }
         });
         add(suggestiveButton);
