@@ -1,0 +1,42 @@
+[
+    {
+        "English" : "video",
+        "Viet" : "video"
+    }
+    {
+        "English" : "picture",
+        "Viet" : "hình ảnh"
+    }
+    {
+        "English" : "music",
+        "Viet" : "nhạc"
+    }
+    {
+        "English" : "translate",
+        "Viet" : "dịch"
+    }
+    {
+        "English" : "map",
+        "Viet" : "bản đồ"
+    }
+    {
+        "English" : "facebook",
+        "Viet" : "facebook"
+    }
+    {
+        "English" : "mail",
+        "Viet" : "mail"
+    }
+    {
+        "English" : "web",
+        "Viet" : "web"
+    }
+    {
+        "English" : "open",
+        "Viet" : "mở"
+    }
+    {
+        "English" : "data structure",
+        "Viet" : "cấu trúc dữ liệu"
+    }
+]
