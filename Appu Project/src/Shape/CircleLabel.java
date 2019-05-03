@@ -6,10 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class CircleLabel {   
     public static void applyQualityRenderingHints(Graphics2D g2d) {
@@ -21,10 +18,9 @@ public class CircleLabel {
         g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
-    }   //Get on Internet. So don't ask
+    }
     
     public static ImageIcon setImageLabel(BufferedImage image) throws IOException {
-//        BufferedImage image = ImageIO.read(url);
         int diameter = Math.min(image.getWidth(), image.getHeight());
         BufferedImage mask = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);        
         Graphics2D g2d = mask.createGraphics();
@@ -42,5 +38,5 @@ public class CircleLabel {
         g2d.dispose();
         ImageIcon imageIcon = new ImageIcon(masked);
         return imageIcon;
-    }              //This too
+    }
 }
