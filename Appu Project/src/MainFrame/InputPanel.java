@@ -21,21 +21,15 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class InputPanel extends JPanel {
 
     public static final JTextField inputField = new RoundTextField("");
     private static JButton suggestiveButton;
     private JPopupMenu suggestiveMenu;
-    private static final JSONParser parser = new JSONParser();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -56,7 +50,8 @@ public class InputPanel extends JPanel {
                 line = br.readLine();
             }
         } catch (FileNotFoundException ex) {
-        } catch (IOException ex) {}
+        } catch (IOException ex) {
+        }
 
         AutoSuggestor autoSuggestor = new AutoSuggestor(inputField, MainFrame.frame, null, new Color(0, 0, 102), Color.WHITE, Color.WHITE, 0.75f) {
             @Override
@@ -77,30 +72,20 @@ public class InputPanel extends JPanel {
     }
 
     private void setSuggestiveButton() {
-        suggestiveButton = new CircleButton();
-        suggestiveButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
-        suggestiveButton.setBounds(410, 20, 40, 40);
-        suggestiveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {   
-                try {
-                    JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Keyword.json"));
-                    for (Object obj : jsonArray) {
-                        JSONObject jsonObject = (JSONObject) obj;
-                        String eng = (String) jsonObject.get("English");
-                        System.out.println(eng);
-                    }
-                } catch (FileNotFoundException e) {
-                } catch (IOException | ParseException e) {}
-                System.exit(0);
+//        suggestiveButton = new CircleButton();
+//        suggestiveButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
+//        suggestiveButton.setBounds(410, 20, 40, 40);
+//        suggestiveButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent ae) {
 //                if ("english".equals(MainFrame.getLanguage()))
 //                    suggestiveMenu = new SuggestiveMenu("english");
 //                else
 //                    suggestiveMenu = new SuggestiveMenu("vietNam");
 //                suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
-            }
-        });
-        add(suggestiveButton);
+//            }
+//        });
+//        add(suggestiveButton);
     }
 
     public InputPanel() {
@@ -108,7 +93,7 @@ public class InputPanel extends JPanel {
         setLayout(new GroupLayout(this));
         setInputTextField();
         setSuggestiveButton();
-        
+
         if ("english".equals(MainFrame.getLanguage())) {
             inputField.setText("Say something ...");
         } else {
