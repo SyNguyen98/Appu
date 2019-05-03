@@ -1,11 +1,13 @@
 package OtherFrame;
 
 import java.awt.BorderLayout;
+import java.io.IOException;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebView;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -21,10 +23,12 @@ public class BrowserFrame extends JFrame {
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(javafxPanel, BorderLayout.CENTER);
         
-        this.add(mainPanel);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(700,600);
-        this.setLocationRelativeTo(null);
+        try {
+            setIconImage(ImageIO.read(BrowserFrame.class.getResource("/Pictures/Icon.png")));
+        } catch (IOException ex) {}
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+        add(mainPanel);
 
         Platform.runLater(new Runnable() {
             @Override
