@@ -1,9 +1,15 @@
 package Command;
 
-import MainFrame.MainPanel;
+import MainFrame.InputPanel;
 import java.util.Stack;
 
-public class Calculator {
+public class Calculator {   
+    public static boolean findKey(String str) {
+        for (int i = 0; i < str.length(); i++)
+            if(Character.isLetter(str.charAt(i)))
+                return false;
+        return true;
+    }
     
     private static int getPriority(char ch) { 
 	switch (ch) { 
@@ -86,10 +92,10 @@ public class Calculator {
         return stack.peek();
     }
     
-    public static String doMath() {
-        Commands.online = false;
-        String commandString = MainPanel.inputField.getText();
-        String postfix = infix2Postfix(commandString.substring(0, commandString.length() - 1));
+    public static String getResult() {
+        Performance.online = false;
+        String commandString = InputPanel.inputField.getText();
+        String postfix = infix2Postfix(commandString);
         return calculator(postfix);
     }
 }
