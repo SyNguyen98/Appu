@@ -1,16 +1,20 @@
 package MainFrame;
 
-import OtherFrame.InformationFrame;
-import Command.ChangeAvatar;
+import OtherFrame.MiniFrame;
+import Setting.SettingMenu;
 import Shape.CircleButton;
 import Shape.CircleLabel;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,26 +24,23 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 
 public class TitlePanel extends JPanel {
+    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static JLabel imageLabel, nameLabel;
-    private static JButton infoButton, settingButton;
-    private static final JFrame infoFrame = new InformationFrame();
-    private static final JPopupMenu settingMenu = new SettingMenu();
+    private static JButton exitButton, settingButton;
+    private static final SettingMenu settingMenu = new SettingMenu();
+    private static final MiniFrame miniFrame = new MiniFrame();
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         BufferedImage image = null;
         try {                
-            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Title.jpg"));
-        } catch (IOException ex) {
-            ex.getMessage();
-        }
+            image = ImageIO.read(new File("src/Pictures/Title.jpg"));
+        } catch (IOException ex) {}
         g.drawImage(image, 0, 0, this);         
     }
     
@@ -54,19 +55,19 @@ public class TitlePanel extends JPanel {
         return dimg;
     } 
     
-    private void setInfoButton() {
-        infoButton = new CircleButton();
+    private void setExitButton() {
+        exitButton = new CircleButton();
         try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exclamation.jpg"));
-            infoButton.setIcon(new ImageIcon(image));
+            Image image = ImageIO.read(new File("src/Pictures/Exit.png"));
+            exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
-        infoButton.setBounds(430, 15, 30, 30);
-        infoButton.setToolTipText("App's information");
-        add(infoButton);
-        infoButton.addActionListener(new ActionListener() {
+        exitButton.setBounds(430, 15, 30, 30);
+        exitButton.setToolTipText("Exit");
+        add(exitButton);
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                infoFrame.setVisible(true);
+                System.exit(0);
             }
         });
     }
@@ -74,7 +75,7 @@ public class TitlePanel extends JPanel {
     private void setSettingButton() {
         settingButton = new CircleButton();
         try {
-            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Gear.png"));
+            Image image = ImageIO.read(new File("src/Pictures/Gear.png"));
             settingButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         settingButton.setBounds(380, 15, 30, 30);
@@ -90,13 +91,19 @@ public class TitlePanel extends JPanel {
     
     private void setAvatarLabel() {
         imageLabel = new JLabel();
-        BufferedImage image = null;
         try {                      
-            image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
-//            imageLabel.setIcon(CircleLabel.setImageLabel(image));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
+        imageLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                MainFrame.frame.setVisible(false);
+                miniFrame.setVisible(true);
+                miniFrame.setLocation((int) screenSize.getWidth() - miniFrame.getWidth(), 25);
+            } 
+        });
         add(imageLabel);
     }
     
@@ -107,8 +114,8 @@ public class TitlePanel extends JPanel {
             nameLabel.setText(name);
         } catch (IOException ex) {}
         
-        nameLabel.setBounds(85, 6, 100, 50);
-        nameLabel.setFont(new Font("Arial", 3, 16));
+        nameLabel.setBounds(85, 6, 150, 50);
+        nameLabel.setFont(new Font("Arial", 3, 18));
         nameLabel.setForeground(Color.WHITE);
         add(nameLabel);
     }
@@ -119,7 +126,7 @@ public class TitlePanel extends JPanel {
         
         setAvatarLabel();
         setNameLabel();
-        setInfoButton();
+        setExitButton();
         setSettingButton();
     }
 }
