@@ -1,0 +1,42 @@
+[
+    {
+        "Key" : "shut down",
+        "Command" : "shutdown -s -t 15"
+    }
+    {
+        "Key" : "go to sleep",
+        "Command" : "Rundll32.exe powrprof.dll,SetSuspendState Sleep"
+    }
+    {
+        "Key" : "restart",
+        "Command" : "shutdown -r -t 15"
+    }
+    {
+        "Key" : "open word",
+        "Command" : "cmd /c start winword"
+    }
+    {
+        "Key" : "open excel",
+        "Command" : "cmd /c start excel"
+    }
+    {
+        "Key" : "open powerpoint",
+        "Command" : "cmd /c start powerpnt"
+    }
+    {
+        "Key" : "open paint",
+        "Command" : "cmd /c start mspaint"
+    }
+    {
+        "Key" : "open calculator",
+        "Command" : "cmd /c start calc"
+    }
+    {
+        "Key" : "pc info",
+        "Command" : "cmd /c start dxdiag"
+    }
+    {
+        "Key" : "control panel",
+        "Command" : "cmd /c start control"
+    }
+]
