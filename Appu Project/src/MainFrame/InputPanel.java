@@ -72,20 +72,20 @@ public class InputPanel extends JPanel {
     }
 
     private void setSuggestiveButton() {
-//        suggestiveButton = new CircleButton();
-//        suggestiveButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
-//        suggestiveButton.setBounds(410, 20, 40, 40);
-//        suggestiveButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent ae) {
-//                if ("english".equals(MainFrame.getLanguage()))
-//                    suggestiveMenu = new SuggestiveMenu("english");
-//                else
-//                    suggestiveMenu = new SuggestiveMenu("vietNam");
-//                suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
-//            }
-//        });
-//        add(suggestiveButton);
+        suggestiveButton = new CircleButton();
+        suggestiveButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
+        suggestiveButton.setBounds(410, 20, 40, 40);
+        suggestiveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if ("english".equals(MainFrame.getLanguage()))
+                    suggestiveMenu = new SuggestiveMenu("english");
+                else
+                    suggestiveMenu = new SuggestiveMenu("vietNam");
+                suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
+            }
+        });
+        add(suggestiveButton);
     }
 
     public InputPanel() {
