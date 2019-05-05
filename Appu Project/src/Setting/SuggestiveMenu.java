@@ -21,11 +21,10 @@ public class SuggestiveMenu extends JPopupMenu {
         try {
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Keyword.json"));
             for (Object obj : jsonArray) {
-                JSONObject jsonObject = (JSONObject) obj;
-               
+                JSONObject jsonObject = (JSONObject) obj;              
                 JMenuItem item = new JMenuItem();
                 if (string.equals("english"))
-                    item.setText((String) jsonObject.get("Eng"));
+                    item.setText((String) jsonObject.get("English"));
                 else
                     item.setText((String) jsonObject.get("Viet"));
                 item.setFont(new Font("Arial", 1, 12));
