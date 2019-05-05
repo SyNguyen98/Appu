@@ -98,16 +98,10 @@ public class InformationFrame extends JFrame {
         infoLabel.setBounds(10, 80, 280, 170);
         infoLabel.setForeground(Color.WHITE);
         infoLabel.setFont(new Font("Arial", 3, 11));
-//        infoLabel.setText("<html>   i.Sekai is a multimedia virtual assistant developed by a mystery anomyous team, written in Java."
-//                            + " Software's name has inspiration from the meaning 'The World' in Japanese, compline with 'i' to create"
-//                            + " a new convinient and modern world for almost users on Windows OS. It can make not only an impression in the way using computer"
-//                            + " but also change the experience when you surfing internet. Let's try it once, you will lust to use it again!"
-//                            + "</html>");
         infoLabel1 = new JLabel();
         infoLabel1.setBounds(118, 145, 200, 200);
         infoLabel1.setForeground(Color.ORANGE);
         infoLabel1.setFont(new Font("Arial", 3, 10));
-//        infoLabel1.setText("<html> Lastest updated on 14th April 2019. </html>");
         add(infoLabel);
         add(infoLabel1);
     }
