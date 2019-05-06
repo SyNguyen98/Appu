@@ -1,0 +1,10 @@
+video
+picture
+facebook
+music
+translate
+map
+mail
+web
+open
+data structure
