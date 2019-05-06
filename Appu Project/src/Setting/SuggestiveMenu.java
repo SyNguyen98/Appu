@@ -13,7 +13,7 @@ import javax.swing.JPopupMenu;
 
 public class SuggestiveMenu extends JPopupMenu {  
     public SuggestiveMenu(String string) {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Suggestion" + string + ".txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Keyword" + string + ".txt"))) {
             String line = br.readLine(); 
             while (line != null) {
                 JMenuItem item = new JMenuItem();           
