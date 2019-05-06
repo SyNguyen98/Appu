@@ -120,7 +120,7 @@ public class SettingMenu extends JPopupMenu {
     private void setEnglish() {
         englishItem = new JMenuItem("English");
         englishItem.setFont(new Font("Arial", 1, 15));
-        englishItem.setBackground(new Color(0, 0, 51));
+        englishItem.setBackground(new Color(102, 0, 102));
         englishItem.setForeground(Color.WHITE);
         englishItem.addActionListener(new ActionListener() {
             @Override
@@ -138,7 +138,7 @@ public class SettingMenu extends JPopupMenu {
     private void setVietnamese() {
         vietnameseItem = new JMenuItem("Tiếng Việt");
         vietnameseItem.setFont(new Font("Arial", 1, 15));
-        vietnameseItem.setBackground(new Color(0, 0, 102));
+        vietnameseItem.setBackground(new Color(102, 0, 153));
         vietnameseItem.setForeground(Color.WHITE);
         vietnameseItem.addActionListener(new ActionListener() {
             @Override
@@ -154,9 +154,9 @@ public class SettingMenu extends JPopupMenu {
     }
 
     private void accessDrive() {
-        driveItem = new JMenuItem("Drive");
+        driveItem = new JMenuItem("Other Tools");
         driveItem.setFont(new Font("Arial", 1, 15));
-        driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
+        driveItem.setIcon(new ImageIcon("src/Pictures/other_tools.png"));
         driveItem.setBackground(new Color(51, 51, 255));
         driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
