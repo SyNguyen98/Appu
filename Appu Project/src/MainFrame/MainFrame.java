@@ -26,7 +26,7 @@ public class MainFrame {
     private static final JLabel introLabel = new JLabel();
 
     private static void setIntro() {
-        Sound.play("src/Sound/Endgame.wav");
+//        Sound.play("src/Sound/Endgame.wav");
         introLabel.setIcon(new ImageIcon("src/Pictures/Intro.gif"));
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
@@ -44,13 +44,11 @@ public class MainFrame {
         setIntro();
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-        }
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
 
         try {
             frame.setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
         frame.setSize(480, 640);
         frame.setUndecorated(true);
         frame.setShape(new RoundRectangle2D.Double(0, 0, frame.getWidth(), frame.getHeight(), 50, 50));
