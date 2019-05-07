@@ -20,13 +20,13 @@ public class Performance {
     private static final JSONParser parser = new JSONParser();
     public static boolean online;
     
-    private static String readDatabase(String keyString) {
+    private static String readDatabase(String command) {
         try {
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Answer.json"));
             for (Object obj : jsonArray) {                 
                 JSONObject jsonObject = (JSONObject) obj;               
                 String key = (String) jsonObject.get("Key");               
-                if (keyString.equals(key)) {
+                if (command.contains(key)) {
                     String answer = (String) jsonObject.get("Answer");
                     return answer;
                 }
