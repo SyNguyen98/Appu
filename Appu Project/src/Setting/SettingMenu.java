@@ -186,6 +186,7 @@ public class SettingMenu extends JPopupMenu {
             guideItem.setText("Guide");
             infoItem.setText("App's Information");
             languageMenu.setText("Language");
+            driveItem.setText("Others");
         } else {
             infoMenu.setText("Thay đổi thông tin");
             avatarItem.setText("Thay ảnh đại diện");
@@ -193,6 +194,7 @@ public class SettingMenu extends JPopupMenu {
             guideItem.setText("Hướng dẫn");
             infoItem.setText("Thông tin ứng dụng");
             languageMenu.setText("Ngôn ngữ");
+            driveItem.setText("Công cụ khác");
         }
     }
 }
