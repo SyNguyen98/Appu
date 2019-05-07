@@ -20,6 +20,7 @@ public class Language {
                             + "</html>");
         InformationFrame.infoLabel1.setText("<html> Lastest updated on 29th April 2019. </html>");
         InformationFrame.exitButton.setText("Exit");
+        SettingMenu.driveItem.setText("Others");
     }
     
     public static void setVietnamese() {
@@ -39,5 +40,6 @@ public class Language {
                             + "</html>");
         InformationFrame.infoLabel1.setText("<html>Cập nhật gần nhất: 29 tháng 4, 2019. </html>");
         InformationFrame.exitButton.setText("Thoát");
+        SettingMenu.driveItem.setText("Công cụ khác");
     }
 }
