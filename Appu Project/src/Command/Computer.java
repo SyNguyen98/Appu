@@ -43,13 +43,11 @@ public class Computer {
             } catch (IOException ex) {}
             Performance.online = false;
         }
-        if(command.contains("data structure")) {
-            try {
-                desktop.open(new File("src/Database/visualization.jar"));
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-            Performance.online = false;
-        }
+//        if(command.contains("data structure")) {
+//            try {
+//                desktop.open(new File("src/Database/visualization.jar"));
+//            } catch (IOException e) {}
+//            Performance.online = false;
+//        }
     }
 }
