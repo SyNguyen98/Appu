@@ -8,11 +8,43 @@
         "Answer" : "He is one of my creator"
     }
     {
-        "Key" : "Dang",
-        "Answer" : "He is one of my creator"
-    }
-    {
         "Key" : "Math",
         "Answer" : "So easy ^^"
+    }
+    {
+        "Key" : "video",
+        "Answer" : "So easy ^^"
+    }
+    {
+        "Key" : "picture",
+        "Answer" : "This pictures so beautiful, neh!"
+    }
+    {
+        "Key" : "music",
+        "Answer" : ""
+    }
+    {
+        "Key" : "translate",
+        "Answer" : ""
+    }    
+    {
+        "Key" : "map",
+        "Answer" : ""
+    }
+    {
+        "Key" : "facebook",
+        "Answer" : ""
+    }    
+    {
+        "Key" : "mail",
+        "Answer" : ""
+    }
+    {
+        "Key" : "word",
+        "Answer" : ""
+    }    
+    {
+        "Key" : "excel",
+        "Answer" : ""
     }
 ]
