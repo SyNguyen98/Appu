@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -21,8 +22,8 @@ import javax.swing.JPopupMenu;
 
 public class SettingMenu extends JPopupMenu {
 
-    public static JMenu infoMenu, languageMenu;
-    public static JMenuItem avatarItem, nameItem, guideItem, infoItem, englishItem, vietnameseItem, driveItem;
+    public static JMenu infoMenu, languageMenu, otherMenu;
+    public static JMenuItem avatarItem, nameItem, guideItem, infoItem, englishItem, vietnameseItem, driveItem, dataStructureItem;
     private static final GuideFrame guideFrame = new GuideFrame();
     private static final JFrame infoFrame = new InformationFrame();
     private static FrameDrag frameDrag;
@@ -152,12 +153,24 @@ public class SettingMenu extends JPopupMenu {
         });
         languageMenu.add(vietnameseItem);
     }
+    
+    private void setOtherMenu() {
+        otherMenu = new JMenu();
+        otherMenu.setFont(new Font("Arial", 1, 15));
+        otherMenu.setIcon(new ImageIcon("src/Pictures/other_tools.png"));
+        otherMenu.setOpaque(true);
+        otherMenu.setBackground(new Color(0, 0, 100));
+        otherMenu.setForeground(Color.WHITE);
+        accessDrive();
+        dataStructure();
+        add(otherMenu);
+    }
 
     private void accessDrive() {
-        driveItem = new JMenuItem("Other Tools");
+        driveItem = new JMenuItem("Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
-        driveItem.setIcon(new ImageIcon("src/Pictures/other_tools.png"));
-        driveItem.setBackground(new Color(51, 51, 255));
+        driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
+        driveItem.setBackground(new Color(102, 0, 102));
         driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
             @Override
@@ -165,11 +178,28 @@ public class SettingMenu extends JPopupMenu {
                 Desktop desktop = Desktop.getDesktop();
                 try {
                     desktop.browse(new URI("http://bit.ly/drivelop16vlth"));
-                } catch (IOException | URISyntaxException ex) {
-                }
+                } catch (IOException | URISyntaxException ex) {}
             }
         });
-        add(driveItem);
+        otherMenu.add(driveItem);
+    }
+    
+        private void dataStructure() {
+        dataStructureItem = new JMenuItem();
+        dataStructureItem.setFont(new Font("Arial", 1, 15));
+        dataStructureItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
+        dataStructureItem.setBackground(new Color(102, 0, 102));
+        dataStructureItem.setForeground(Color.WHITE);
+        dataStructureItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Desktop desktop = Desktop.getDesktop();
+                try {
+                    desktop.open(new File("src/Database/visualization.jar"));
+                } catch (IOException e) {}
+            }
+        });
+        otherMenu.add(dataStructureItem);
     }
 
     public SettingMenu() {
@@ -177,7 +207,7 @@ public class SettingMenu extends JPopupMenu {
         setGuide();
         getInformation();
         changeLanguage();
-        accessDrive();
+        setOtherMenu();
 
         if ("english".equals(MainFrame.getLanguage())) {
             infoMenu.setText("Change Info");
@@ -186,6 +216,8 @@ public class SettingMenu extends JPopupMenu {
             guideItem.setText("Guide");
             infoItem.setText("App's Information");
             languageMenu.setText("Language");
+            otherMenu.setText("Other tools");
+            dataStructureItem.setText("Data Structure");
         } else {
             infoMenu.setText("Thay đổi thông tin");
             avatarItem.setText("Thay ảnh đại diện");
@@ -193,6 +225,8 @@ public class SettingMenu extends JPopupMenu {
             guideItem.setText("Hướng dẫn");
             infoItem.setText("Thông tin ứng dụng");
             languageMenu.setText("Ngôn ngữ");
+            otherMenu.setText("Công cụ khác");
+            dataStructureItem.setText("Cấu trúc dữ liệu");
         }
     }
 }
