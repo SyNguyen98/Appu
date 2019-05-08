@@ -11,6 +11,8 @@ public class Language {
         SettingMenu.guideItem.setText("Guide");
         SettingMenu.infoItem.setText("App's Information");
         SettingMenu.languageMenu.setText("Language");
+        SettingMenu.otherMenu.setText("Other tools");
+        SettingMenu.dataStructureItem.setText("Data Structure");
         InputPanel.inputField.setText("Say something ...");
         InformationFrame.versionLabel.setText("Version 2.1.7");
         InformationFrame.infoLabel.setText("<html>   i.Sekai is a multimedia virtual assistant developed by a mystery anomyous team, written in Java."
@@ -29,6 +31,8 @@ public class Language {
         SettingMenu.guideItem.setText("Hướng dẫn");
         SettingMenu.infoItem.setText("Thông tin ứng dụng");
         SettingMenu.languageMenu.setText("Ngôn ngữ");
+        SettingMenu.otherMenu.setText("Công cụ khác");
+        SettingMenu.dataStructureItem.setText("Cấu trúc dữ liệu");
         InputPanel.inputField.setText("Hãy nói gì đi ...");
         InformationFrame.versionLabel.setText("Phiên bản 2.1.7");
         InformationFrame.infoLabel.setText("<html>    i.Sekai là trợ lý ảo đa chức năng được phát triển bởi một nhóm bí ẩn, viết bằng ngôn ngữ Java."
