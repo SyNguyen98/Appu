@@ -33,7 +33,7 @@ public class Performance {
             }
         } catch (FileNotFoundException e) {
         } catch (IOException | ParseException e) {}
-        return "Error 404!!!";
+        return "Error";
     }
     
     private static void setTime() {
@@ -69,13 +69,16 @@ public class Performance {
     public static void Do() {
         InputPanel.inputField.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {               
-                String commandString = Proccess.makeNewLine(InputPanel.inputField.getText());
+            public void actionPerformed(ActionEvent ae) {    
+                String command = InputPanel.inputField.getText();
+                command = Proccess.makeNewLine(command);
+                String answer = readDatabase(command);
+                answer = Proccess.makeNewLine(answer);
                 int width = Proccess.width; 
                 int height = Proccess.height;
    
                 setTime();
-                setCommand(commandString, width, height);
+                setCommand(command, width, height);
                 setAnswer();
                 setMainPanel();
                 
