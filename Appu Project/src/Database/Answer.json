@@ -13,27 +13,27 @@
     }
     {
         "Key" : "video",
-        "Answer" : "So easy ^^"
+        "Answer" : "Are they interesting, Sir? These video."
     }
     {
         "Key" : "picture",
-        "Answer" : "This pictures so beautiful, neh!"
+        "Answer" : "This pictures're so beautiful!"
     }
     {
         "Key" : "music",
-        "Answer" : ""
+        "Answer" : "I like these songs too"
     }
     {
         "Key" : "translate",
-        "Answer" : ""
+        "Answer" : "I wonder what it means"
     }    
     {
         "Key" : "map",
-        "Answer" : ""
+        "Answer" : "I think it's this way, Sir"
     }
     {
         "Key" : "facebook",
-        "Answer" : ""
+        "Answer" : "Let check some news"
     }    
     {
         "Key" : "mail",
@@ -41,7 +41,7 @@
     }
     {
         "Key" : "word",
-        "Answer" : ""
+        "Answer" : "Are you going to write something, Sir?"
     }    
     {
         "Key" : "excel",
