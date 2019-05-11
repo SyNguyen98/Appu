@@ -19,6 +19,7 @@ public class Performance {
     private static int length = 0;
     private static final JSONParser parser = new JSONParser();
     public static boolean online;
+    public static int i=1;
     
     private static String readDatabase(String command) {
         try {
@@ -82,10 +83,16 @@ public class Performance {
                 online = true;
                 Computer.controlComputer();  
                 
+                SQL sql = new SQL();
+                String s;
+                s = sql.getanswer(commandString,i);
+                
+                i++;
+                
                 if(Calculator.findKey(InputPanel.inputField.getText()))
                     MainPanel.answerLabel.setText(Calculator.getResult() + "  " + readDatabase("Math"));
                 else
-                    MainPanel.answerLabel.setText("<html>Yes, Master (○･∀･)b</html>");
+                    MainPanel.answerLabel.setText("<html>"+s+"</html>");
                 
                 if(online) 
                     Internet.accessInternet();
