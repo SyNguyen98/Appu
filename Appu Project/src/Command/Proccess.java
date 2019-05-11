@@ -39,7 +39,7 @@ public class Proccess {
         height = listStr.size() * 25;
         commandString = "";
         for (String str : listStr)
-            commandString += str + "@";         // @ is the mark for new line
+            commandString += str;         // @ is the mark for new line
         return commandString;
     }
 }
