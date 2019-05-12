@@ -19,7 +19,7 @@ public class Performance {
     private static int length = 0;
     private static final JSONParser parser = new JSONParser();
     public static boolean online;
-    public static int i=1;
+    public static int num=1;
     
     private static String readDatabase(String command) {
         try {
@@ -84,15 +84,15 @@ public class Performance {
                 Computer.controlComputer();  
                 
                 SQL sql = new SQL();
-                String s;
-                s = sql.getanswer(commandString,i);
+                String values;
+                values = sql.getanswer(commandString,num);
                 
-                i++;
+                num++;
                 
                 if(Calculator.findKey(InputPanel.inputField.getText()))
                     MainPanel.answerLabel.setText(Calculator.getResult() + "  " + readDatabase("Math"));
                 else
-                    MainPanel.answerLabel.setText("<html>"+s+"</html>");
+                    MainPanel.answerLabel.setText("<html>"+values+"</html>");
                 
                 if(online) 
                     Internet.accessInternet();
