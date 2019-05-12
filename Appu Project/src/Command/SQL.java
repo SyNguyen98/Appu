@@ -5,7 +5,6 @@
  */
 package Command;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,34 +19,31 @@ import java.util.logging.Logger;
  * @author Sy Nguyen
  */
 public class SQL {
+
+    static int count = 0;
     public static String Driver = "org.apache.derby.jdbc.EmbeddedDriver";
     public static String JDBC = "jdbc:derby:java;create=true";
     Connection connection;
-    public SQL(){
+
+    public SQL() {
         try {
-            this.connection=DriverManager.getConnection(JDBC);
-        } catch (SQLException ex) {
-            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            this.connection = DriverManager.getConnection(JDBC);
+        } catch (SQLException ex) {}
     }
-    public void createTable()
-    {
+
+    public void createTable() {
         try {
             connection.createStatement().execute("CREATE TABLE MYTABLE(k varchar(50),an1 varchar(100),an2 varchar(100))");
-        } catch (SQLException ex) {
-            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (SQLException ex) {}
     }
-    public void insert(String k,String an1,String an2)
-    {
+
+    public void insert(String k, String an1, String an2) {
         try {
-            connection.createStatement().execute("INSERT INTO MYTABLE values('"+k+"','"+an1+"','"+an2+"')");
-            } catch (SQLException ex) {
-            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            connection.createStatement().execute("INSERT INTO MYTABLE values('" + k + "','" + an1 + "','" + an2 + "')");
+        } catch (SQLException ex) {}
     }
-    public void inserttable()
-    {
+
+    public void inserttable() {
         insert("anime", "ANIME DAISUKI", "coi phim thôi");
         insert("face", "FACE TIME", "không biết hôm nay có gì nè");
         insert("jam", "chủ nhân định đi đâu thế", "ngài muốn đi đâu ah");
@@ -66,69 +62,54 @@ public class SQL {
         insert("open word", "OPEN WORD", "đã rõ master");
         insert("shut down", "bye bye", "ngài vất vả rồi");
     }
-    
-   public void print()
-   {
+
+    public void print() {
         try {
             Statement s = this.connection.createStatement();
             ResultSet rs = s.executeQuery("SELECT * FROM MYTABLE");
-            while (rs.next()) {                
-                System.out.println(rs.getString("k")+" "+rs.getString("an1")+" "+rs.getString("an2"));
+            while (rs.next()) {
+                System.out.println(rs.getString("k") + " " + rs.getString("an1") + " " + rs.getString("an2"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-        }     
-   }
-    public String check(String k)
-    {
-        char arr[]= k.toCharArray();
-        int n= arr.length;
-        if (k=="shut down"||k=="shut down"||k=="open word"||k=="open excel"||k=="open powerpoint"||k=="go to sleep")
-        {
-            return k;
         }
-        else 
-        {
-            for (int i=0;i<n;i++)
-            {
-                if (arr[i] == 32)
-                {                               
-                    return String.copyValueOf(arr, 0, i);                    
+    }
+
+    public String check(String k) {
+        char arr[] = k.toCharArray();
+        int n = arr.length;
+        if (k == "shut down" || k == "shut down" || k == "open word" || k == "open excel" || k == "open powerpoint" || k == "go to sleep") {
+            return k;
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (arr[i] == 32) {
+                    return String.copyValueOf(arr, 0, i);
                 }
-                if ((i==n-1 && arr[i]!=32))
-                {
+                if ((i == n - 1 && arr[i] != 32)) {
                     return k;
                 }
             }
         }
         return null;
     }
-    public String getanswer(String c,int i)
-    {
-        String k = check(c);
+
+    public String getAnswer(String command) {
+        String key = check(command);
         try {
-            
             String answer;
-            if (i%2 != 0)
-            {
+            if (count++ % 2 == 0) {
                 answer = "an1";
-            }
-            else 
-            {
+            } else {
                 answer = "an2";
             }
-            
-            Statement s = this.connection.createStatement();
-            String query = "SELECT "+answer+" FROM MYTABLE where k like '%"+k+"%'";
-            ResultSet rs;
-            rs = s.executeQuery(query);
-            if (rs.next()) {         
-
-                return rs.getString(answer);
+            Statement statement = this.connection.createStatement();
+            String query = "SELECT " + answer + " FROM MYTABLE where k like '%" + key + "%'";
+            ResultSet resultSet;
+            resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                return resultSet.getString(answer);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
         return "error";
     }
 }
