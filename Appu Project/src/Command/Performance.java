@@ -16,9 +16,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Performance {
-    private static int length = 0;
+    private static final SQL sql = new SQL();
     private static final JSONParser parser = new JSONParser();
     public static boolean online;
+    private static int length = 0;
     public static int i=1;
     
     private static String readDatabase(String command) {
@@ -43,19 +44,19 @@ public class Performance {
         MainPanel.timeLabel.setBounds(225, length, 50, 40);
     }
     
-    private static void setCommand(String commandString, int width, int height) {
+    private static void setCommand(String command, int width, int height) {
         MainPanel.setCommandPanel();
         MainPanel.commandPanel.setBounds(260 + (180 - width), 20 + height/2 + length, width + 25, height + 10);
-        MainPanel.commandLabel.setText("<html>" + commandString.replace("@", "<br>") + "</html>");
-        MainPanel.commandLabel.setBounds(15, 5, width, height);
+        MainPanel.commandLabel.setText("<html>" + command.replace("@", "<br>") + "</html>");
+        MainPanel.commandLabel.setBounds(10, 5, width, height);
     }
     
-    private static void setAnswer() {
+    private static void setAnswer(String answer, int width, int height) {
         MainPanel.setAnswerPanel();
         MainPanel.iconLabel.setBounds(10, MainPanel.commandPanel.getHeight() + 37 + length, 35, 35);
-        MainPanel.iconLabel.setVisible(true);
-        MainPanel.answerPanel.setBounds(55, MainPanel.commandPanel.getHeight() + length + 35, 160, 40);
-        MainPanel.answerPanel.setVisible(true);
+        MainPanel.answerPanel.setBounds(55, MainPanel.commandPanel.getHeight() + length + 35, width + 20, height + 10);
+        MainPanel.answerLabel.setText("<html>" + answer.replace("@", "<br>") + "</html>");
+        MainPanel.answerLabel.setBounds(10, 5, width, height);
     }
     
     static void setMainPanel() {
@@ -70,29 +71,28 @@ public class Performance {
     public static void Do() {
         InputPanel.inputField.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {               
-                String commandString = Proccess.makeNewLine(InputPanel.inputField.getText());
+            public void actionPerformed(ActionEvent ae) {
+                setTime();
+                
+                String command = Proccess.makeNewLine(InputPanel.inputField.getText());
                 int width = Proccess.width; 
                 int height = Proccess.height;
-   
-                setTime();
-                setCommand(commandString, width, height);
-                setAnswer();
+                setCommand(command, width, height);
+                
+                String answer = Proccess.makeNewLine(sql.getAnswer(command));
+                width = Proccess.width; 
+                height = Proccess.height;
+                setAnswer(answer, width, height);
+                
                 setMainPanel();
                 
                 online = true;
                 Computer.controlComputer();  
-                
-                SQL sql = new SQL();
-                String s;
-                s = sql.getanswer(commandString,i);
-                
+           
                 i++;
                 
                 if(Calculator.findKey(InputPanel.inputField.getText()))
                     MainPanel.answerLabel.setText(Calculator.getResult() + "  " + readDatabase("Math"));
-                else
-                    MainPanel.answerLabel.setText("<html>"+s+"</html>");
                 
                 if(online) 
                     Internet.accessInternet();
