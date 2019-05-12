@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Command;
 
 import java.sql.Connection;
@@ -10,14 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
- *
- * @author Sy Nguyen
- */
 public class SQL {
 
     static int count = 0;
@@ -61,18 +49,6 @@ public class SQL {
         insert("open powerpoint", "PowerPoint let''s go", "PowerPoint đã rỏ");
         insert("open word", "OPEN WORD", "đã rõ master");
         insert("shut down", "bye bye", "ngài vất vả rồi");
-    }
-
-    public void print() {
-        try {
-            Statement s = this.connection.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM MYTABLE");
-            while (rs.next()) {
-                System.out.println(rs.getString("k") + " " + rs.getString("an1") + " " + rs.getString("an2"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     public String check(String k) {
