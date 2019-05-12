@@ -1,42 +1,18 @@
 package Command;
 
+import Database.SQL;
 import MainFrame.InputPanel;
 import MainFrame.MainPanel;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class Performance {
     private static final SQL sql = new SQL();
-    private static final JSONParser parser = new JSONParser();
     public static boolean online;
     private static int length = 0;
-    public static int i=1;
-    
-    private static String readDatabase(String command) {
-        try {
-            JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Answer.json"));
-            for (Object obj : jsonArray) {                 
-                JSONObject jsonObject = (JSONObject) obj;               
-                String key = (String) jsonObject.get("Key");               
-                if (command.contains(key)) {
-                    String answer = (String) jsonObject.get("Answer");
-                    return answer;
-                }
-            }
-        } catch (FileNotFoundException e) {
-        } catch (IOException | ParseException e) {}
-        return "Error 404!!!";
-    }
     
     private static void setTime() {
         MainPanel.setTimeLabel();
@@ -88,11 +64,9 @@ public class Performance {
                 
                 online = true;
                 Computer.controlComputer();  
-           
-                i++;
-                
+                           
                 if(Calculator.findKey(InputPanel.inputField.getText()))
-                    MainPanel.answerLabel.setText(Calculator.getResult() + "  " + readDatabase("Math"));
+                    MainPanel.answerLabel.setText(Calculator.getResult() + "  So easy ^^");
                 
                 if(online) 
                     Internet.accessInternet();
