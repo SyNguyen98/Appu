@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Fri May 10 13:54:12 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-a085-50ed-0000022c3810 
-on database directory C:\Users\Sy Nguyen\Documents\GitHub\Appu\Appu Project\java with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/Sy%20Nguyen/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+Sun May 12 19:53:27 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-ac1a-efbc-0000037b1008 
+on database directory C:\Users\PC\Documents\GitHub\Appu\Appu Project\java with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\Sy Nguyen\Documents\GitHub\Appu\Appu Project
+user.dir=C:\Users\PC\Documents\GitHub\Appu\Appu Project
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
