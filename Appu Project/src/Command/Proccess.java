@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Proccess {
-    public static int width;
-    public static int height;
+    public static int width, height;
     private static final int maxChar = 20;
     
     public static String makeNewLine(String commandString) {
