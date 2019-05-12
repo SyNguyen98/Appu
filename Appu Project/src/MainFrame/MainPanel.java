@@ -64,7 +64,6 @@ public class MainPanel extends JScrollPane {
         answerLabel = new JLabel();
         answerLabel.setFont(new Font("Arial", 3, 14));
         answerLabel.setForeground(Color.WHITE);
-        answerLabel.setBounds(10, 10, 170, 20);
         answerPanel.add(answerLabel);
     }
     
