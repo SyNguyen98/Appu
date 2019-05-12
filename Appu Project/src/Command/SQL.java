@@ -11,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +22,7 @@ public class SQL {
     public static String Driver = "org.apache.derby.jdbc.EmbeddedDriver";
     public static String JDBC = "jdbc:derby:java;create=true";
     Connection connection;
+    private String k = "key";
     public SQL(){
         try {
             this.connection=DriverManager.getConnection(JDBC);
@@ -33,7 +33,7 @@ public class SQL {
     public void createTable()
     {
         try {
-            connection.createStatement().execute("CREATE TABLE MYTABLE(k varchar(50),an1 varchar(100),an2 varchar(100))");
+            connection.createStatement().execute("CREATE TABLE MYTABLE(k varchar(50),values1 varchar(100),values2 varchar(100))");
         } catch (SQLException ex) {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -67,6 +67,45 @@ public class SQL {
         insert("shut down", "bye bye", "ngài vất vả rồi");
     }
     
+    public void update(String key1,String key2,String values1,String values2)
+    {
+        try {
+            connection.createStatement().executeUpdate("UPDATE MYTABLE SET k = '"+key2+"', values1 = '"+values1+"', values2 = '"+values2+"' where k = '"+key1+"'");
+            } catch (SQLException ex) {
+            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void delete(String key)
+    {
+        try {
+            connection.createStatement().executeUpdate("DELETE FROM MYTABLE where k = '"+key+"'");
+            } catch (SQLException ex) {
+            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void DeleteTable()
+    {
+        delete("anime");
+        delete("face");
+        delete("jam");
+        delete("lmss");
+        delete("lol");
+        delete("map");
+        delete("music");
+        delete("picture");
+        delete("se");
+        delete("translate");
+        delete("video");
+        delete("web");
+        delete("go to sleep");
+        delete("open excel");
+        delete("open powerpoint");
+        delete("open word");
+        delete("shut down");
+    }
+    
    public void print()
    {
         try {
@@ -79,13 +118,13 @@ public class SQL {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
         }     
    }
-    public String check(String k)
+    public String check(String key)
     {
-        char arr[]= k.toCharArray();
+        char arr[]= key.toCharArray();
         int n= arr.length;
-        if (k=="shut down"||k=="shut down"||k=="open word"||k=="open excel"||k=="open powerpoint"||k=="go to sleep")
+        if (key=="shut down"||key=="shut down"||key=="open word"||key=="open excel"||key=="open powerpoint"||key=="go to sleep")
         {
-            return k;
+            return key;
         }
         else 
         {
@@ -97,29 +136,29 @@ public class SQL {
                 }
                 if ((i==n-1 && arr[i]!=32))
                 {
-                    return k;
+                    return key;
                 }
             }
         }
         return null;
     }
-    public String getanswer(String c,int i)
+    public String getanswer(String keyString,int i)
     {
-        String k = check(c);
+        String key = check(keyString);
         try {
             
             String answer;
             if (i%2 != 0)
             {
-                answer = "an1";
+                answer = "values1";
             }
             else 
             {
-                answer = "an2";
+                answer = "values2";
             }
             
             Statement s = this.connection.createStatement();
-            String query = "SELECT "+answer+" FROM MYTABLE where k like '%"+k+"%'";
+            String query = "SELECT "+answer+" FROM MYTABLE where k like '%"+key+"%'";
             ResultSet rs;
             rs = s.executeQuery(query);
             if (rs.next()) {         
