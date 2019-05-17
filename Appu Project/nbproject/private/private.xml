@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/MainFrame.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/InputPanel.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Command/Performance.java</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Command/Computer.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Database/SQL.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/MainFrame/MainPanel.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Setting/Language.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Command/Proccess.java</file>
         </group>
     </open-files>
 </project-private>
