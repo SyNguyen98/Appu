@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Proccess {
     public static int width, height;
-    private static final int maxChar = 20;
+    private static final int maxChar = 23;
     
     public static String makeNewLine(String commandString) {
         List<String> listStr = new ArrayList<>();  
@@ -29,16 +29,16 @@ public class Proccess {
             }
                 String str = commandString.substring(j);
                 listStr.add(str);
-                width = maxChar * 8;    
+                width = maxChar * 7;    
         }
         else {
             listStr.add(commandString);  
-            width = commandString.length() * 8;   
+            width = commandString.length() * 7;   
         }
-        height = listStr.size() * 25;
+        height = listStr.size() * 23;
         commandString = "";
         for (String str : listStr)
-            commandString += str;         // @ is the mark for new line
+            commandString += str + "@";         // @ is the mark for new line
         return commandString;
     }
 }
