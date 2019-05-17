@@ -1,7 +1,16 @@
 package Setting;
 
 import MainFrame.InputPanel;
+import static MainFrame.InputPanel.inputField;
+import MainFrame.MainFrame;
 import OtherFrame.InformationFrame;
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Language {
     public static void setEnglish() {
@@ -13,7 +22,25 @@ public class Language {
         SettingMenu.languageMenu.setText("Language");
         SettingMenu.otherMenu.setText("Other tools");
         SettingMenu.dataStructureItem.setText("Data Structure");
-        InputPanel.inputField.setText("Say something ...");
+        InputPanel.inputField.setText("Say something ...");       
+        // <editor-fold defaultstate="collapsed" desc="Make suggestion">  
+        List<String> keywords = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/SuggestionEnglish.txt"))) {
+            String line = br.readLine();
+            while (line != null) {
+                keywords.add(line);
+                line = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {}
+
+        AutoSuggestor autoSuggestor = new AutoSuggestor(inputField, MainFrame.frame, null, new Color(0, 0, 102), Color.WHITE, Color.WHITE, 0.75f) {
+            @Override
+            public boolean wordTyped(String typedWord) {
+                setDictionary(keywords);
+                return super.wordTyped(typedWord);
+            }
+        }; // </editor-fold>  
         InformationFrame.versionLabel.setText("Version 2.1.7");
         InformationFrame.infoLabel.setText("<html>   i.Sekai is a multimedia virtual assistant developed by a mystery anomyous team, written in Java."
                             + " Software's name has inspiration from the meaning 'The World' in Japanese, compline with 'i' to create"
@@ -34,6 +61,24 @@ public class Language {
         SettingMenu.otherMenu.setText("Công cụ khác");
         SettingMenu.dataStructureItem.setText("Cấu trúc dữ liệu");
         InputPanel.inputField.setText("Hãy nói gì đi ...");
+        // <editor-fold defaultstate="collapsed" desc="Make suggestion">  
+        List<String> keywords = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/SuggestionVietnamese.txt"))) {
+            String line = br.readLine();
+            while (line != null) {
+                keywords.add(line);
+                line = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {}
+
+        AutoSuggestor autoSuggestor = new AutoSuggestor(inputField, MainFrame.frame, null, new Color(0, 0, 102), Color.WHITE, Color.WHITE, 0.75f) {
+            @Override
+            public boolean wordTyped(String typedWord) {
+                setDictionary(keywords);
+                return super.wordTyped(typedWord);
+            }
+        }; // </editor-fold>  
         InformationFrame.versionLabel.setText("Phiên bản 2.1.7");
         InformationFrame.infoLabel.setText("<html>    i.Sekai là trợ lý ảo đa chức năng được phát triển bởi một nhóm bí ẩn, viết bằng ngôn ngữ Java."
                             + " Tên của phần mềm được lấy cảm hứng từ từ 'Thế giới' trong tiếng Nhật, kết hợp với 'i' tạo nên một 'Thế giới ảo' hiện đại,"
