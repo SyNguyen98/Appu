@@ -44,7 +44,7 @@ public class MainPanel extends JScrollPane {
         commandPanel.setBackground(Color.CYAN);
         
         commandLabel = new JLabel();
-        commandLabel.setFont(new Font("Arial", 3, 14));
+        commandLabel.setFont(new Font("Arial", 3, 13));
         commandLabel.setForeground(Color.BLACK);
         commandPanel.add(commandLabel);
     }
@@ -62,7 +62,7 @@ public class MainPanel extends JScrollPane {
         answerPanel.setBackground(Color.BLUE);
         
         answerLabel = new JLabel();
-        answerLabel.setFont(new Font("Arial", 3, 14));
+        answerLabel.setFont(new Font("Arial", 3, 13));
         answerLabel.setForeground(Color.WHITE);
         answerPanel.add(answerLabel);
     }
