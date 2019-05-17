@@ -43,15 +43,23 @@ public class InputPanel extends JPanel {
 
     private void setInputTextField() {
         List<String> keywords = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/SuggestionEnglish.txt"))) {
+        String path = "";
+        if ("english".equals(MainFrame.getLanguage())) {         
+            inputField.setText("Say something ...");
+            path = "src/Database/SuggestionEnglish.txt";
+        }
+        else {
+            inputField.setText("Hãy nói gì đi ...");
+            path = "src/Database/SuggestionVietnamese.txt";
+        }
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = br.readLine();
             while (line != null) {
                 keywords.add(line);
                 line = br.readLine();
             }
         } catch (FileNotFoundException ex) {
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
 
         AutoSuggestor autoSuggestor = new AutoSuggestor(inputField, MainFrame.frame, null, new Color(0, 0, 102), Color.WHITE, Color.WHITE, 0.75f) {
             @Override
@@ -93,11 +101,5 @@ public class InputPanel extends JPanel {
         setLayout(new GroupLayout(this));
         setInputTextField();
         setSuggestiveButton();
-
-        if ("english".equals(MainFrame.getLanguage())) {
-            inputField.setText("Say something ...");
-        } else {
-            inputField.setText("Hãy nói gì đi ...");
-        }
     }
 }
