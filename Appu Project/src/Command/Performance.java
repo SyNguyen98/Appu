@@ -13,6 +13,7 @@ public class Performance {
     private static final SQL sql = new SQL();
     public static boolean online;
     private static int length = 0;
+    private static  int num = 1;
     
     private static void setTime() {
         MainPanel.setTimeLabel();
@@ -55,7 +56,14 @@ public class Performance {
                 int height = Proccess.height;
                 setCommand(command, width, height);
                 
-                String answer = Proccess.makeNewLine(sql.getAnswer(command));
+                String answer = Proccess.makeNewLine(sql.getanswer(command,num));
+                if (answer=="error")
+                {
+                    answer=Proccess.makeNewLine(sql.error(num));
+                }
+                //sql.delete("bản đồ");
+                sql.insert("bản đồ", "", "", "", "Let's go !!!");
+                num++;
                 width = Proccess.width; 
                 height = Proccess.height;
                 setAnswer(answer, width, height);
