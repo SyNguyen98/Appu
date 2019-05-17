@@ -2,6 +2,7 @@ package Command;
 
 import OtherFrame.BrowserFrame;
 import MainFrame.InputPanel;
+import MainFrame.MainFrame;
 import java.awt.Desktop;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,8 +22,12 @@ public class Internet {
         try {
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Website.json"));
             for (Object obj : jsonArray) {                 
-                JSONObject jsonObject = (JSONObject) obj;               
-                String key = (String) jsonObject.get("Key");
+                JSONObject jsonObject = (JSONObject) obj;   
+                String key = "";
+                if ("english".equals(MainFrame.getLanguage()))
+                    key = (String) jsonObject.get("English");
+                else
+                    key = (String) jsonObject.get("Vietnam");
                 if (command.contains(key)) {
                     String name = command.replace(key + " ", "");
                     if (name.length() > 0)
