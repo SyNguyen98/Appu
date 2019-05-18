@@ -1,24 +1,24 @@
 ----------------------------------------------------------------
-Sat May 18 20:53:56 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-cb38-7634-0000037f6128 
-on database directory C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+Sat May 18 23:59:48 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-cbe2-9f93-0000013a7b48 
+on database directory C:\Users\Sy Nguyen\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/Sy%20Nguyen/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project
+user.dir=C:\Users\Sy Nguyen\Documents\GitHub\Appu\Appu Project
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sat May 18 20:53:56 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 601a400f-016a-cb38-7634-0000037f6128 
-on database directory C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project\vietSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+Sat May 18 23:59:49 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 601a400f-016a-cbe2-9f93-0000013a7b48 
+on database directory C:\Users\Sy Nguyen\Documents\GitHub\Appu\Appu Project\vietSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/Sy%20Nguyen/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project
+user.dir=C:\Users\Sy Nguyen\Documents\GitHub\Appu\Appu Project
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
