@@ -49,11 +49,11 @@ public class Internet {
             try {
                 desktop.browse(new URI(url));
             } catch (URISyntaxException | IOException e) {}
-        else {
-            BrowserFrame browser = new BrowserFrame("https://www.google.com/search?q=" + command);
-            browser.setVisible(true);
-            browser.setBounds(190,90,1030,600);
-            browser.setTitle("Google");
-        }         
+//        else {
+//            BrowserFrame browser = new BrowserFrame("https://www.google.com/search?q=" + command);
+//            browser.setVisible(true);
+//            browser.setBounds(190,90,1030,600);
+//            browser.setTitle("Google");
+//        }         
     }
 }
