@@ -16,9 +16,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class MainPanel extends JScrollPane {
+public class MainPanel extends JPanel {
     public static JLabel commandLabel, answerLabel, iconLabel, timeLabel;
-    public static JPanel commandPanel, answerPanel, mainPanel;
+    public static JPanel commandPanel, answerPanel;
+    
+//    @Override
+//    protected void paintComponent(Graphics g) {
+//        super.paintComponent(g);
+//        try {
+//            BufferedImage image = ImageIO.read(new File("src/Pictures/Main.jpg"));
+//            g.drawImage(image, 0, 0, this);
+//        } catch (IOException ex) {}
+//    }
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -68,24 +77,7 @@ public class MainPanel extends JScrollPane {
     }
     
     public MainPanel() {
-        mainPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                BufferedImage image = null;
-                try {                
-                    image = ImageIO.read(new File("src/Pictures/Main.jpg"));
-                } catch (IOException ex) {}
-                g.drawImage(image, 0, 0, this);         
-            }
-        };
-        mainPanel.setBounds(0, 0, 480, 3000);
-        mainPanel.setLayout(null);
-
+        setLayout(null);
         setBounds(0, 60, 500, 500);
-        setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        add(mainPanel);
-        setViewportView(mainPanel);   
     }
 }
