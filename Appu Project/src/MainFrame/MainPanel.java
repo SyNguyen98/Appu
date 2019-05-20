@@ -20,14 +20,14 @@ public class MainPanel extends JPanel {
     public static JLabel commandLabel, answerLabel, iconLabel, timeLabel;
     public static JPanel commandPanel, answerPanel;
     
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//        try {
-//            BufferedImage image = ImageIO.read(new File("src/Pictures/Main.jpg"));
-//            g.drawImage(image, 0, 0, this);
-//        } catch (IOException ex) {}
-//    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        try {
+            BufferedImage image = ImageIO.read(new File("src/Pictures/Main.jpg"));
+            g.drawImage(image, 0, 0, this);
+        } catch (IOException ex) {}
+    }
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -40,13 +40,15 @@ public class MainPanel extends JPanel {
         return dimg;
     } 
     
-    public static void setTimeLabel() {
+    public void setTimeLabel() {
         timeLabel = new JLabel(); 
+        timeLabel.setBounds(225, 0, 50, 40);
         timeLabel.setForeground(Color.LIGHT_GRAY);
         timeLabel.setFont(new Font("Arial", 1, 12));
+        add(timeLabel);
     }
     
-    public static void setCommandPanel() {
+    public void setCommandPanel() {
         commandPanel = new RoundPanel();
         commandPanel.setLayout(new GroupLayout(commandPanel));
         commandPanel.setOpaque(false);
@@ -56,15 +58,18 @@ public class MainPanel extends JPanel {
         commandLabel.setFont(new Font("Arial", 3, 13));
         commandLabel.setForeground(Color.BLACK);
         commandPanel.add(commandLabel);
+        add(commandPanel);
     }
     
-    public static void setAnswerPanel() {
+    public void setAnswerPanel() {
         iconLabel = new JLabel();
         BufferedImage image = null;
         try {
             image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
             iconLabel.setIcon(CircleLabel.setImageLabel(resize(image, 35, 35)));
         } catch (IOException ex) {} 
+        add(iconLabel);
+        
         answerPanel = new RoundPanel();
         answerPanel.setLayout(new GroupLayout(answerPanel));
         answerPanel.setOpaque(false);
@@ -74,10 +79,15 @@ public class MainPanel extends JPanel {
         answerLabel.setFont(new Font("Arial", 3, 13));
         answerLabel.setForeground(Color.WHITE);
         answerPanel.add(answerLabel);
+        add(answerPanel);
     }
     
     public MainPanel() {
-        setLayout(null);
-        setBounds(0, 60, 500, 500);
+        setLayout(new GroupLayout(this));
+        setBounds(0, 60, 480, 500);
+        
+        setTimeLabel() ;
+        setCommandPanel();
+        setAnswerPanel();
     }
 }
