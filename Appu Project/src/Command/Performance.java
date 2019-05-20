@@ -1,6 +1,7 @@
 package Command;
 
-import Database.SQL;
+import Database.EngSQL;
+import Database.VietSQL;
 import MainFrame.InputPanel;
 import MainFrame.MainFrame;
 import MainFrame.MainPanel;
@@ -12,8 +13,6 @@ import java.util.Calendar;
 
 public class Performance {
 
-    private static final SQL engSQL = new SQL("English");
-    private static final SQL vietSQL = new SQL("Vietnam");
     public static boolean online;
     private static int length = 0;
 
@@ -58,11 +57,13 @@ public class Performance {
                 int height = Proccess.height;
                 setCommand(command, width, height);
 
-                String answer = "";
-                if ("english".equals(MainFrame.getLanguage()))
-                    answer = engSQL.getAnswer(InputPanel.inputField.getText());
-                else
-                    answer = vietSQL.getAnswer(InputPanel.inputField.getText());
+                String answer;
+                if ("english".equals(MainFrame.getLanguage())) {
+                    answer = EngSQL.getAnswer(InputPanel.inputField.getText());
+                }
+                else {
+                    answer = VietSQL.getAnswer(InputPanel.inputField.getText());
+                }
                 answer = Proccess.makeNewLine(answer);
                 width = Proccess.width;
                 height = Proccess.height;

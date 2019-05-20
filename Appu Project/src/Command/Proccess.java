@@ -29,11 +29,11 @@ public class Proccess {
             }
                 String str = commandString.substring(j);
                 listStr.add(str);
-                width = maxChar * 7;    
+                width = maxChar * 8;    
         }
         else {
             listStr.add(commandString);  
-            width = commandString.length() * 7;   
+            width = commandString.length() * 8;   
         }
         height = listStr.size() * 23;
         commandString = "";

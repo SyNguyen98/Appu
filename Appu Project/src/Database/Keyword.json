@@ -35,4 +35,8 @@
         "English" : "open",
         "Viet" : "mở"
     }
+        {
+        "English" : "shutdown",
+        "Viet" : "tắt máy"
+    }
 ]
