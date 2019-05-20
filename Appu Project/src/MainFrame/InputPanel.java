@@ -37,8 +37,7 @@ public class InputPanel extends JPanel {
         try {
             BufferedImage image = ImageIO.read(new File("src/Pictures/Input.jpg"));
             g.drawImage(image, 0, 0, this);
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
     }
 
     private void setInputTextField() {
