@@ -21,7 +21,7 @@ public class MainFrame {
     public static final JFrame frame = new JFrame();
     private static final FrameDrag frameDrag = new FrameDrag(frame);
     private static final TitlePanel titlePanel = new TitlePanel();
-    private static final MainPanel mainPanel = new MainPanel();
+    public static final MainPanel mainPanel = new MainPanel();
     private static final InputPanel inputPanel = new InputPanel();
     private static final JLabel introLabel = new JLabel();
 
