@@ -14,36 +14,33 @@ import java.util.Calendar;
 public class Performance {
 
     public static boolean online;
-    private static int length = 0;
 
     private static void setTime() {
         MainPanel.setTimeLabel();
         MainPanel.timeLabel.setText(new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime()));
-        MainPanel.timeLabel.setBounds(225, length, 50, 40);
+        MainPanel.timeLabel.setBounds(225, 0, 50, 40);
     }
 
     private static void setCommand(String command, int width, int height) {
         MainPanel.setCommandPanel();
-        MainPanel.commandPanel.setBounds(260 + (180 - width), 20 + height / 2 + length, width + 20, height + 10);
+        MainPanel.commandPanel.setBounds(260 + (180 - width), 20 + height / 2, width + 20, height + 10);
         MainPanel.commandLabel.setText("<html>" + command.replace("@", "<br>") + "</html>");
         MainPanel.commandLabel.setBounds(10, 5, width, height);
     }
 
     private static void setAnswer(String answer, int width, int height) {
         MainPanel.setAnswerPanel();
-        MainPanel.iconLabel.setBounds(10, MainPanel.commandPanel.getHeight() + 37 + length, 35, 35);
-        MainPanel.answerPanel.setBounds(55, MainPanel.commandPanel.getHeight() + length + 35, width + 20, height + 10);
+        MainPanel.iconLabel.setBounds(10, MainPanel.commandPanel.getHeight() + 37, 35, 35);
+        MainPanel.answerPanel.setBounds(55, MainPanel.commandPanel.getHeight() + 35, width + 20, height + 10);
         MainPanel.answerLabel.setText("<html>" + answer.replace("@", "<br>") + "</html>");
         MainPanel.answerLabel.setBounds(10, 5, width, height);
     }
 
     static void setMainPanel() {
-        MainPanel.mainPanel.setPreferredSize(new Dimension(MainPanel.mainPanel.getWidth(), MainPanel.mainPanel.getHeight() + MainPanel.commandPanel.getHeight()));
-        MainPanel.mainPanel.add(MainPanel.timeLabel);
-        MainPanel.mainPanel.add(MainPanel.commandPanel);
-        MainPanel.mainPanel.add(MainPanel.answerPanel);
-        MainPanel.mainPanel.add(MainPanel.iconLabel);
-        MainPanel.mainPanel.revalidate();
+        MainFrame.mainPanel.add(MainPanel.timeLabel);
+        MainFrame.mainPanel.add(MainPanel.commandPanel);
+        MainFrame.mainPanel.add(MainPanel.answerPanel);
+        MainFrame.mainPanel.add(MainPanel.iconLabel);
     }
 
     public static void Do() {
@@ -81,7 +78,6 @@ public class Performance {
                     Internet.accessInternet();
 
                 InputPanel.inputField.setText("");
-                length += MainPanel.timeLabel.getHeight() + MainPanel.commandPanel.getHeight() + MainPanel.answerPanel.getHeight() + 10;
             }
         });
 
