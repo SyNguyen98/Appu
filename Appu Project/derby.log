@@ -1,24 +1,11 @@
 ----------------------------------------------------------------
-Mon May 20 00:39:39 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-d12d-7749-0000050954d0 
-on database directory C:\Users\PC\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+Mon May 20 09:27:48 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-d311-02f9-000004d37088 
+on database directory C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\PC\Documents\GitHub\Appu\Appu Project
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Mon May 20 00:39:50 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 40348015-016a-d12d-7749-0000050954d0 
-on database directory C:\Users\PC\Documents\GitHub\Appu\Appu Project\vietSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\PC\Documents\GitHub\Appu\Appu Project
+user.dir=C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
