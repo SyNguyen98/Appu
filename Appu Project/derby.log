@@ -1,21 +1,24 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Mon May 20 09:27:48 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-d311-02f9-000004d37088 
+Fri May 24 20:38:04 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-ea10-181d-000005152b80 
 on database directory C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
 user.dir=C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project
-=======
-Tue May 21 00:13:01 ICT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-d63b-7178-0000052f8220 
-on database directory C:\Users\PC\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri May 24 20:40:38 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 22b5c04b-016a-ea10-181d-000005152b80 
+on database directory C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project\vietSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\PC\Documents\GitHub\Appu\Appu Project
->>>>>>> c18dd5eee4f5e52ea10dc5d5dc78e50117fc17b2
+user.dir=C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
