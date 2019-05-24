@@ -1,6 +1,7 @@
 package Command;
 
 import Database.EngSQL;
+import Database.VietSQL;
 import OtherFrame.BrowserFrame;
 import MainFrame.InputPanel;
 import MainFrame.MainFrame;
@@ -51,7 +52,7 @@ public class Internet {
                 desktop.browse(new URI(url));
             } catch (URISyntaxException | IOException e) {}
         
-        else if ("error".equals(EngSQL.exceptionCase(InputPanel.inputField.getText()))) {
+        else if (EngSQL.exceptionCase(InputPanel.inputField.getText()).equals("error") && VietSQL.exceptionCase(InputPanel.inputField.getText()).equals("error")) {
             BrowserFrame browser = new BrowserFrame("https://www.google.com/search?q=" + command);
             browser.setVisible(true);
             browser.setBounds(190, 90, 1030, 600);
