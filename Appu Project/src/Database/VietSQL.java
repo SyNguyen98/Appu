@@ -32,7 +32,7 @@ public class VietSQL extends SQL {
         insert("cách sử dụng", "Ngài có thể vào cài đặt, rồi mở phần Guide lên, em sẽ hướng dẫn ngài các bước cơ bản để sử dụng.", "Phần Guide có thể trả lời ngài các câu hỏi đó.", "Hãy đọc hướng dẫn sử dụng trước khi dùng nhé :D :D", "Tự mò đi ạ :)");
     }
 
-    private static String exceptionCase(String command) {
+    public static String exceptionCase(String command) {
         if (command.contains("là ai") || command.contains("là gì"))
             if (command.contains("em") || command.contains("bạn") || command.contains("mày"))
                 return "bạn là ai";
