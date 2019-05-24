@@ -14,7 +14,6 @@ import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 public class MainPanel extends JPanel {
     public static JLabel commandLabel, answerLabel, iconLabel, timeLabel;
