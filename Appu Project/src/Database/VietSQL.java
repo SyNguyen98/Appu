@@ -13,24 +13,23 @@ public class VietSQL extends SQL {
     }
 
     private void insertTable() {
-        insert("error", "Tôi không hiểu ý bạn, bạn có thể hỏi lại chi tiết hơn không? :O", "Rất xin lỗi, yêu cầu của bạn tôi chưa được huấn luyện để thực hiện, xin hãy cho tôi thời gian học hỏi thêm :(", "Rất tiếc, tôi chưa được lập trình để thực hiện yêu cầu của bạn, bạn có thể yêu cầu câu lệnh khác ạ. ", "Thành thật xin lỗi, tôi không thể thực hiện được câu lệnh của bạn, tôi sẽ đọc thêm sách để hiểu thêm về vấn đề này >_<");
-        insert("video", "Thật nhiều video thú vị, bạn chọn một cái và xem nhé!", "Tôi và bạn cùng nhau xem nhé …", "Bạn muốn xem video nào về nội dung này nào? Click chọn nhé!", "Xem tôi tìm được gì cho bạn nè …");
-        insert("hình ảnh", "Kiếm được rồi, hiện hình lên thôi !!", "Thật đẹp, thật dễ thương…", "Bạn muốn tải ảnh về làm ảnh nền hả? Tôi có thể giúp bạn đó", "Nhiều ảnh quá, bạn xem từ từ nhé.");
-        insert("nhạc", "Làm việc nhiều rồi, thư giãn một chút thôi…", "Hình như bài này đang là hot trend thì phải?!", "Tôi kiếm ra rồi, mà nhiều bài và ca sĩ khác nhau quá, bạn tự chọn và nghe nhé!", "Bài hát của bạn đây…");
+        insert("error", "Em không hiểu ý ngài, thôi thì hỏi google nhé :O", "Rất xin lỗi, yêu cầu của ngài em chưa được huấn luyện để thực hiện, nhưng google thì có ^^", "Rất tiếc, em chưa được lập trình để thực hiện yêu cầu đó, còn Google-san thì rồi", "Thành thật xin lỗi, em không thể thực hiện được câu lệnh của ngài, để em tra google đã nhé >_<");
+        insert("video", "Thật nhiều video thú vị, ngài chọn một cái và xem nhé!", "Em và ngài cùng nhau xem nhé …", "Ngài muốn xem video nào? Click chọn nhé!", "Xem em tìm được gì cho ngài nè …");
+        insert("hình ảnh", "Kiếm được rồi, hiện hình lên thôi !!", "Thật đẹp, thật dễ thương…", "Ngài muốn tải ảnh về làm ảnh nền hả? Em có thể giúp đó", "Nhiều ảnh quá, ngài xem từ từ nhé.");
+        insert("nhạc", "Làm việc nhiều rồi, thư giãn một chút thôi…", "Hình như bài này đang là hot trend thì phải?!", "Em kiếm ra rồi, mà nhiều bài và ca sĩ quá, ngài tự chọn nhé!", "Bài hát của ngài đây…");
         insert("dịch", "Từ này dễ mà … … … em quên mất rồi, thôi để tra google :D", "Đây, cái nào khó thì mình cứ xài tool ^_^ ", "Từ này nghĩa là … 世界! (Tui đùa đó :v, kết quả dịch đây)", "Úm ba la, taa daa ");
-        insert("bản đồ", "Đi đâu thì nhớ 'Tắt máy' máy rồi hãng đi nhé!", "Đây là chỉ dẫn đường đi từ đây tới đó…", "Đi đâu thì đi, nhớ về nhà ăn tối cùng gia đình, bạn nhé! <3", "Let go !!!");
-        insert("facebook", "Xem có gì hot không nào :/", "Bạn đang tâm trạng hả, có muốn đăng status tâm sự gì không?", "Hmm, lên check xem inbox có ai nhắn tin không nào…", "Hình như hôm nay được nghỉ, lên facebook check lịch lại nào!!");
-        insert("mail", "Check mail thường xuyên, xem có CTY nào mới đi phỏng vấn không, bạn nhé! ", "Làm bài xong rồi, lên mail nộp bài thôi…", "Hình như không có mail nào mới cả đâu…", "TMA chưa gửi mail cho bạn đâu, hình như mới có mấy cái mail của IT Viec thôi à.");
-        insert("web", "Thông tin mà bạn cần tìm đây…", "Cần gì cứ nhắn cho tôi nhé, ba cái này đơn giản á mà…", "Thứ bạn cần tìm kiếm đây…", "Chờ một chút nào, hình như mạng nhà hơi lag…");
-        insert("mở", "Ứng dụng của bạn sẽ hiện lên nhanh thôi…", "Mở nó lên nào…", "Chờ một chút nhé, nó lên liền ngay thôi…", "Yêu cầu của bạn sẽ được thực hiện … ngay tức khắc!");
+        insert("bản đồ", "Đi đâu thì nhớ *Tắt máy* rồi hẵng đi nhé!", "Đây là chỉ dẫn đường đi từ đây tới đó…", "Đi đâu thì đi, nhớ về nhà ăn tối cùng em nhé! <3", "Let go !!!");
+        insert("facebook", "Xem có gì hot không nào :/", "Ngài đang có tâm trạng hả? Có muốn đăng status tâm sự gì không?", "Hmm, lên check xem inbox có ai nhắn tin không nào…", "Hình như hôm nay được nghỉ, lên facebook check lịch lại nào!!");
+        insert("mail", "Check mail thường xuyên, xem có CTY nào mời đi phỏng vấn không nhé! ", "Làm bài xong rồi, lên mail nộp bài thôi…", "Hình như không có mail nào mới cả đâu…", "TMA chưa gửi mail đâu, hình như mới có mấy cái mail của ITViec thôi à.");
+        insert("web", "Thông tin mà bạn cần tìm đây…", "Cần gì cứ nhắn cho em nhé, ba cái này đơn giản á mà…", "Thứ ngài cần tìm kiếm đây…", "Chờ một chút nào, hình như mạng hơi lag…");
+        insert("mở", "Ứng dụng của bạn sẽ hiện lên nhanh thôi…", "Mở nó lên nào…", "Chờ một chút nhé, nó lên liền ngay thôi…", "Yêu cầu của ngài sẽ được thực hiện … ngay tức khắc!");
         insert("ngủ", "Nghỉ ngơi một lát cho thoải mái rồi làm việc tiếp sau nào.", "Đi kiếm gì ăn uống rồi quay lại làm việc nhé!", "Nghỉ ngơi thôi !!!", "Ra ngoài chơi xíu nào…");
-        insert("tắt máy", "Hôm nay làm việc đủ rồi, nghỉ ngơi đi ngủ thôi.", "Chào tạm biệt, mai lại gọi tôi tới giúp bạn nhé!", "Cảm ơn bạn vì ngày hôm nay, tôi sẽ nhớ bạn <3", "Tạm biệt nhé, hẹn mai gặp lại ;)");
-        insert("bạn là ai", "Tôi là i.Sekai, trợ lý ảo cho bạn trong việc dùng máy tính trên hệ điều hành Windows.", "Bạn có thể vào cài đặt, bạn sẽ thấy thông tin về tôi nằm tại đó.", "Tôi là trợ lý ảo của bạn.", "Tôi là phần mềm trợ lý giúp cho bạn được rất nhiều thứ hữu ích!");
-        insert("tôi là ai", "Hãy nói tên bạn cho tôi nghe, tôi sẽ ghi nhớ…", "Hình như bạn chưa nói tên bạn cho tôi biết :/", "Tôi không nhớ bạn có nói tên bạn cho tôi nghe…", "Xin lỗi, tôi không, tôi chỉ biết bạn là chủ nhân của tôi.");
+        insert("tắt máy", "Hôm nay làm việc đủ rồi, nghỉ ngơi đi ngủ thôi.", "Chào tạm biệt, mai lại gọi em tới giúp ngài nhé!", "Cảm ơn vì ngày hôm nay, em sẽ nhớ ngài <3", "Tạm biệt nhé, hẹn mai gặp lại ;)");
+        insert("bạn là ai", "Em là i.Sekai, trợ lý ảo trong việc dùng máy tính trên hệ điều hành Windows.", "Ngài có thể vào cài đặt, sẽ thấy thông tin về em nằm tại đó.", "Em là trợ lý ảo của ngài.", "Em là phần mềm trợ lý giúp được rất nhiều thứ hữu ích!");
+        insert("tôi là ai", "Hãy nói tên ngài cho em nghe, em sẽ ghi nhớ…", "Hình như ngài chưa nói tên ngài cho em biết :/", "Em không nhớ ngài có nói tên cho em nghe…", "Xin lỗi, em không, em chỉ biết ngài là chủ nhân của em thôi.");
         insert("giúp được gì", "Bạn có thể vào cài đặt, xem thông tin của tôi và biết tôi có thể làm gì", "Tôi có thể giúp được bạn rất nhiều thứ…", "Hãy khám phá tôi, rồi bạn sẽ phải thích tôi thôi", "Tôi giúp cho bạn được rất nhiều thứ… bạn có thể tự khám phá ra và sẽ thích tôi…");
-        insert("nhớ chưa", "Tôi nhớ rồi", "Tôi đã rõ rồi!", "Tôi nhớ rồi", "Tôi đã rõ rồi!");
-        insert("cách sử dụng", "Bạn có thể vào cài đặt, rồi mở phần Guide lên, tôi sẽ hướng dẫn bạn các bước cơ bản để dùng tôi.", "Phần Guide có thể trả lời bạn các câu hỏi đó.", "Hãy đọc hướng dẫn sử dụng trước khi dùng :D :D", "Bạn có thể vào cài đặt, rồi mở phần Guide lên, tôi sẽ hướng dẫn bạn các bước cơ bản để dùng tôi.");
-        insert("tên tôi là gì", "Rất xin lỗi, vì tôi chỉ mới được sinh ra từ hôm qua, nên trí nhớ tôi không thể lưu trữ quá nhiều.", "Xin hãy cho tôi thêm thời gian để khắc ghi tên bạn vào tim… (nhưng tôi không có tim thật đâu)", "Rất xin lỗi, vì tôi chỉ mới được sinh ra từ hôm qua, nên trí nhớ tôi không thể lưu trữ quá nhiều.", "Xin hãy cho tôi thêm thời gian để khắc ghi tên bạn vào tim… (nhưng tôi không có tim thật đâu)");
+        insert("nhớ chưa", "Nhớ rồi ạ", "Đã rõ!", "Em nhớ rồi", "Em đã rõ rồi!");
+        insert("cách sử dụng", "Ngài có thể vào cài đặt, rồi mở phần Guide lên, em sẽ hướng dẫn ngài các bước cơ bản để sử dụng.", "Phần Guide có thể trả lời ngài các câu hỏi đó.", "Hãy đọc hướng dẫn sử dụng trước khi dùng nhé :D :D", "Tự mò đi ạ :)");
     }
 
     private static String exceptionCase(String command) {
@@ -38,7 +37,7 @@ public class VietSQL extends SQL {
             if (command.contains("em") || command.contains("bạn") || command.contains("mày"))
                 return "bạn là ai";
             else
-                return "tôi là gì";
+                return "tôi là ai";
         if ((command.contains("xài") || command.contains("sử dụng")) && (command.contains("làm sao") || command.contains("như thế nào") ||  command.contains("cách")))
             return "cách sử dụng";
         return "error";
