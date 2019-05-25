@@ -1,8 +1,15 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Sat May 25 22:01:14 ICT 2019:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-ef82-9933-000004607b00 
 on database directory C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project\engSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/C:/Users/ASUS/OneDrive/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+=======
+Sun May 26 00:09:10 ICT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-eff7-b8a6-0000053222f0 
+on database directory C:\Users\PC\Documents\GitHub\Appu\Appu Project\vietSQL with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/PC/Documents/GitHub/Appu/Appu%20Project/src/Library/derby.jar
+>>>>>>> a50d7d2c3119f25cbbbd839aa0c83b77c1d94f24
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
 user.dir=C:\Users\ASUS\OneDrive\Documents\GitHub\Appu\Appu Project
@@ -11,6 +18,7 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
+<<<<<<< HEAD
 ----------------------------------------------------------------
 Sat May 25 22:03:45 ICT 2019:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance d89d8024-016a-ef82-9933-000004607b00 
@@ -24,3 +32,5 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
+=======
+>>>>>>> a50d7d2c3119f25cbbbd839aa0c83b77c1d94f24
