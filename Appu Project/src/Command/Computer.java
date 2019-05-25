@@ -1,6 +1,7 @@
 package Command;
 
 import MainFrame.InputPanel;
+import MainFrame.MainFrame;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +13,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Computer {
-    private static final Desktop desktop = Desktop.getDesktop();
     private static final JSONParser parser = new JSONParser();
     
     
@@ -21,7 +21,11 @@ public class Computer {
             JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/ControlPC.json"));
             for (Object obj : jsonArray) {                 
                 JSONObject jsonObject = (JSONObject) obj;               
-                String key = (String) jsonObject.get("Key");
+                String key = "";
+                if ("english".equals(MainFrame.getLanguage()))
+                    key = (String) jsonObject.get("Eng");
+                else
+                    key = (String) jsonObject.get("Viet");
                 if(command.contains(key)) {
                     return (String) jsonObject.get("Command");
                 }
@@ -43,11 +47,5 @@ public class Computer {
             } catch (IOException ex) {}
             Performance.online = false;
         }
-//        if(command.contains("data structure")) {
-//            try {
-//                desktop.open(new File("src/Database/visualization.jar"));
-//            } catch (IOException e) {}
-//            Performance.online = false;
-//        }
     }
 }
