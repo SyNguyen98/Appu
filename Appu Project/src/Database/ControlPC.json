@@ -1,42 +1,52 @@
 [
     {
-        "Key" : "shut down",
+        "Eng" : "shut down",
+        "Viet" : "tắt máy",
         "Command" : "shutdown -s -t 15"
     }
     {
-        "Key" : "go to sleep",
+        "Eng" : "sleep",
+        "Viet" : "ngủ",
         "Command" : "Rundll32.exe powrprof.dll,SetSuspendState Sleep"
     }
     {
-        "Key" : "restart",
+        "Eng" : "restart",
+        "Viet" : "khởi động lại",
         "Command" : "shutdown -r -t 15"
     }
     {
-        "Key" : "open word",
+        "Eng" : "open word",
+        "Viet" : "mở word",
         "Command" : "cmd /c start winword"
     }
     {
-        "Key" : "open excel",
+        "Eng" : "open excel",
+        "Viet" : "mở excel",
         "Command" : "cmd /c start excel"
     }
     {
-        "Key" : "open powerpoint",
+        "Eng" : "open powerpoint",
+        "Viet" : "mở powerpoint",
         "Command" : "cmd /c start powerpnt"
     }
     {
-        "Key" : "open paint",
+        "Eng" : "open paint",
+        "Viet" : "mở paint",
         "Command" : "cmd /c start mspaint"
     }
     {
-        "Key" : "open calculator",
+        "Eng" : "open calculator",
+        "Viet" : "mở máy tính",
         "Command" : "cmd /c start calc"
     }
     {
-        "Key" : "pc info",
+        "Eng" : "pc info",
+        "Viet" : "thông tin pc",
         "Command" : "cmd /c start dxdiag"
     }
     {
-        "Key" : "control panel",
+        "Eng" : "control panel",
+        "Viet" : "bảng điều khiển",
         "Command" : "cmd /c start control"
     }
 ]
