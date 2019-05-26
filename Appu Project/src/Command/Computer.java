@@ -2,8 +2,6 @@ package Command;
 
 import MainFrame.InputPanel;
 import MainFrame.MainFrame;
-import java.awt.Desktop;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
