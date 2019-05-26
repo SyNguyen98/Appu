@@ -17,10 +17,6 @@ public class CircleButton extends JButton {
         g.fillOval(0, 0, getSize().width-1, getSize().height-1);
         super.paintComponent(g);
     }
-//    @Override
-//    protected void paintBorder(Graphics g) {
-//        g.drawOval(0, 0, getSize().width-1, getSize().height-1);
-//    }
     @Override
     public boolean contains(int x, int y) {
         Shape shape = null;
