@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -80,10 +79,9 @@ public class InformationFrame extends JFrame {
     private void setIcon() {
         iconLabel = new JLabel();
         try {
-            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(InformationFrame.class.getResource("/Pictures/Avatar.jpg"));
             iconLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
         iconLabel.setBounds(125, 10, 60, 60);
         add(iconLabel);
         versionLabel = new JLabel();
@@ -108,13 +106,10 @@ public class InformationFrame extends JFrame {
 
     public InformationFrame() {
         try {
-            setIconImage(ImageIO.read(new File("/Pictures/Icon.png")));
-        } catch (IOException ex) {
-        }
-        setSize(300, 300);
-        try {
-            setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Pictures/Info.jpg")))));
+            setIconImage(ImageIO.read(InformationFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
+        setSize(300, 300);
+        setContentPane(new JLabel(new ImageIcon(InformationFrame.class.getResource("/Pictures/Info.jpg"))));
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setLayout(null);
