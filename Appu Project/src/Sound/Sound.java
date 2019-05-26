@@ -1,4 +1,3 @@
-
 package Sound;
 
 import java.io.File;
@@ -9,12 +8,11 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sound {
-    public static void play(String path) {
+    public static void play(String url) {
         try {       
             Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(new File(path)));
+            clip.open(AudioSystem.getAudioInputStream(new File(url)));
             clip.start();
-        }
-        catch (IOException | LineUnavailableException | UnsupportedAudioFileException exc) {}
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException exc) {}
     }
 }
