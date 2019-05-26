@@ -8,7 +8,6 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -38,7 +37,7 @@ public class MiniFrame extends JFrame{
         JLabel imageLabel = new JLabel();
         BufferedImage image = null;
         try {                      
-            image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            image = ImageIO.read(MiniFrame.class.getResource("/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 70, 70)));
         } catch (IOException ex) {}
         imageLabel.setBounds(0, 0, 70, 70);
@@ -47,7 +46,7 @@ public class MiniFrame extends JFrame{
 
     public MiniFrame() {
         try {
-            setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
+            setIconImage(ImageIO.read(MiniFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
         setAvatarLabel();
         setSize(70, 70);
