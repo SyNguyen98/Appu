@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
@@ -23,7 +22,7 @@ public class MainPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            BufferedImage image = ImageIO.read(new File("src/Pictures/Main.jpg"));
+            BufferedImage image = ImageIO.read(MainPanel.class.getResource("/Pictures/Main.jpg"));
             g.drawImage(image, 0, 0, this);
         } catch (IOException ex) {}
     }
@@ -64,7 +63,7 @@ public class MainPanel extends JPanel {
         iconLabel = new JLabel();
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            image = ImageIO.read(MainPanel.class.getResource("/Pictures/Avatar.jpg"));
             iconLabel.setIcon(CircleLabel.setImageLabel(resize(image, 35, 35)));
         } catch (IOException ex) {} 
         add(iconLabel);
