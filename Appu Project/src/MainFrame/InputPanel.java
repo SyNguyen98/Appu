@@ -35,7 +35,7 @@ public class InputPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            BufferedImage image = ImageIO.read(new File("src/Pictures/Input.jpg"));
+            BufferedImage image = ImageIO.read(InputPanel.class.getResource("/Pictures/Input.jpg"));
             g.drawImage(image, 0, 0, this);
         } catch (IOException ex) {}
     }
@@ -80,7 +80,7 @@ public class InputPanel extends JPanel {
 
     private void setSuggestiveButton() {
         suggestiveButton = new CircleButton();
-        suggestiveButton.setIcon(new ImageIcon("src/Pictures/mention-icon.png"));
+        suggestiveButton.setIcon(new ImageIcon(InputPanel.class.getResource("/Pictures/mention-icon.png")));
         suggestiveButton.setBounds(410, 20, 40, 40);
         suggestiveButton.addActionListener(new ActionListener() {
             @Override
