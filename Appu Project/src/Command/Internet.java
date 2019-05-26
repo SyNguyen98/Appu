@@ -44,7 +44,7 @@ public class Internet {
     }
     
     public static void accessInternet() {   
-        String command = InputPanel.inputField.getText();
+        String command = InputPanel.inputField.getText().toLowerCase();
 
         String url = getLink(command);
         if (url != null)
@@ -52,7 +52,7 @@ public class Internet {
                 desktop.browse(new URI(url));
             } catch (URISyntaxException | IOException e) {}
         
-        else if (EngSQL.exceptionCase(InputPanel.inputField.getText()).equals("error") && VietSQL.exceptionCase(InputPanel.inputField.getText()).equals("error")) {
+        else if (EngSQL.exceptionCase(command).equals("error") && VietSQL.exceptionCase(command).equals("error")) {
             BrowserFrame browser = new BrowserFrame("https://www.google.com/search?q=" + command);
             browser.setVisible(true);
             browser.setBounds(190, 90, 1030, 600);
