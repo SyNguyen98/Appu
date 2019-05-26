@@ -5,9 +5,8 @@ import Setting.FrameDrag;
 import Sound.Sound;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -27,13 +26,13 @@ public class MainFrame {
 
     private static void setIntro() {
         Sound.play("src/Sound/Endgame.wav");
-        introLabel.setIcon(new ImageIcon("src/Pictures/Intro.gif"));
+        introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
     }
     
     public static String getLanguage() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Language.txt"))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(MainFrame.class.getResourceAsStream("/Database/Language.txt")))) {
             String language = br.readLine();
             return language;
         } catch (IOException ex) {}
@@ -47,7 +46,7 @@ public class MainFrame {
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {}
 
         try {
-            frame.setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
+            frame.setIconImage(ImageIO.read(MainFrame.class.getResource("/Pictures/Icon.png")));
         } catch (IOException ex) {}
         frame.setSize(480, 640);
         frame.setUndecorated(true);
