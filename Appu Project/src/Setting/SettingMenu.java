@@ -31,7 +31,7 @@ public class SettingMenu extends JPopupMenu {
     private void changeInfo() {
         infoMenu = new JMenu();
         infoMenu.setFont(new Font("Arial", 1, 15));
-        infoMenu.setIcon(new ImageIcon("src/Pictures/settings-icon.png"));
+        infoMenu.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/settings-icon.png")));
         infoMenu.setOpaque(true);
         infoMenu.setBackground(new Color(0, 0, 42));
         infoMenu.setForeground(Color.WHITE);
@@ -43,7 +43,7 @@ public class SettingMenu extends JPopupMenu {
     private void changeAvatar() {
         avatarItem = new JMenuItem();
         avatarItem.setFont(new Font("Arial", 1, 15));
-        avatarItem.setIcon(new ImageIcon("src/Pictures/avatar-icon.png"));
+        avatarItem.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/avatar-icon.png")));
         avatarItem.setBackground(new Color(102, 0, 102));
         avatarItem.setForeground(Color.WHITE);
         avatarItem.addActionListener(new ActionListener() {
@@ -58,7 +58,7 @@ public class SettingMenu extends JPopupMenu {
     private void changeName() {
         nameItem = new JMenuItem();
         nameItem.setFont(new Font("Arial", 1, 15));
-        nameItem.setIcon(new ImageIcon("src/Pictures/name-icon.png"));
+        nameItem.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/name-icon.png")));
         nameItem.setBackground(new Color(102, 0, 153));
         nameItem.setForeground(Color.WHITE);
         nameItem.addActionListener(new ActionListener() {
@@ -73,7 +73,7 @@ public class SettingMenu extends JPopupMenu {
     private void setGuide() {
         guideItem = new JMenuItem();
         guideItem.setFont(new Font("Arial", 1, 15));
-        guideItem.setIcon(new ImageIcon("src/Pictures/help-icon.png"));
+        guideItem.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/help-icon.png")));
         guideItem.setBackground(new Color(0, 0, 84));
         guideItem.setForeground(Color.WHITE);
         guideItem.addActionListener(new ActionListener() {
@@ -91,7 +91,7 @@ public class SettingMenu extends JPopupMenu {
     private void getInformation() {
         infoItem = new JMenuItem();
         infoItem.setFont(new Font("Arial", 1, 15));
-        infoItem.setIcon(new ImageIcon("src/Pictures/info-icon.png"));
+        infoItem.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/info-icon.png")));
         infoItem.setBackground(new Color(0, 0, 126));
         infoItem.setForeground(Color.WHITE);
         infoItem.addActionListener(new ActionListener() {
@@ -109,7 +109,7 @@ public class SettingMenu extends JPopupMenu {
     private void changeLanguage() {
         languageMenu = new JMenu();
         languageMenu.setFont(new Font("Arial", 1, 15));
-        languageMenu.setIcon(new ImageIcon("src/Pictures/language-icon.png"));
+        languageMenu.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/language-icon.png")));
         languageMenu.setOpaque(true);
         languageMenu.setBackground(new Color(0, 0, 168));
         languageMenu.setForeground(Color.WHITE);
@@ -129,8 +129,7 @@ public class SettingMenu extends JPopupMenu {
                 Language.setEnglish();
                 try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Database/Language.txt"))) {
                     bw.write("english");
-                } catch (IOException ex) {
-                }
+                } catch (IOException ex) {}
             }
         });
         languageMenu.add(englishItem);
@@ -147,8 +146,7 @@ public class SettingMenu extends JPopupMenu {
                 Language.setVietnamese();
                 try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/Database/Language.txt"))) {
                     bw.write("vietnamese");
-                } catch (IOException ex) {
-                }
+                } catch (IOException ex) {}
             }
         });
         languageMenu.add(vietnameseItem);
@@ -157,7 +155,7 @@ public class SettingMenu extends JPopupMenu {
     private void setOtherMenu() {
         otherMenu = new JMenu();
         otherMenu.setFont(new Font("Arial", 1, 15));
-        otherMenu.setIcon(new ImageIcon("src/Pictures/other_tools.png"));
+        otherMenu.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/other_tools.png")));
         otherMenu.setOpaque(true);
         otherMenu.setBackground(new Color(0, 0, 255));
         otherMenu.setForeground(Color.WHITE);
@@ -169,7 +167,7 @@ public class SettingMenu extends JPopupMenu {
     private void accessDrive() {
         driveItem = new JMenuItem("Drive");
         driveItem.setFont(new Font("Arial", 1, 15));
-        driveItem.setIcon(new ImageIcon("src/Pictures/drive-icon.png"));
+        driveItem.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/drive-icon.png")));
         driveItem.setBackground(new Color(102, 0, 102));
         driveItem.setForeground(Color.WHITE);
         driveItem.addActionListener(new ActionListener() {
@@ -187,7 +185,7 @@ public class SettingMenu extends JPopupMenu {
         private void dataStructure() {
         dataStructureItem = new JMenuItem();
         dataStructureItem.setFont(new Font("Arial", 1, 15));
-        dataStructureItem.setIcon(new ImageIcon("src/Pictures/data_icon.png"));
+        dataStructureItem.setIcon(new ImageIcon(SettingMenu.class.getResource("/Pictures/data_icon.png")));
         dataStructureItem.setBackground(new Color(102, 0, 153));
         dataStructureItem.setForeground(Color.WHITE);
         dataStructureItem.addActionListener(new ActionListener() {
