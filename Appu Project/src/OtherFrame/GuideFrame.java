@@ -31,10 +31,9 @@ public class GuideFrame extends JFrame {
     private void setExitButton() {
         exitButton = new CircleButton();
         try {
-            Image image = ImageIO.read(new File("src/Pictures/Exit.png"));
+            Image image = ImageIO.read(GuideFrame.class.getResource("/Pictures/Exit.png"));
             exitButton.setIcon(new ImageIcon(image));
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
         exitButton.setBounds(600, 15, 30, 30);
         exitButton.setToolTipText("Exit");
         add(exitButton);
@@ -47,102 +46,96 @@ public class GuideFrame extends JFrame {
     }
 
     private void setStartTutorial() {
-        Round_Frame = new JLabel();
-        Round_Frame.setIcon(new ImageIcon("src/Pictures/Test_round_frame.png"));
-        Round_Frame.setBounds(75, 20, 500, 378);
-        add(Round_Frame);
-        Round_Frame.setVisible(false);
-
         startTutorial = new JLabel();
-        startTutorial.setIcon(new ImageIcon("src/Pictures/Start_tutorial.png"));
+        startTutorial.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Start_tutorial.png")));
         startTutorial.setBounds(20, 20, 250, 70);
         add(startTutorial);
 
         Instruction_logo = new JLabel();
-        Instruction_logo.setIcon(new ImageIcon("src/Pictures/Instruction_logo.png"));
+        Instruction_logo.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Instruction_logo.png")));
         Instruction_logo.setBounds(100, 50, 450, 450);
         add(Instruction_logo);
 
         title_g1 = new JLabel();
-        title_g1.setIcon(new ImageIcon("src/Pictures/Title_guide1.png"));
+        title_g1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Title_guide1.png")));
         title_g1.setBounds(7, 5, 177, 30);
         add(title_g1);
         title_g1.setVisible(false);
 
         title_g2 = new JLabel();
-        title_g2.setIcon(new ImageIcon("src/Pictures/Title_guide2.png"));
+        title_g2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Title_guide2.png")));
         title_g2.setBounds(7, 5, 271, 30);
         add(title_g2);
         title_g2.setVisible(false);
 
         title_g3 = new JLabel();
-        title_g3.setIcon(new ImageIcon("src/Pictures/Title_guide3.png"));
+        title_g3.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Title_guide3.png")));
         title_g3.setBounds(7, 5, 271, 30);
         add(title_g3);
         title_g3.setVisible(false);
 
         replayGuide_1 = new JLabel();
-        replayGuide_1.setIcon(new ImageIcon("src/Pictures/replay_guide.png"));
+        replayGuide_1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/replay_guide.png")));
         replayGuide_1.setBounds(75, 20, 500, 378);
         add(replayGuide_1);
         replayGuide_1.setVisible(false);
         
         replayGuide_2 = new JLabel();
-        replayGuide_2.setIcon(new ImageIcon("src/Pictures/replay_guide.png"));
+        replayGuide_2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/replay_guide.png")));
         replayGuide_2.setBounds(75, 20, 500, 378);
         add(replayGuide_2);
         replayGuide_2.setVisible(false);
         
         replayGuide_3 = new JLabel();
-        replayGuide_3.setIcon(new ImageIcon("src/Pictures/replay_guide.png"));
+        replayGuide_3.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/replay_guide.png")));
         replayGuide_3.setBounds(75, 20, 500, 378);
         add(replayGuide_3);
         replayGuide_3.setVisible(false);
 
         Round_Frame = new JLabel();
-        Round_Frame.setIcon(new ImageIcon("src/Pictures/Round_frame.png"));
+        Round_Frame.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Round_frame.png")));
         Round_Frame.setBounds(75, 20, 500, 378);
         add(Round_Frame);
         Round_Frame.setVisible(false);
 
         nextGuide = new JLabel();
-        nextGuide.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextGuide.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/next_guide.png")));
         nextGuide.setBounds(580, 480, 55, 55);
         add(nextGuide);
         nextGuide.setVisible(false);
 
         nextGuide2 = new JLabel();
-        nextGuide2.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextGuide2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/next_guide.png")));
         nextGuide2.setBounds(580, 480, 55, 55);
         add(nextGuide2);
         nextGuide2.setVisible(false);
 
         nextafterGuide1 = new JLabel();
-        nextafterGuide1.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextafterGuide1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/next_guide.png")));
         nextafterGuide1.setBounds(580, 480, 55, 55);
         add(nextafterGuide1);
         nextafterGuide1.setVisible(false);
         
         nextafterGuide2 = new JLabel();
-        nextafterGuide2.setIcon(new ImageIcon("src/Pictures/next_guide.png"));
+        nextafterGuide2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/next_guide.png")));
         nextafterGuide2.setBounds(580, 480, 55, 55);
         add(nextafterGuide2);
         nextafterGuide2.setVisible(false);
         
         doneGuide = new JLabel();
-        doneGuide.setIcon(new ImageIcon("src/Pictures/done_guide.png"));
+        doneGuide.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/done_guide.png")));
         doneGuide.setBounds(580, 480, 55, 55);
         add(doneGuide);
         doneGuide.setVisible(false);
         
         backtoGuide1 = new JLabel();
-        backtoGuide1.setIcon(new ImageIcon("src/Pictures/back_guide.png"));
+        backtoGuide1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/back_guide.png")));
         backtoGuide1.setBounds(15, 480, 55, 55);
         add(backtoGuide1);
         backtoGuide1.setVisible(false);
         
         backtoGuide2 = new JLabel();
-        backtoGuide2.setIcon(new ImageIcon("src/Pictures/back_guide.png"));
+        backtoGuide2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/back_guide.png")));
         backtoGuide2.setBounds(15, 480, 55, 55);
         add(backtoGuide2);
         backtoGuide2.setVisible(false);
@@ -485,20 +478,20 @@ public class GuideFrame extends JFrame {
 
     private void setGuide_1() {
         guide_1 = new JLabel();
-        guide_1.setIcon(new ImageIcon("src/Pictures/Guide 1. Normal Using.gif"));
+        guide_1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Guide 1. Normal Using.gif")));
         guide_1.setBounds(75, 20, 500, 378);
 
         step1_1 = new JLabel();
-        step1_1.setIcon(new ImageIcon("src/Pictures/Step 1.1.png"));
+        step1_1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 1.1.png")));
         step1_1.setBounds(110, 390, 400, 38);
 
         step1_2 = new JLabel();
-        step1_2.setIcon(new ImageIcon("src/Pictures/Step 1.2.png"));
+        step1_2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 1.2.png")));
         step1_2.setBounds(108, 420, 450, 74);
         step1_2.setVisible(false);
 
         step1_3 = new JLabel();
-        step1_3.setIcon(new ImageIcon("src/Pictures/Step 1.3.png"));
+        step1_3.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 1.3.png")));
         step1_3.setBounds(140, 490, 363, 40);
         step1_3.setVisible(false);
 
@@ -510,20 +503,20 @@ public class GuideFrame extends JFrame {
 
     private void setGuide_2() {
         guide_2 = new JLabel();
-        guide_2.setIcon(new ImageIcon("src/Pictures/Guide 2. Using with keywords.gif"));
+        guide_2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Guide 2. Using with keywords.gif")));
         guide_2.setBounds(75, 20, 500, 378);
 
         step2_1 = new JLabel();
-        step2_1.setIcon(new ImageIcon("src/Pictures/Step 2.1.png"));
+        step2_1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 2.1.png")));
         step2_1.setBounds(110, 390, 430, 67);
 
         step2_2 = new JLabel();
-        step2_2.setIcon(new ImageIcon("src/Pictures/Step 2.2.png"));
+        step2_2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 2.2.png")));
         step2_2.setBounds(110, 450, 430, 103);
         step2_2.setVisible(false);
 
         step2_3 = new JLabel();
-        step2_3.setIcon(new ImageIcon("src/Pictures/Step 1.3.png"));
+        step2_3.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 1.3.png")));
         step2_3.setBounds(140, 450, 363, 40);
         step2_3.setVisible(false);
 
@@ -535,15 +528,15 @@ public class GuideFrame extends JFrame {
 
     private void setGuide_3() {
         guide_3 = new JLabel();
-        guide_3.setIcon(new ImageIcon("src/Pictures/Guide 3. Open PC app.gif"));
+        guide_3.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Guide 3. Open PC app.gif")));
         guide_3.setBounds(75, 20, 500, 378);
 
         step3_1 = new JLabel();
-        step3_1.setIcon(new ImageIcon("src/Pictures/Step 3.1.png"));
+        step3_1.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 3.1.png")));
         step3_1.setBounds(110, 390, 450, 121);
 
         step3_2 = new JLabel();
-        step3_2.setIcon(new ImageIcon("src/Pictures/Step 3.2.png"));
+        step3_2.setIcon(new ImageIcon(GuideFrame.class.getResource("/Pictures/Step 3.2.png")));
         step3_2.setBounds(110, 460, 365, 40);
         step3_2.setVisible(false);
 
@@ -555,18 +548,14 @@ public class GuideFrame extends JFrame {
     public GuideFrame() {
         setLayout(null);
         setSize(650, 550);
-        try {
-            setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Pictures/Guide_ground.jpg")))));
-        } catch (IOException ex) {
-        }
+        setContentPane(new JLabel(new ImageIcon(GuideFrame.class.getResource("/Pictures/Guide_ground.jpg"))));
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setUndecorated(true);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         try {
-            setIconImage(ImageIO.read(new File("src/Pictures/Icon.png")));
-        } catch (IOException ex) {
-        }
+            setIconImage(ImageIO.read(GuideFrame.class.getResource("/Pictures/Icon.png")));
+        } catch (IOException ex) {}
 
         setExitButton();
         setStartTutorial();
