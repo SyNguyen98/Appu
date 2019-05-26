@@ -40,10 +40,10 @@ public class Performance {
 
                 String answer;
                 if ("english".equals(MainFrame.getLanguage())) {
-                    answer = EngSQL.getAnswer(InputPanel.inputField.getText());
+                    answer = EngSQL.getAnswer(InputPanel.inputField.getText().toLowerCase());
                 }
                 else {
-                    answer = VietSQL.getAnswer(InputPanel.inputField.getText());
+                    answer = VietSQL.getAnswer(InputPanel.inputField.getText().toLowerCase());
                 }
                 answer = Proccess.makeNewLine(answer);
                 width = Proccess.width;
