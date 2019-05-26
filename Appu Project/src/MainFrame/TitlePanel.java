@@ -17,9 +17,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -39,7 +38,7 @@ public class TitlePanel extends JPanel {
         super.paintComponent(g);
         BufferedImage image = null;
         try {                
-            image = ImageIO.read(new File("src/Pictures/Title.jpg"));
+            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Title.jpg"));
         } catch (IOException ex) {}
         g.drawImage(image, 0, 0, this);         
     }
@@ -58,7 +57,7 @@ public class TitlePanel extends JPanel {
     private void setExitButton() {
         exitButton = new CircleButton();
         try {
-            Image image = ImageIO.read(new File("src/Pictures/Exit.png"));
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Exit.png"));
             exitButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         exitButton.setBounds(430, 15, 30, 30);
@@ -75,7 +74,7 @@ public class TitlePanel extends JPanel {
     private void setSettingButton() {
         settingButton = new CircleButton();
         try {
-            Image image = ImageIO.read(new File("src/Pictures/Gear.png"));
+            Image image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Gear.png"));
             settingButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         settingButton.setBounds(380, 15, 30, 30);
@@ -92,7 +91,7 @@ public class TitlePanel extends JPanel {
     private void setAvatarLabel() {
         imageLabel = new JLabel();
         try {                      
-            BufferedImage image = ImageIO.read(new File("src/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 50, 50)));
         } catch (IOException ex) {}
         imageLabel.setBounds(20, 5, 50, 50);
@@ -109,7 +108,7 @@ public class TitlePanel extends JPanel {
     
     private void setNameLabel() {
         nameLabel = new JLabel();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/Database/Name.txt"))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(TitlePanel.class.getResourceAsStream("/Database/Name.txt")))) {
             String name = br.readLine();
             nameLabel.setText(name);
         } catch (IOException ex) {}
