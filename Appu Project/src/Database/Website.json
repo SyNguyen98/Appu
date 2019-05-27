@@ -1,49 +1,49 @@
 [
     {
-        "English" : "video",
-        "Vietnam" : "video",
+        "Eng" : "video",
+        "Viet" : "video",
         "WebHead" : "https://www.youtube.com/results?search_query=",
         "WebTail" : ""
     }
     {
-        "English" : "picture",
-        "Vietnam" : "hình ảnh",
+        "Eng" : "picture",
+        "Viet" : "hình ảnh",
         "WebHead" : "https://www.google.com/search?q=",
         "WebTail" : "&source=lnms&tbm=isch&sa=X&ved=0ahUKEwje8pbnxvvgAhVaUN4KHfIUBtAQ_AUIDigB&biw=1366&bih=695"
     }
     {
-        "English" : "facebook",
-        "Vietnam" : "facebook",
+        "Eng" : "facebook",
+        "Viet" : "facebook",
         "WebHead" : "https://www.facebook.com/",
         "WebTail" : ""
     }
     {
-        "English" : "music",
-        "Vietnam" : "nhạc",
+        "Eng" : "music",
+        "Viet" : "nhạc",
         "WebHead" : "https://zingmp3.vn/tim-kiem/bai-hat.html?q=",
         "WebTail" : ""
     }
     {
-        "English" : "translate",
-        "Vietnam" : "dịch",
+        "Eng" : "translate",
+        "Viet" : "dịch",
         "WebHead" : "https://translate.google.com/?hl=vi#view=home&op=translate&sl=en&tl=vi&text=",
         "WebTail" : ""
     }
     {
-        "English" : "map",
-        "Vietnam" : "bản đồ",
+        "Eng" : "map",
+        "Viet" : "bản đồ",
         "WebHead" : "https://www.google.com/maps/dir/",
         "WebTail" : ""
     }
     {
-        "English" : "mail",
+        "Eng" : "mail",
         "Vietnam" : "mail",
         "WebHead" : "https://mail.google.com/",
         "WebTail" : ""
     }
     {
-        "English" : "web",
-        "Vietnam" : "web",
+        "Eng" : "web",
+        "Viet" : "web",
         "WebHead" : "https://www.",
         "WebTail" : ".com/"
     }
