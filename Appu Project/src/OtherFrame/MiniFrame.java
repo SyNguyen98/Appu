@@ -35,9 +35,8 @@ public class MiniFrame extends JFrame{
     
     private void setAvatarLabel() {
         JLabel imageLabel = new JLabel();
-        BufferedImage image = null;
         try {                      
-            image = ImageIO.read(MiniFrame.class.getResource("/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(MiniFrame.class.getResourceAsStream("/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 70, 70)));
         } catch (IOException ex) {}
         imageLabel.setBounds(0, 0, 70, 70);
