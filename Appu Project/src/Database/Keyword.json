@@ -1,42 +1,42 @@
 [
     {
-        "English" : "video",
+        "Eng" : "video",
         "Viet" : "video"
     }
     {
-        "English" : "picture",
+        "Eng" : "picture",
         "Viet" : "hình ảnh"
     }
     {
-        "English" : "music",
+        "Eng" : "music",
         "Viet" : "nhạc"
     }
     {
-        "English" : "translate",
+        "Eng" : "translate",
         "Viet" : "dịch"
     }
     {
-        "English" : "map",
+        "Eng" : "map",
         "Viet" : "bản đồ"
     }
     {
-        "English" : "facebook",
+        "Eng" : "facebook",
         "Viet" : "facebook"
     }
     {
-        "English" : "mail",
+        "Eng" : "mail",
         "Viet" : "mail"
     }
     {
-        "English" : "web",
+        "Eng" : "web",
         "Viet" : "web"
     }
     {
-        "English" : "open",
+        "Eng" : "open",
         "Viet" : "mở"
     }
     {
-        "English" : "shutdown",
+        "Eng" : "shutdown",
         "Viet" : "tắt máy"
     }
 ]
