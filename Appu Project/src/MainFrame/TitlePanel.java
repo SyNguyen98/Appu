@@ -36,11 +36,10 @@ public class TitlePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        BufferedImage image = null;
         try {                
-            image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Title.jpg"));
-        } catch (IOException ex) {}
-        g.drawImage(image, 0, 0, this);         
+            BufferedImage image = ImageIO.read(TitlePanel.class.getResource("/Pictures/Title.jpg"));
+            g.drawImage(image, 0, 0, this);
+        } catch (IOException ex) {}     
     }
     
     private static BufferedImage resize(BufferedImage img, int newW, int newH) { 
@@ -62,13 +61,13 @@ public class TitlePanel extends JPanel {
         } catch (IOException ex) {}
         exitButton.setBounds(430, 15, 30, 30);
         exitButton.setToolTipText("Exit");
-        add(exitButton);
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 System.exit(0);
             }
         });
+        add(exitButton);
     }
     
     private void setSettingButton() {
@@ -78,14 +77,14 @@ public class TitlePanel extends JPanel {
             settingButton.setIcon(new ImageIcon(image));
         } catch (IOException ex) {}
         settingButton.setBounds(380, 15, 30, 30);
-        settingButton.setToolTipText("Setting");
-        add(settingButton);
+        settingButton.setToolTipText("Setting");       
         settingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 settingMenu.show(settingButton, -settingMenu.getWidth() + settingButton.getWidth(), settingButton.getHeight() + 5);
             }
         });
+        add(settingButton);
     }
     
     private void setAvatarLabel() {
