@@ -43,7 +43,7 @@ public class EngSQL extends SQL {
 
     public static String getAnswer(String command) {
         EngSQL sql = new EngSQL();
-        String cmd = checkAnswer(command, "English");
+        String cmd = checkAnswer(command, "Eng");
         if (cmd.equals(command))
             cmd = exceptionCase(cmd);
         String answer = getValue(sql, cmd);
