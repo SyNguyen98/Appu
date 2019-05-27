@@ -61,9 +61,8 @@ public class MainPanel extends JPanel {
     
     public void setAnswerPanel() {
         iconLabel = new JLabel();
-        BufferedImage image = null;
         try {
-            image = ImageIO.read(MainPanel.class.getResource("/Pictures/Avatar.jpg"));
+            BufferedImage image = ImageIO.read(MainPanel.class.getResource("/Pictures/Avatar.jpg"));
             iconLabel.setIcon(CircleLabel.setImageLabel(resize(image, 35, 35)));
         } catch (IOException ex) {} 
         add(iconLabel);
