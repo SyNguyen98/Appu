@@ -1,8 +1,8 @@
 package Database;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,8 +20,14 @@ public abstract class SQL {
 
     public static void createTable() {
         try {
+            try {
+                Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            } catch (InstantiationException | IllegalAccessException ex) {}
+        } catch (ClassNotFoundException ex) {}
+        try {
             connection.createStatement().execute("CREATE TABLE MYTABLE(title varchar(50),values1 varchar(500),values2 varchar(500),values3 varchar(500),values4 varchar(500))");
         } catch (SQLException ex) {}
+        
     }
 
     public static void insert(String title, String values1, String values2, String values3, String values4) {
@@ -32,7 +38,7 @@ public abstract class SQL {
 
     public static String checkAnswer(String command, String languge) {
         try {
-            JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("src/Database/Keyword.json"));
+            JSONArray jsonArray = (JSONArray) parser.parse(new InputStreamReader(SQL.class.getResourceAsStream("/Database/Keyword.json")));
             for (Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;  
                 String keyword = (String) jsonObject.get(languge);
