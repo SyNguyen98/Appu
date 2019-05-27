@@ -11,10 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -28,7 +27,7 @@ import javax.swing.JTextField;
 public class InputPanel extends JPanel {
 
     public static final JTextField inputField = new RoundTextField("");
-    private static JButton suggestiveButton;
+    private JButton suggestiveButton;
     private JPopupMenu suggestiveMenu;
 
     @Override
@@ -45,13 +44,13 @@ public class InputPanel extends JPanel {
         String path = "";
         if ("english".equals(MainFrame.getLanguage())) {         
             inputField.setText("Say something ...");
-            path = "src/Database/SuggestionEnglish.txt";
+            path = "/Database/SuggestionEnglish.txt";
         }
         else {
             inputField.setText("Hãy nói gì đi ...");
-            path = "src/Database/SuggestionVietnamese.txt";
+            path = "/Database/SuggestionVietnamese.txt";
         }
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(InputPanel.class.getResourceAsStream(path)))) {
             String line = br.readLine();
             while (line != null) {
                 keywords.add(line);
@@ -85,10 +84,7 @@ public class InputPanel extends JPanel {
         suggestiveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if ("english".equals(MainFrame.getLanguage()))
-                    suggestiveMenu = new SuggestiveMenu("english");
-                else
-                    suggestiveMenu = new SuggestiveMenu("vietNam");
+                suggestiveMenu = new SuggestiveMenu();
                 suggestiveMenu.show(suggestiveButton, 0, -suggestiveMenu.getHeight());
             }
         });
