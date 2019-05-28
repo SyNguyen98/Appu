@@ -32,7 +32,7 @@ public class VietSQL extends SQL {
         insert("cách sử dụng", "Ngài có thể vào cài đặt, rồi mở phần Guide lên, em sẽ hướng dẫn ngài các bước cơ bản để sử dụng.", "Phần Guide có thể trả lời ngài các câu hỏi đó.", "Hãy đọc hướng dẫn sử dụng trước khi dùng nhé :D :D", "Tự mò đi ạ :)");
     }
 
-    public static String exceptionCase(String command) {
+     public static String exceptionCase(String command) {
         if (command.contains("là ai") || command.contains("là gì"))
             if (command.contains("em") || command.contains("bạn") || command.contains("mày"))
                 return "bạn là ai";
@@ -40,8 +40,17 @@ public class VietSQL extends SQL {
                 return "tôi là ai";
         if ((command.contains("xài") || command.contains("sử dụng")) && (command.contains("làm sao") || command.contains("như thế nào") ||  command.contains("cách")))
             return "cách sử dụng";
+        if ((command.contains("nhớ chưa")))
+            return "nhớ chưa";
+        if ((command.contains("thông tin pc")) || (command.contains("bảng điều khiển")) || (command.contains("máy tính")))
+            return "mở";
+        if ((command.contains("giúp được gì")))
+            return "giúp được gì";
+        if ((command.contains("đi ngủ")))
+            return "ngủ";
         return "error";
     }
+
 
     public static String getAnswer(String command) {
         VietSQL sql = new VietSQL();
