@@ -42,7 +42,7 @@ public class EngSQL extends SQL {
             return "do you know me";
         if (command.contains("got it"))
             return "got it?";
-        if (command.contains("is my name"))
+        if (command.contains("my name"))
             return "what is my name";
         if (command.contains("pc info") || command.contains("control panel") || command.contains("calculator"))
             return "open";
