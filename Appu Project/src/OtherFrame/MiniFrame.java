@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 
 public class MiniFrame extends JFrame{
     private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static JLabel imageLabel;
     
     private final FrameDrag frameDrag = new FrameDrag(this) {
         @Override
@@ -39,7 +40,7 @@ public class MiniFrame extends JFrame{
     } 
     
     private void setAvatarLabel() {
-        JLabel imageLabel = new JLabel();
+        imageLabel = new JLabel();
         try {                      
             BufferedImage image = ImageIO.read(MiniFrame.class.getResourceAsStream("/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 70, 70)));
