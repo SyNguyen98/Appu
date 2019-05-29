@@ -2,6 +2,7 @@ package Setting;
 
 import MainFrame.MainFrame;
 import MainFrame.TitlePanel;
+import OtherFrame.MiniFrame;
 import Shape.CircleLabel;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -43,6 +44,7 @@ public class ChangeInfo {
             BufferedImage img = ImageIO.read(new File(getImagePath()));
             ImageIO.write(img, "jpg", new File("src/Pictures/Avatar.jpg"));
             TitlePanel.imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 50, 50)));
+            MiniFrame.imageLabel.setIcon(CircleLabel.setImageLabel(resize(img, 70, 70)));
         } catch (IOException e) {
         }
     }
