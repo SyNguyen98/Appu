@@ -3,8 +3,10 @@ package OtherFrame;
 import MainFrame.MainFrame;
 import Setting.FrameDrag;
 import Shape.CircleLabel;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
@@ -14,10 +16,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class MiniFrame extends JFrame{
+    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static JLabel imageLabel;
+    
     private final FrameDrag frameDrag = new FrameDrag(this) {
         @Override
         public void mouseClicked(MouseEvent e) {
             MainFrame.frame.setVisible(true);
+            MainFrame.frame.setLocation((int) screenSize.getWidth() - 480, (int) screenSize.getHeight()/2 - 320);
             setVisible(false);
         } 
     };
@@ -34,7 +40,7 @@ public class MiniFrame extends JFrame{
     } 
     
     private void setAvatarLabel() {
-        JLabel imageLabel = new JLabel();
+        imageLabel = new JLabel();
         try {                      
             BufferedImage image = ImageIO.read(MiniFrame.class.getResourceAsStream("/Pictures/Avatar.jpg"));
             imageLabel.setIcon(CircleLabel.setImageLabel(resize(image, 70, 70)));

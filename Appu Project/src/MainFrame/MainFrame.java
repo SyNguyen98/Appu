@@ -3,6 +3,8 @@ package MainFrame;
 import Performance.Performance;
 import Setting.FrameDrag;
 import Sound.Sound;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,9 +25,10 @@ public class MainFrame {
     private static final MainPanel mainPanel = new MainPanel();
     private static final InputPanel inputPanel = new InputPanel();
     private static final JLabel introLabel = new JLabel();
+    private static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     private static void setIntro() {
-        Sound.play("src/Sound/Endgame.wav");
+//        Sound.play("src/Sound/Endgame.wav");
         introLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/Pictures/Intro.gif")));
         introLabel.setBounds(-30, 0, 600, 640);
         frame.add(introLabel);
@@ -51,7 +54,7 @@ public class MainFrame {
         frame.setSize(480, 640);
         frame.setUndecorated(true);
         frame.setShape(new RoundRectangle2D.Double(0, 0, frame.getWidth(), frame.getHeight(), 50, 50));
-        frame.setLocationRelativeTo(null);
+        frame.setLocation((int) screenSize.getWidth() - 480, (int) screenSize.getHeight()/2 - 320);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setAlwaysOnTop(true);
